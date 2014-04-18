@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color: burlywood;
+}
+
+#one {
+	background-color: tan;
+	border: 2px dotted gray;
+	padding: 10px 10px 10px 10px;
+	font-family: sans-serif;
+}
+
+h1,h2 {
+	color: blanchedalmond;
+}
+
+th {
+	height: 50px;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+}
+
+.testSpan {
+	display: block;
+	width: 50%;
+	height: 260px;
+}
+
+.testTable {
+	width: 100%;
+}
+
+.testImgSpan {
+	position: relative;
+	top: -260px;
+	float: right;
+}
