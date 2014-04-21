@@ -11,6 +11,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-java</artifactId>
+        <version>2.41.0</version>
+    </dependency>
+    <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
                 <version>2.39.0</version>
@@ -79,4 +84,11 @@
 			</plugin>
     </plugins>
   </build>
+  <distributionManagement>
+<repository>
+<id>ms</id>
+<name>Medsight artifacts</name>
+<url>http://192.168.1.15:8080/nexus/content/repositories/ms</url>
+</repository>
+</distributionManagement>
 </project>
