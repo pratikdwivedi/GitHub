@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[Login Logout successfully with user.............null]]>
+    </line>
+  </reporter-output>
+  <suite name="SeleniumSignUp-suite1" duration-ms="18257" started-at="2014-04-21T12:49:36Z" finished-at="2014-04-21T12:49:54Z">
+    <groups>
+    </groups>
+    <test name="SeleniumSignUp-suite2" duration-ms="18257" started-at="2014-04-21T12:49:36Z" finished-at="2014-04-21T12:49:54Z">
+      <class name="com.seleniumScripts.SignUp">
+        <test-method status="PASS" signature="LoginLogoutMethod()[pri:0, instance:com.seleniumScripts.SignUp@1f42b49]" name="LoginLogoutMethod" duration-ms="18246" started-at="2014-04-21T18:19:36Z" description="Login Logout Decription" finished-at="2014-04-21T18:19:54Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Login Logout successfully with user.............null]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- LoginLogoutMethod -->
+      </class> <!-- com.seleniumScripts.SignUp -->
+    </test> <!-- SeleniumSignUp-suite2 -->
+  </suite> <!-- SeleniumSignUp-suite1 -->
+</testng-results>
