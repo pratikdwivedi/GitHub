@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SignUp-suite1">
+  <test verbose="2" name="SignUp-suite2">
+    <classes>
+    <class name="com.seleniumScripts.SignUp"/>
+    </classes>
+  </test> <!--SignUp-suite3 -->
+</suite> <!-- SignUp-suite4 -->
