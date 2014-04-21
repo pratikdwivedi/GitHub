@@ -4,6 +4,44 @@
   <artifactId>MavenWeb</artifactId>
   <version>3.1.1.1</version>
   <packaging>war</packaging>
+    <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>2.39.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-server</artifactId>
+                <version>2.39.0</version>
+            </dependency>
+    <dependency>
+        <groupId>org.seleniumhq.webdriver</groupId>
+        <artifactId>webdriver-firefox</artifactId>
+        <version>0.9.7089</version>
+      </dependency>
+    <dependency> 
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>1.4.01</version>
+</dependency>
+             <dependency>
+                <groupId>org.testng</groupId>
+                <artifactId>testng</artifactId>
+                <version>6.8</version>
+            </dependency>
+            <dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>3.9</version>
+</dependency>
+  </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
