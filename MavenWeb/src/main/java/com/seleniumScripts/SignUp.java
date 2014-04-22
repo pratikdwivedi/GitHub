@@ -33,8 +33,6 @@ public class SignUp {
 						"E:/hudson/jobs/MavenWeb/workspace/MavenWeb/lib/chromedriver.exe");
 				driver = new ChromeDriver();
 			}
-
-			driver = new ChromeDriver();
 			driver.get("http://192.168.1.59:8080/MavenWeb/SignUp.jsp");
 			WebDriverWait wait = new WebDriverWait(driver, 60);
 			Thread.sleep(5000);
