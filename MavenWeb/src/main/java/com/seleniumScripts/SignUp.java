@@ -16,7 +16,7 @@ public class SignUp {
 	public void LoginLogoutMethod(){
 		try {
 			
-				System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver","MavenWeb/lib/chromedriver.exe");
 				driver=new ChromeDriver();
 				driver.get("http://192.168.1.59:8080/MavenWeb/SignUp.jsp");
 				WebDriverWait wait = new WebDriverWait(driver,60);
