@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 public class SignUp {
@@ -17,9 +16,9 @@ public class SignUp {
 	public void LoginLogoutMethod(){
 		try {
 			
-				System.setProperty("webdriver.chrome.driver","JarFiles/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
 				driver=new ChromeDriver();
-				driver.get("http://192.168.1.59:9090/MavenWeb/SignUp.jsp");
+				driver.get("http://192.168.1.59:8080/MavenWeb/SignUp.jsp");
 				WebDriverWait wait = new WebDriverWait(driver,60);
 				Thread.sleep(5000);
 				driver.manage().window().maximize();
