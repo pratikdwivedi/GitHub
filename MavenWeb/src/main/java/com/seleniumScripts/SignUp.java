@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 public class SignUp {
 
-	String browser = "chrome";
+	String browser = "firefox";
 	WebDriver driver;
 	String un;
 	String pw;
