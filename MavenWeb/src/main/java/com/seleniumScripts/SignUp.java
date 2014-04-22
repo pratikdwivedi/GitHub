@@ -2,12 +2,15 @@ package com.seleniumScripts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 public class SignUp {
-
+	
+	String browser="chrome";
 	WebDriver driver;
 	String un;
 	String pw;
@@ -15,6 +18,23 @@ public class SignUp {
 	@Test(description = "Login Logout Decription")
 	public void LoginLogoutMethod(){
 		try {
+			
+			if(browser.equals("firefox"))
+			{
+				driver=new FirefoxDriver();
+			}
+			else if(browser.equals("ie"))
+			{
+				System.setProperty("webdriver.ie.driver","lib/IEDriverServer.exe");
+				driver=new InternetExplorerDriver();
+			}
+			else if(browser.equals("chrome"))
+			{
+				System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
+					driver=new ChromeDriver();
+			}
+			
+			
 			
 				System.setProperty("webdriver.chrome.driver","lib/chromedriver.exe");
 				driver=new ChromeDriver();
