@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/bpmn2.0">
+
+<process id="UnitTest01" name="UnitTest01"  isExecutable="true">
+  
+    <startEvent id="start" name="Start"></startEvent>
+     
+    <userTask id="initialReview" name="Initial Review" activiti:assignee="#{assignee}"></userTask>
+    <sequenceFlow id="startFlow" name="Begin" sourceRef="start" targetRef="initialReview">
+      <extensionElements>
+        <activiti:executionListener event="take" class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+      </extensionElements>
+    </sequenceFlow>    
+    
+     <sequenceFlow id="flow_to_IRFork" sourceRef="initialReview" targetRef="initialReviewFork" >
+      <extensionElements>
+        <activiti:executionListener event="take" class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+      </extensionElements>
+    </sequenceFlow>
+
+    <exclusiveGateway  id="initialReviewFork" name="IR Decision Node" />
+	<sequenceFlow id='flow_IReview_To_MedTriage' sourceRef='initialReviewFork' targetRef='medTriage' name="To Medical Triage">
+      	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'medTriage'}</conditionExpression>    		
+    	</sequenceFlow>
+    	<sequenceFlow id='flow_IReview_To_Exit' sourceRef='initialReviewFork' targetRef='end' name="Exit"> 
+    	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'end'}</conditionExpression>
+    	</sequenceFlow>  
+    		   		
+       
+    <userTask id="medTriage" name="Medical Triage" activiti:assignee="#{assignee}"></userTask>    		
+    <sequenceFlow id="flow_to_MedTriage_Fork" sourceRef="medTriage" targetRef="medTriageFork" >
+	<extensionElements>
+		<activiti:executionListener event="take" class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+	</extensionElements>  
+    </sequenceFlow> 
+    
+    <exclusiveGateway  id="medTriageFork" name="Med Triage Decision Node" />
+	<sequenceFlow id='flow_MTF_to_Eval' sourceRef='medTriageFork' targetRef='evaluation' name="To Evaluation">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'evaluation'}</conditionExpression>    		
+	</sequenceFlow>
+
+	<sequenceFlow id='flow_MTF_To_Exit' sourceRef='medTriageFork' targetRef='end' name="Exit">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'end'}</conditionExpression>
+	</sequenceFlow>  
+    	
+    <userTask id="evaluation" name="Evaluation" activiti:assignee="#{assignee}"></userTask>    		
+    <sequenceFlow id="to_Evaluation_Fork" sourceRef="evaluation" targetRef="evaluationFork" >
+	<extensionElements>
+	   <activiti:executionListener event="take" class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+	</extensionElements>  
+    </sequenceFlow>    
+    
+    <exclusiveGateway  id="evaluationFork" name="Evaluation Decision Node" />
+	<sequenceFlow id='Eval_To_Govn' sourceRef='evaluationFork' targetRef='govn' name="To Governance">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'govn'}</conditionExpression>    		
+	</sequenceFlow>
+
+	<sequenceFlow id='Eval_To_Exit' sourceRef='evaluationFork' targetRef='end' name="Exit">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'end'}</conditionExpression>
+	</sequenceFlow>     		
+    		
+    <userTask id="govn" name="Govn" activiti:assignee="#{assignee}"></userTask>    		
+    <sequenceFlow id="to_Govn_Fork" sourceRef="govn" targetRef="govnFork" >
+	<extensionElements>
+		<activiti:executionListener event="take" class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+	</extensionElements>  
+    </sequenceFlow>   
+    <exclusiveGateway  id="govnFork" name="Govn Decision Node" />
+	<sequenceFlow id='Govn_to_AP' sourceRef='govnFork' targetRef='AP' name="To Action Planning">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'AP'}</conditionExpression>    		
+	</sequenceFlow>
+
+	<sequenceFlow id='Govn_To_Exit' sourceRef='govnFork' targetRef='end' name="Exit">
+	  <conditionExpression xsi:type="tFormalExpression">${next_activity == 'end'}</conditionExpression>
+	</sequenceFlow>     		
+    	 
+    <userTask id="AP" name="Action Planning" activiti:assignee="#{assignee}"></userTask>    		
+    <sequenceFlow id="to_End" sourceRef="AP" targetRef="end" name="End"/>
+    <endEvent id="end" name="Complete"></endEvent>
+    
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_topicalert">
+    <bpmndi:BPMNPlane bpmnElement="topicalert" id="BPMNPlane_topicalert">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="35" width="35" x="100" y="170"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="initialReview" id="BPMNShape_initialReview">
+        <omgdc:Bounds height="55" width="105" x="180" y="160"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="evaluation" id="BPMNShape_evaluation">
+        <omgdc:Bounds height="55" width="105" x="340" y="160"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="actionplanning" id="BPMNShape_actionplanning">
+        <omgdc:Bounds height="55" width="105" x="500" y="160"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_complete">
+        <omgdc:Bounds height="35" width="35" x="660" y="170"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="135" y="187"></omgdi:waypoint>
+        <omgdi:waypoint x="180" y="187"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="285" y="187"></omgdi:waypoint>
+        <omgdi:waypoint x="340" y="187"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+        <omgdi:waypoint x="445" y="187"></omgdi:waypoint>
+        <omgdi:waypoint x="500" y="187"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="605" y="187"></omgdi:waypoint>
+        <omgdi:waypoint x="660" y="187"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

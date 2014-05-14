@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="workspace-suite">
+  <test verbose="2" name="Workspace Test">
+    <classes>
+    <class name="com.sapphire.workspace.Work_Create_EA_aers_cs"/>
+     <class name="com.sapphire.workspace.Work_Create_SA_aers"/>
+      <class name="com.sapphire.workspace.Work_Create_Medline"/>
+      <class name="com.sapphire.workspace.Work_Create_External"/>
+     <class name="com.sapphire.workspace.Work_Create_Minutes"/>
+     <class name="com.sapphire.workspace.Work_Minutes_Verify"/>
+     <class name="com.sapphire.workspace.Work_Create_CaseSeries"/>
+     <class name="com.sapphire.workspace.Work_CaseSeriesListing_Annotation"/>
+     <class name="com.sapphire.workspace.Work_CaseSeriesListing_Share"/>
+     <class name="com.sapphire.workspace.Work_Create_ReportGroup"/>
+     <class name="com.sapphire.workspace.Work_Create_RegulatoryReports"/>
+       </classes>
+  </test> <!-- workspace test -->
+</suite> <!-- workspace suite -->

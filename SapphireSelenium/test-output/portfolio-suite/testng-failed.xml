@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [portfolio-suite]">
+  <test name="Portfolio Test(failed)">
+    <classes>
+      <class name="com.sapphire.portfolio.Port_Minutes_View">
+        <methods>
+          <include name="TestMethodPortMinutes"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Minutes_View -->
+      <class name="com.sapphire.portfolio.Port_Create_SA_aers">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+          <include name="TestMethodPortCreateSAaers"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_SA_aers -->
+      <class name="com.sapphire.portfolio.Port_Create_ActionsPlan">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_ActionsPlan -->
+      <class name="com.sapphire.portfolio.Port_Create_Dossier">
+        <methods>
+          <include name="TestMethodPortCreateDossier"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Dossier -->
+      <class name="com.sapphire.portfolio.Port_Create_Master">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Master -->
+      <class name="com.sapphire.portfolio.Port_Create_Action">
+        <methods>
+          <include name="TestMethodPortCreateAction"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Action -->
+      <class name="com.sapphire.portfolio.Port_Create_Docket">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Docket -->
+      <class name="com.sapphire.portfolio.Port_Create_Topic">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Topic -->
+      <class name="com.sapphire.portfolio.Port_Topics_View">
+        <methods>
+          <include name="TestMethodPortTopics"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Topics_View -->
+      <class name="com.sapphire.portfolio.Port_Create_EA_aers_cs">
+        <methods>
+          <include name="TestMethodPortCreateTopicAlerts_EA_aers"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_EA_aers_cs -->
+    </classes>
+  </test> <!-- Portfolio Test(failed) -->
+</suite> <!-- Failed suite [portfolio-suite] -->

@@ -1,0 +1,2591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="Product Level" id="10">
+            <text-property name="promptText">Product Level</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">Trade name</property>
+                    <property name="label">Trade name</property>
+                </structure>
+                <structure>
+                    <property name="value">Generic name</property>
+                    <property name="label">Generic name</property>
+                </structure>
+                <structure>
+                    <property name="value">Ingredient</property>
+                    <property name="label">Ingredient</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Drug Name" id="11">
+            <text-property name="promptText">Drug Name</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name=":hidden_userId" id="1134">
+            <text-property name="promptText">:hidden_userId</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">System</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="AERS" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.14:3306/aers</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/AERSDB</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="hierarchy" id="8">
+            <list-property name="columnHints"/>
+            <list-property name="filter"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">drugname</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">prod_role</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">drug_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">pt_code</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">pt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">atc1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">atc2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">atc3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">atc4</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">hlt_code</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">hlt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">hlgt_code</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">hlgt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">soc_code</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">soc_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">soc_abbrev</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">pt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">pt_exp_a</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">pt_rr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">pt_prr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">pt_prr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">pt_prr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">pt_chi_sqr_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">pt_chi_sqr_yates_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">pt_p_value</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">pt_p_value_yates</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">pt_ror_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">pt_ror</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">pt_ror_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">pt_yulesq_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">pt_yulesq</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">pt_yulesq_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">pt_bcpnn_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">pt_bcpnn</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">pt_bcpnn_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">pt_ebgm_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">pt_ebgm</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">pt_ebgm_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">pt_mhrr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">pt_mhrr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">pt_mhrr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">pt_mhor_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">pt_mhor</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">43</property>
+                        <property name="name">pt_mhor_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">44</property>
+                        <property name="name">pt_sb_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">45</property>
+                        <property name="name">pt_sb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">46</property>
+                        <property name="name">pt_sb_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">47</property>
+                        <property name="name">pt_sbs_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">48</property>
+                        <property name="name">pt_sbs</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">49</property>
+                        <property name="name">pt_sbs_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">50</property>
+                        <property name="name">pt_lrt</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">51</property>
+                        <property name="name">pt_lrt_s</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">52</property>
+                        <property name="name">hlt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">53</property>
+                        <property name="name">hlt_exp_a</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">54</property>
+                        <property name="name">hlt_rr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">55</property>
+                        <property name="name">hlt_prr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">56</property>
+                        <property name="name">hlt_prr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">57</property>
+                        <property name="name">hlt_prr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">58</property>
+                        <property name="name">hlt_chi_sqr_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">59</property>
+                        <property name="name">hlt_chi_sqr_yates_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">60</property>
+                        <property name="name">hlt_p_value</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">61</property>
+                        <property name="name">hlt_p_value_yates</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">62</property>
+                        <property name="name">hlt_ror_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">63</property>
+                        <property name="name">hlt_ror</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">64</property>
+                        <property name="name">hlt_ror_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">65</property>
+                        <property name="name">hlt_yulesq_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">66</property>
+                        <property name="name">hlt_yulesq</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">67</property>
+                        <property name="name">hlt_yulesq_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">68</property>
+                        <property name="name">hlt_bcpnn_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">69</property>
+                        <property name="name">hlt_bcpnn</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">70</property>
+                        <property name="name">hlt_bcpnn_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">71</property>
+                        <property name="name">hlt_ebgm_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">72</property>
+                        <property name="name">hlt_ebgm</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">73</property>
+                        <property name="name">hlt_ebgm_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">74</property>
+                        <property name="name">hlt_mhrr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">75</property>
+                        <property name="name">hlt_mhrr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">76</property>
+                        <property name="name">hlt_mhrr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">77</property>
+                        <property name="name">hlt_mhor_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">78</property>
+                        <property name="name">hlt_mhor</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">79</property>
+                        <property name="name">hlt_mhor_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">80</property>
+                        <property name="name">hlt_sb_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">81</property>
+                        <property name="name">hlt_sb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">82</property>
+                        <property name="name">hlt_sb_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">83</property>
+                        <property name="name">hlt_sbs_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">84</property>
+                        <property name="name">hlt_sbs</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">85</property>
+                        <property name="name">hlt_sbs_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">86</property>
+                        <property name="name">hlt_lrt</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">87</property>
+                        <property name="name">hlt_lrt_s</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">88</property>
+                        <property name="name">hlgt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">89</property>
+                        <property name="name">hlgt_exp_a</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">90</property>
+                        <property name="name">hlgt_rr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">91</property>
+                        <property name="name">hlgt_prr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">92</property>
+                        <property name="name">hlgt_prr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">93</property>
+                        <property name="name">hlgt_prr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">94</property>
+                        <property name="name">hlgt_chi_sqr_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">95</property>
+                        <property name="name">hlgt_chi_sqr_yates_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">96</property>
+                        <property name="name">hlgt_p_value</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">97</property>
+                        <property name="name">hlgt_p_value_yates</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">98</property>
+                        <property name="name">hlgt_ror_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">99</property>
+                        <property name="name">hlgt_ror</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">100</property>
+                        <property name="name">hlgt_ror_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">101</property>
+                        <property name="name">hlgt_yulesq_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">102</property>
+                        <property name="name">hlgt_yulesq</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">103</property>
+                        <property name="name">hlgt_yulesq_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">104</property>
+                        <property name="name">hlgt_bcpnn_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">105</property>
+                        <property name="name">hlgt_bcpnn</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">106</property>
+                        <property name="name">hlgt_bcpnn_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">107</property>
+                        <property name="name">hlgt_ebgm_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">108</property>
+                        <property name="name">hlgt_ebgm</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">109</property>
+                        <property name="name">hlgt_ebgm_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">110</property>
+                        <property name="name">hlgt_mhrr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">111</property>
+                        <property name="name">hlgt_mhrr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">112</property>
+                        <property name="name">hlgt_mhrr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">113</property>
+                        <property name="name">hlgt_mhor_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">114</property>
+                        <property name="name">hlgt_mhor</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">115</property>
+                        <property name="name">hlgt_mhor_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">116</property>
+                        <property name="name">hlgt_sb_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">117</property>
+                        <property name="name">hlgt_sb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">118</property>
+                        <property name="name">hlgt_sb_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">119</property>
+                        <property name="name">hlgt_sbs_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">120</property>
+                        <property name="name">hlgt_sbs</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">121</property>
+                        <property name="name">hlgt_sbs_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">122</property>
+                        <property name="name">hlgt_lrt</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">123</property>
+                        <property name="name">hlgt_lrt_s</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">124</property>
+                        <property name="name">soc_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">125</property>
+                        <property name="name">soc_exp_a</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">126</property>
+                        <property name="name">soc_rr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">127</property>
+                        <property name="name">soc_prr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">128</property>
+                        <property name="name">soc_prr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">129</property>
+                        <property name="name">soc_prr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">130</property>
+                        <property name="name">soc_chi_sqr_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">131</property>
+                        <property name="name">soc_chi_sqr_yates_abcd</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">132</property>
+                        <property name="name">soc_p_value</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">133</property>
+                        <property name="name">soc_p_value_yates</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">134</property>
+                        <property name="name">soc_ror_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">135</property>
+                        <property name="name">soc_ror</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">136</property>
+                        <property name="name">soc_ror_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">137</property>
+                        <property name="name">soc_yulesq_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">138</property>
+                        <property name="name">soc_yulesq</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">139</property>
+                        <property name="name">soc_yulesq_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">140</property>
+                        <property name="name">soc_bcpnn_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">141</property>
+                        <property name="name">soc_bcpnn</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">142</property>
+                        <property name="name">soc_bcpnn_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">143</property>
+                        <property name="name">soc_ebgm_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">144</property>
+                        <property name="name">soc_ebgm</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">145</property>
+                        <property name="name">soc_ebgm_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">146</property>
+                        <property name="name">soc_mhrr_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">147</property>
+                        <property name="name">soc_mhrr</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">148</property>
+                        <property name="name">soc_mhrr_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">149</property>
+                        <property name="name">soc_mhor_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">150</property>
+                        <property name="name">soc_mhor</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">151</property>
+                        <property name="name">soc_mhor_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">152</property>
+                        <property name="name">soc_sb_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">153</property>
+                        <property name="name">soc_sb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">154</property>
+                        <property name="name">soc_sb_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">155</property>
+                        <property name="name">soc_sbs_lb</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">156</property>
+                        <property name="name">soc_sbs</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">157</property>
+                        <property name="name">soc_sbs_ub</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">158</property>
+                        <property name="name">soc_lrt</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">159</property>
+                        <property name="name">soc_lrt_s</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[var drugtype = params["Product Level"];
+if(drugtype == 'Generic name'){
+
+this.queryText = this.queryText.replace("stat_hier_tn","stat_hier_gn");
+} else if (drugtype == 'Ingredient'){
+
+this.queryText = this.queryText.replace("stat_hier_tn","stat_hier_ing");
+}
+
+]]></method>
+            <property name="dataSource">AERS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">prod_role</property>
+                    <property name="nativeName">prod_role</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">drug_name</property>
+                    <property name="nativeName">drug_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">pt_code</property>
+                    <property name="nativeName">pt_code</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">pt_name</property>
+                    <property name="nativeName">pt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">atc1</property>
+                    <property name="nativeName">atc1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">atc2</property>
+                    <property name="nativeName">atc2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">atc3</property>
+                    <property name="nativeName">atc3</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">atc4</property>
+                    <property name="nativeName">atc4</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">hlt_code</property>
+                    <property name="nativeName">hlt_code</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">hlt_name</property>
+                    <property name="nativeName">hlt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">hlgt_code</property>
+                    <property name="nativeName">hlgt_code</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">hlgt_name</property>
+                    <property name="nativeName">hlgt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">soc_code</property>
+                    <property name="nativeName">soc_code</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">soc_name</property>
+                    <property name="nativeName">soc_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">soc_abbrev</property>
+                    <property name="nativeName">soc_abbrev</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">pt_a</property>
+                    <property name="nativeName">pt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">pt_exp_a</property>
+                    <property name="nativeName">pt_exp_a</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">pt_rr</property>
+                    <property name="nativeName">pt_rr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">pt_prr_lb</property>
+                    <property name="nativeName">pt_prr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">pt_prr</property>
+                    <property name="nativeName">pt_prr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">pt_prr_ub</property>
+                    <property name="nativeName">pt_prr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">pt_chi_sqr_abcd</property>
+                    <property name="nativeName">pt_chi_sqr_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">pt_chi_sqr_yates_abcd</property>
+                    <property name="nativeName">pt_chi_sqr_yates_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">pt_p_value</property>
+                    <property name="nativeName">pt_p_value</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">pt_p_value_yates</property>
+                    <property name="nativeName">pt_p_value_yates</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">pt_ror_lb</property>
+                    <property name="nativeName">pt_ror_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">pt_ror</property>
+                    <property name="nativeName">pt_ror</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">pt_ror_ub</property>
+                    <property name="nativeName">pt_ror_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">pt_yulesq_lb</property>
+                    <property name="nativeName">pt_yulesq_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">pt_yulesq</property>
+                    <property name="nativeName">pt_yulesq</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">pt_yulesq_ub</property>
+                    <property name="nativeName">pt_yulesq_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">pt_bcpnn_lb</property>
+                    <property name="nativeName">pt_bcpnn_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">pt_bcpnn</property>
+                    <property name="nativeName">pt_bcpnn</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">pt_bcpnn_ub</property>
+                    <property name="nativeName">pt_bcpnn_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">pt_ebgm_lb</property>
+                    <property name="nativeName">pt_ebgm_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">pt_ebgm</property>
+                    <property name="nativeName">pt_ebgm</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">pt_ebgm_ub</property>
+                    <property name="nativeName">pt_ebgm_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">pt_mhrr_lb</property>
+                    <property name="nativeName">pt_mhrr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">pt_mhrr</property>
+                    <property name="nativeName">pt_mhrr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">pt_mhrr_ub</property>
+                    <property name="nativeName">pt_mhrr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">pt_mhor_lb</property>
+                    <property name="nativeName">pt_mhor_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">42</property>
+                    <property name="name">pt_mhor</property>
+                    <property name="nativeName">pt_mhor</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">43</property>
+                    <property name="name">pt_mhor_ub</property>
+                    <property name="nativeName">pt_mhor_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">44</property>
+                    <property name="name">pt_sb_lb</property>
+                    <property name="nativeName">pt_sb_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">45</property>
+                    <property name="name">pt_sb</property>
+                    <property name="nativeName">pt_sb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">46</property>
+                    <property name="name">pt_sb_ub</property>
+                    <property name="nativeName">pt_sb_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">47</property>
+                    <property name="name">pt_sbs_lb</property>
+                    <property name="nativeName">pt_sbs_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">48</property>
+                    <property name="name">pt_sbs</property>
+                    <property name="nativeName">pt_sbs</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">49</property>
+                    <property name="name">pt_sbs_ub</property>
+                    <property name="nativeName">pt_sbs_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">50</property>
+                    <property name="name">pt_lrt</property>
+                    <property name="nativeName">pt_lrt</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">51</property>
+                    <property name="name">pt_lrt_s</property>
+                    <property name="nativeName">pt_lrt_s</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">52</property>
+                    <property name="name">hlt_a</property>
+                    <property name="nativeName">hlt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">53</property>
+                    <property name="name">hlt_exp_a</property>
+                    <property name="nativeName">hlt_exp_a</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">54</property>
+                    <property name="name">hlt_rr</property>
+                    <property name="nativeName">hlt_rr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">55</property>
+                    <property name="name">hlt_prr_lb</property>
+                    <property name="nativeName">hlt_prr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">56</property>
+                    <property name="name">hlt_prr</property>
+                    <property name="nativeName">hlt_prr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">57</property>
+                    <property name="name">hlt_prr_ub</property>
+                    <property name="nativeName">hlt_prr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">58</property>
+                    <property name="name">hlt_chi_sqr_abcd</property>
+                    <property name="nativeName">hlt_chi_sqr_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">59</property>
+                    <property name="name">hlt_chi_sqr_yates_abcd</property>
+                    <property name="nativeName">hlt_chi_sqr_yates_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">60</property>
+                    <property name="name">hlt_p_value</property>
+                    <property name="nativeName">hlt_p_value</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">61</property>
+                    <property name="name">hlt_p_value_yates</property>
+                    <property name="nativeName">hlt_p_value_yates</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">62</property>
+                    <property name="name">hlt_ror_lb</property>
+                    <property name="nativeName">hlt_ror_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">63</property>
+                    <property name="name">hlt_ror</property>
+                    <property name="nativeName">hlt_ror</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">64</property>
+                    <property name="name">hlt_ror_ub</property>
+                    <property name="nativeName">hlt_ror_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">65</property>
+                    <property name="name">hlt_yulesq_lb</property>
+                    <property name="nativeName">hlt_yulesq_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">66</property>
+                    <property name="name">hlt_yulesq</property>
+                    <property name="nativeName">hlt_yulesq</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">67</property>
+                    <property name="name">hlt_yulesq_ub</property>
+                    <property name="nativeName">hlt_yulesq_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">68</property>
+                    <property name="name">hlt_bcpnn_lb</property>
+                    <property name="nativeName">hlt_bcpnn_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">69</property>
+                    <property name="name">hlt_bcpnn</property>
+                    <property name="nativeName">hlt_bcpnn</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">70</property>
+                    <property name="name">hlt_bcpnn_ub</property>
+                    <property name="nativeName">hlt_bcpnn_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">71</property>
+                    <property name="name">hlt_ebgm_lb</property>
+                    <property name="nativeName">hlt_ebgm_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">72</property>
+                    <property name="name">hlt_ebgm</property>
+                    <property name="nativeName">hlt_ebgm</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">73</property>
+                    <property name="name">hlt_ebgm_ub</property>
+                    <property name="nativeName">hlt_ebgm_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">74</property>
+                    <property name="name">hlt_mhrr_lb</property>
+                    <property name="nativeName">hlt_mhrr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">75</property>
+                    <property name="name">hlt_mhrr</property>
+                    <property name="nativeName">hlt_mhrr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">76</property>
+                    <property name="name">hlt_mhrr_ub</property>
+                    <property name="nativeName">hlt_mhrr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">77</property>
+                    <property name="name">hlt_mhor_lb</property>
+                    <property name="nativeName">hlt_mhor_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">78</property>
+                    <property name="name">hlt_mhor</property>
+                    <property name="nativeName">hlt_mhor</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">79</property>
+                    <property name="name">hlt_mhor_ub</property>
+                    <property name="nativeName">hlt_mhor_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">80</property>
+                    <property name="name">hlt_sb_lb</property>
+                    <property name="nativeName">hlt_sb_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">81</property>
+                    <property name="name">hlt_sb</property>
+                    <property name="nativeName">hlt_sb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">82</property>
+                    <property name="name">hlt_sb_ub</property>
+                    <property name="nativeName">hlt_sb_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">83</property>
+                    <property name="name">hlt_sbs_lb</property>
+                    <property name="nativeName">hlt_sbs_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">84</property>
+                    <property name="name">hlt_sbs</property>
+                    <property name="nativeName">hlt_sbs</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">85</property>
+                    <property name="name">hlt_sbs_ub</property>
+                    <property name="nativeName">hlt_sbs_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">86</property>
+                    <property name="name">hlt_lrt</property>
+                    <property name="nativeName">hlt_lrt</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">87</property>
+                    <property name="name">hlt_lrt_s</property>
+                    <property name="nativeName">hlt_lrt_s</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">88</property>
+                    <property name="name">hlgt_a</property>
+                    <property name="nativeName">hlgt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">89</property>
+                    <property name="name">hlgt_exp_a</property>
+                    <property name="nativeName">hlgt_exp_a</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">90</property>
+                    <property name="name">hlgt_rr</property>
+                    <property name="nativeName">hlgt_rr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">91</property>
+                    <property name="name">hlgt_prr_lb</property>
+                    <property name="nativeName">hlgt_prr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">92</property>
+                    <property name="name">hlgt_prr</property>
+                    <property name="nativeName">hlgt_prr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">93</property>
+                    <property name="name">hlgt_prr_ub</property>
+                    <property name="nativeName">hlgt_prr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">94</property>
+                    <property name="name">hlgt_chi_sqr_abcd</property>
+                    <property name="nativeName">hlgt_chi_sqr_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">95</property>
+                    <property name="name">hlgt_chi_sqr_yates_abcd</property>
+                    <property name="nativeName">hlgt_chi_sqr_yates_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">96</property>
+                    <property name="name">hlgt_p_value</property>
+                    <property name="nativeName">hlgt_p_value</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">97</property>
+                    <property name="name">hlgt_p_value_yates</property>
+                    <property name="nativeName">hlgt_p_value_yates</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">98</property>
+                    <property name="name">hlgt_ror_lb</property>
+                    <property name="nativeName">hlgt_ror_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">99</property>
+                    <property name="name">hlgt_ror</property>
+                    <property name="nativeName">hlgt_ror</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">100</property>
+                    <property name="name">hlgt_ror_ub</property>
+                    <property name="nativeName">hlgt_ror_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">101</property>
+                    <property name="name">hlgt_yulesq_lb</property>
+                    <property name="nativeName">hlgt_yulesq_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">102</property>
+                    <property name="name">hlgt_yulesq</property>
+                    <property name="nativeName">hlgt_yulesq</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">103</property>
+                    <property name="name">hlgt_yulesq_ub</property>
+                    <property name="nativeName">hlgt_yulesq_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">104</property>
+                    <property name="name">hlgt_bcpnn_lb</property>
+                    <property name="nativeName">hlgt_bcpnn_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">105</property>
+                    <property name="name">hlgt_bcpnn</property>
+                    <property name="nativeName">hlgt_bcpnn</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">106</property>
+                    <property name="name">hlgt_bcpnn_ub</property>
+                    <property name="nativeName">hlgt_bcpnn_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">107</property>
+                    <property name="name">hlgt_ebgm_lb</property>
+                    <property name="nativeName">hlgt_ebgm_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">108</property>
+                    <property name="name">hlgt_ebgm</property>
+                    <property name="nativeName">hlgt_ebgm</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">109</property>
+                    <property name="name">hlgt_ebgm_ub</property>
+                    <property name="nativeName">hlgt_ebgm_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">110</property>
+                    <property name="name">hlgt_mhrr_lb</property>
+                    <property name="nativeName">hlgt_mhrr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">111</property>
+                    <property name="name">hlgt_mhrr</property>
+                    <property name="nativeName">hlgt_mhrr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">112</property>
+                    <property name="name">hlgt_mhrr_ub</property>
+                    <property name="nativeName">hlgt_mhrr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">113</property>
+                    <property name="name">hlgt_mhor_lb</property>
+                    <property name="nativeName">hlgt_mhor_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">114</property>
+                    <property name="name">hlgt_mhor</property>
+                    <property name="nativeName">hlgt_mhor</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">115</property>
+                    <property name="name">hlgt_mhor_ub</property>
+                    <property name="nativeName">hlgt_mhor_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">116</property>
+                    <property name="name">hlgt_sb_lb</property>
+                    <property name="nativeName">hlgt_sb_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">117</property>
+                    <property name="name">hlgt_sb</property>
+                    <property name="nativeName">hlgt_sb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">118</property>
+                    <property name="name">hlgt_sb_ub</property>
+                    <property name="nativeName">hlgt_sb_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">119</property>
+                    <property name="name">hlgt_sbs_lb</property>
+                    <property name="nativeName">hlgt_sbs_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">120</property>
+                    <property name="name">hlgt_sbs</property>
+                    <property name="nativeName">hlgt_sbs</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">121</property>
+                    <property name="name">hlgt_sbs_ub</property>
+                    <property name="nativeName">hlgt_sbs_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">122</property>
+                    <property name="name">hlgt_lrt</property>
+                    <property name="nativeName">hlgt_lrt</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">123</property>
+                    <property name="name">hlgt_lrt_s</property>
+                    <property name="nativeName">hlgt_lrt_s</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">124</property>
+                    <property name="name">soc_a</property>
+                    <property name="nativeName">soc_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">125</property>
+                    <property name="name">soc_exp_a</property>
+                    <property name="nativeName">soc_exp_a</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">126</property>
+                    <property name="name">soc_rr</property>
+                    <property name="nativeName">soc_rr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">127</property>
+                    <property name="name">soc_prr_lb</property>
+                    <property name="nativeName">soc_prr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">128</property>
+                    <property name="name">soc_prr</property>
+                    <property name="nativeName">soc_prr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">129</property>
+                    <property name="name">soc_prr_ub</property>
+                    <property name="nativeName">soc_prr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">130</property>
+                    <property name="name">soc_chi_sqr_abcd</property>
+                    <property name="nativeName">soc_chi_sqr_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">131</property>
+                    <property name="name">soc_chi_sqr_yates_abcd</property>
+                    <property name="nativeName">soc_chi_sqr_yates_abcd</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">132</property>
+                    <property name="name">soc_p_value</property>
+                    <property name="nativeName">soc_p_value</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">133</property>
+                    <property name="name">soc_p_value_yates</property>
+                    <property name="nativeName">soc_p_value_yates</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">134</property>
+                    <property name="name">soc_ror_lb</property>
+                    <property name="nativeName">soc_ror_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">135</property>
+                    <property name="name">soc_ror</property>
+                    <property name="nativeName">soc_ror</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">136</property>
+                    <property name="name">soc_ror_ub</property>
+                    <property name="nativeName">soc_ror_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">137</property>
+                    <property name="name">soc_yulesq_lb</property>
+                    <property name="nativeName">soc_yulesq_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">138</property>
+                    <property name="name">soc_yulesq</property>
+                    <property name="nativeName">soc_yulesq</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">139</property>
+                    <property name="name">soc_yulesq_ub</property>
+                    <property name="nativeName">soc_yulesq_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">140</property>
+                    <property name="name">soc_bcpnn_lb</property>
+                    <property name="nativeName">soc_bcpnn_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">141</property>
+                    <property name="name">soc_bcpnn</property>
+                    <property name="nativeName">soc_bcpnn</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">142</property>
+                    <property name="name">soc_bcpnn_ub</property>
+                    <property name="nativeName">soc_bcpnn_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">143</property>
+                    <property name="name">soc_ebgm_lb</property>
+                    <property name="nativeName">soc_ebgm_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">144</property>
+                    <property name="name">soc_ebgm</property>
+                    <property name="nativeName">soc_ebgm</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">145</property>
+                    <property name="name">soc_ebgm_ub</property>
+                    <property name="nativeName">soc_ebgm_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">146</property>
+                    <property name="name">soc_mhrr_lb</property>
+                    <property name="nativeName">soc_mhrr_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">147</property>
+                    <property name="name">soc_mhrr</property>
+                    <property name="nativeName">soc_mhrr</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">148</property>
+                    <property name="name">soc_mhrr_ub</property>
+                    <property name="nativeName">soc_mhrr_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">149</property>
+                    <property name="name">soc_mhor_lb</property>
+                    <property name="nativeName">soc_mhor_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">150</property>
+                    <property name="name">soc_mhor</property>
+                    <property name="nativeName">soc_mhor</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">151</property>
+                    <property name="name">soc_mhor_ub</property>
+                    <property name="nativeName">soc_mhor_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">152</property>
+                    <property name="name">soc_sb_lb</property>
+                    <property name="nativeName">soc_sb_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">153</property>
+                    <property name="name">soc_sb</property>
+                    <property name="nativeName">soc_sb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">154</property>
+                    <property name="name">soc_sb_ub</property>
+                    <property name="nativeName">soc_sb_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">155</property>
+                    <property name="name">soc_sbs_lb</property>
+                    <property name="nativeName">soc_sbs_lb</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">156</property>
+                    <property name="name">soc_sbs</property>
+                    <property name="nativeName">soc_sbs</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">157</property>
+                    <property name="name">soc_sbs_ub</property>
+                    <property name="nativeName">soc_sbs_ub</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">158</property>
+                    <property name="name">soc_lrt</property>
+                    <property name="nativeName">soc_lrt</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">159</property>
+                    <property name="name">soc_lrt_s</property>
+                    <property name="nativeName">soc_lrt_s</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT *
+FROM stat_hier_tn tn where tn.drug_name=?;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="hierarchyCube" id="14">
+            <property name="dimensions">
+                <tabular-dimension name="socGrp" id="15">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="16">
+                            <property name="levels">
+                                <tabular-level name="soc_name" id="17">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">soc_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="hlgtGrp" id="18">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="19">
+                            <property name="levels">
+                                <tabular-level name="hlgt_name" id="20">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">hlgt_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="hltGrp" id="21">
+                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy2" id="22">
+                            <property name="levels">
+                                <tabular-level name="hlt_name" id="23">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">hlt_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="ptGrp" id="24">
+                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy3" id="25">
+                            <property name="levels">
+                                <tabular-level name="pt_name" id="26">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">pt_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="30">
+                    <property name="measures">
+                        <tabular-measure name="pt_a" id="31">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_a"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_exp_a" id="56">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_exp_a"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_prr" id="57">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_prr"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_prr_lb" id="58">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_prr_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_prr_ub" id="59">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_prr_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ror" id="60">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ror"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ror_lb" id="61">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ror_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ror_ub" id="62">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ror_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_rr" id="63">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_rr"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ebgm_lb" id="1159">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ebgm_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ebgm" id="1160">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ebgm"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_ebgm_ub" id="1161">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_ebgm_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_bcpnn" id="1162">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_bcpnn"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_bcpnn_lb" id="1163">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_bcpnn_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_bcpnn_ub" id="1164">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_bcpnn_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhor" id="1165">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhor"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhor_lb" id="1166">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhor_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhor_ub" id="1167">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhor_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhrr" id="1168">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhrr"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhrr_lb" id="1169">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhrr_lb"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="pt_mhrr_ub" id="1170">
+                            <expression name="measureExpression" type="javascript">dataSetRow["pt_mhrr_ub"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">hierarchy</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">us-letter</property>
+            <property name="orientation">landscape</property>
+            <property name="rightMargin">0.25in</property>
+            <property name="borderBottomColor">#C0C0C0</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftColor">#C0C0C0</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightColor">#C0C0C0</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopColor">#C0C0C0</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="headerHeight">0in</property>
+            <page-footer>
+                <grid id="1137">
+                    <property name="width">100%</property>
+                    <column id="1138">
+                        <property name="width">40%</property>
+                    </column>
+                    <column id="1139">
+                        <property name="width">20%</property>
+                    </column>
+                    <column id="1140">
+                        <property name="width">40%</property>
+                    </column>
+                    <row id="1141">
+                        <cell id="1142">
+                            <text id="1156">
+                                <property name="paddingTop">3pt</property>
+                                <property name="paddingBottom">3pt</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="1143">
+                            <grid id="1145">
+                                <property name="width">100%</property>
+                                <column id="1146">
+                                    <property name="width">40%</property>
+                                </column>
+                                <column id="1147">
+                                    <property name="width">20%</property>
+                                </column>
+                                <column id="1148">
+                                    <property name="width">40%</property>
+                                </column>
+                                <row id="1149">
+                                    <cell id="1150">
+                                        <auto-text id="1151">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">right</property>
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="1152">
+                                        <text id="1153">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">center</property>
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="1154">
+                                        <auto-text id="1155">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="1144"/>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="119">
+            <property name="backgroundColor">silver</property>
+            <property name="fontSize">18pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">EBGM Report</text-property>
+        </label>
+        <label id="123">
+            <property name="fontWeight">bold</property>
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <text-property name="text">Description:</text-property>
+        </label>
+        <text id="120">
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[This Report provides a tabular presentation of Signal score statistics at PT level grouped under MedDRA hierarchy. Numerical values of association (Upper and lower bound of 95% confidence interval of the EBGM) are also presented ]]></text-property>
+        </text>
+        <text-data id="121">
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <expression name="valueExpr">"Product Level:" +params["Product Level"].value</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="122">
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <expression name="valueExpr">"Drug Name : "+params["Drug Name"].value</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <grid id="1128">
+            <column id="1129">
+                <property name="width">0.8020833333333334in</property>
+            </column>
+            <column id="1130">
+                <property name="width">9.645833333333334in</property>
+            </column>
+            <row id="1131">
+                <cell id="1132">
+                    <label id="1136">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">USER ID :</text-property>
+                    </label>
+                </cell>
+                <cell id="1133">
+                    <data id="1135">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">left</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">USER ID</property>
+                                <expression name="expression" type="javascript">params[":hidden_userId"].value</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">USER ID</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1070">
+            <property name="cube">hierarchyCube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1173">
+                    <property name="measure">pt_a</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1174">
+                            <property name="aggregationOnRow">ptGrp/pt_name</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1175">
+                                    <property name="resultSetColumn">pt_a_ptGrp/pt_name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1176">
+                            <property name="content">
+                                <label id="1177">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingBottom">2pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Obs</text-property>
+                                </label>
+                            </property>
+                            <property name="height">27px</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1208">
+                    <property name="measure">pt_ebgm_lb</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1209">
+                            <property name="aggregationOnRow">ptGrp/pt_name</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1210">
+                                    <property name="resultSetColumn">pt_ebgm_lb_ptGrp/pt_name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1211">
+                            <property name="content">
+                                <label id="1212">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingBottom">2pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">EBGM (-)</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1213">
+                    <property name="measure">pt_ebgm</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1214">
+                            <property name="aggregationOnRow">ptGrp/pt_name</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1215">
+                                    <property name="resultSetColumn">pt_ebgm_ptGrp/pt_name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1216">
+                            <property name="content">
+                                <label id="1217">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingBottom">2pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">EBGM</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1218">
+                    <property name="measure">pt_ebgm_ub</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1219">
+                            <property name="aggregationOnRow">ptGrp/pt_name</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1220">
+                                    <property name="resultSetColumn">pt_ebgm_ub_ptGrp/pt_name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1221">
+                            <property name="content">
+                                <label id="1222">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingBottom">2pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">EBGM (+)</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1072">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1073">
+                            <property name="dimension">socGrp</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View4" id="1074">
+                                    <property name="level">socGrp/soc_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1075">
+                                            <property name="content">
+                                                <data name="soc_name1" id="1076">
+                                                    <property name="resultSetColumn">soc_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">green</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1077">
+                            <property name="dimension">hlgtGrp</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View5" id="1078">
+                                    <property name="level">hlgtGrp/hlgt_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1079">
+                                            <property name="content">
+                                                <data name="hlgt_name1" id="1080">
+                                                    <property name="resultSetColumn">hlgt_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#07B1CF</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1081">
+                            <property name="dimension">hltGrp</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View6" id="1082">
+                                    <property name="level">hltGrp/hlt_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1083">
+                                            <property name="content">
+                                                <data name="hlt_name1" id="1084">
+                                                    <property name="resultSetColumn">hlt_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#E99AFC</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1085">
+                            <property name="dimension">ptGrp</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View7" id="1086">
+                                    <property name="level">ptGrp/pt_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1087">
+                                            <property name="content">
+                                                <data name="pt_name1" id="1088">
+                                                    <property name="resultSetColumn">pt_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">silver</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">30%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1071">
+                    <property name="content">
+                        <grid id="1114">
+                            <property name="fontSize">10pt</property>
+                            <property name="verticalAlign">bottom</property>
+                            <property name="masterPage">Simple MasterPage</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">avoid</property>
+                            <property name="width">100%</property>
+                            <column id="1115">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1116">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1117">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1118">
+                                <property name="width">30%</property>
+                            </column>
+                            <row id="1119">
+                                <cell id="1120">
+                                    <label id="1121">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">SOC</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1122">
+                                    <label id="1123">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">HLGT</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1124">
+                                    <label id="1125">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">HLT</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1126">
+                                    <label id="1127">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">PT</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </grid>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">soc_name</property>
+                    <expression name="expression">dimension["socGrp"]["soc_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlgt_name</property>
+                    <expression name="expression">dimension["hlgtGrp"]["hlgt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlt_name</property>
+                    <expression name="expression">dimension["hltGrp"]["hlt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_name</property>
+                    <expression name="expression">dimension["ptGrp"]["pt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_a_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_a"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_prr_lb_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_prr_lb"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_prr_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_prr"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_ror_lb_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_ror_lb"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_ror_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_ror"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_prr_ub_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_prr_ub"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_ebgm_lb_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_ebgm_lb"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_ebgm_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_ebgm"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_ebgm_ub_ptGrp/pt_name</property>
+                    <expression name="expression">measure["pt_ebgm_ub"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGrp/pt_name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

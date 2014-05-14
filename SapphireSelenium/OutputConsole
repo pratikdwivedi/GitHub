@@ -1,0 +1,1298 @@
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1557873803\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.72879402212244
+PRR (-) : 1.3864948215349862
+PRR : 1.6591873852400292
+PRR (+) : 1.985512485572727
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 16 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 19 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1520840923\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.72879402212244
+PRR (-) : 1.3864948215349862
+PRR : 1.6591873852400292
+PRR (+) : 1.985512485572727
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 23 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 15 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1708482396\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.72879402212244
+PRR (-) : 1.3864948215349862
+PRR : 1.6591873852400292
+PRR (+) : 1.985512485572727
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1e97676: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@18e2b22: 33 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@f84386: 18 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1971afc: 3 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@13bad12: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-727769542\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 69.0
+PRR (-) : 1.0
+PRR : 2.0
+PRR (+) : 2.0
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@750159: 5 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@18e2b22: 22 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@13bad12: 2 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@cdedfd: 3 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@173831b: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-356565118\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.73
+PRR (-) : 1.39
+PRR : 1.66
+PRR (+) : 1.99
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 3 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 14 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 16 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--990025384\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 17 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1236465015\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.73
+PRR (-) : 1.39
+PRR : 1.66
+PRR (+) : 1.99
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 3 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 17 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 17 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--927850424\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 18 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-999431793\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.73
+PRR (-) : 1.39
+PRR : 1.66
+PRR (+) : 1.99
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 24 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1677252085\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 23 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1183850754\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.7288
+PRR (-) : 1.3865
+PRR : 1.6592
+PRR (+) : 1.9855
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 15 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 17 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1607087119\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.7288
+PRR (-) : 1.3865
+PRR : 1.6592
+PRR (+) : 1.9855
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 18 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--456044293\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.7288
+PRR (-) : 1.3865
+PRR : 1.6592
+PRR (+) : 1.9855
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 19 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 4 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 18 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1773885896\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 43 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-175052817\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024
+B : 2473
+D : 5571970
+B+D : 5574443
+C+D : 5723994
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986100
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1e97676: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@18e2b22: 15 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@f84386: 19 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1971afc: 3 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@13bad12: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--61708963\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.73
+PRR (-) : 1.39
+PRR : 1.66
+PRR (+) : 1.99
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 14 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 16 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1398295994\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1e97676: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@18e2b22: 14 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@f84386: 19 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1971afc: 2 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@13bad12: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1196799232\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 22 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--269216671\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.73
+PRR (-) : 1.39
+PRR : 1.66
+PRR (+) : 1.99
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 16 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--989805388\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 4 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 14 ms
+ASCII : 7797110
+Binary : 11101101111100101110110
+Octal : 35574566
+10000111101101001100100110
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--477353032\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@15d56d5: 44 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@19106c7: 12 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1632c2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@cdedfd: 3 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@13caecd: 51 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-674154454\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+5
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 4 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 16 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 5 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 20 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1057756876\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 16
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 1 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@750159: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@18e2b22: 18 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@13bad12: 2 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@cdedfd: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@173831b: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--189147102\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 5
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 20 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1628500816\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 10
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1030767946\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 5
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 2 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 17 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 4 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 16 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-30836203\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 8
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 18 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1853238501\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 10
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 20 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 12 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1119091627\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 2014/02/10 11:35:38
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 18 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 12 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--1169502100\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+java.lang.IllegalArgumentException: Illegal pattern character 'O'
+	at java.text.SimpleDateFormat.compile(Unknown Source)
+	at java.text.SimpleDateFormat.initialize(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at java.text.SimpleDateFormat.<init>(Unknown Source)
+	at com.sapphire.score.CalculateScoreFormExcel.dataEntry(CalculateScoreFormExcel.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 17 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 15 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--174126047\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 2014/02/10 11:36:44
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 15 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--812550354\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 2014/Feb/10 11:38:13
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 19 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-1702861334\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+Run Date : 2014/Feb/10 11:39:14 AM
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 2 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 3 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 22 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--437132830\testng-customsuite.xml
+
+114
+152138
+2587
+5726581
+1392013099748
+Run Date : 2014/Feb/10 11:48:19 AM
+C : 152024.0
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@df8ff1: 3 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@1c39a2d: 3 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1abab88: 4 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@b1c5fa: 20 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@a470b8: 13 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse--991647940\testng-customsuite.xml
+
+Run Date : 2014/Feb/10 11:49:24 AM
+114
+152138
+2587
+5726581
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1e97676: 3 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@18e2b22: 17 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@f84386: 17 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@1971afc: 3 ms
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@13bad12: 2 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Running:
+  C:\Users\admin\AppData\Local\Temp\testng-eclipse-652239713\testng-customsuite.xml
+
+Run Date : 2014/Feb/24 19:26:40 PM
+114
+152138
+2587
+5726581
+B : 2473.0
+D : 5571970.0
+B+D : 5574443.0
+C+D : 5723994.0
+Exp A : 68.729
+PRR (-) : 1.386
+PRR : 1.659
+PRR (+) : 1.986
+PASSED: dataEntry
+
+===============================================
+    Default test
+    Tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+
+===============================================
+Default suite
+Total tests run: 1, Failures: 0, Skips: 0
+===============================================
+
+[TestNG] Time taken by org.testng.reporters.EmailableReporter2@bf2d5e: 5 ms
+[TestNG] Time taken by org.testng.reporters.SuiteHTMLReporter@1e4457d: 68 ms
+[TestNG] Time taken by org.testng.reporters.XMLReporter@18a7efd: 4 ms
+[TestNG] Time taken by [FailedReporter passed=0 failed=0 skipped=0]: 0 ms
+[TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1632c2d: 29 ms
+[TestNG] Time taken by org.testng.reporters.jq.Main@13caecd: 41 ms

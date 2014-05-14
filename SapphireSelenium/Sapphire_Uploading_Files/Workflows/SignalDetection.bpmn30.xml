@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn"
+	xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+	xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema"
+	expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/bpmn2.0">
+
+	<process id="SignalDetection_v4.0" name="Signal Detection with notifications and rules"
+		isExecutable="true">
+
+		<startEvent id="start" name="Start">
+			<extensionElements>
+				<activiti:executionListener event="start"
+					class="com.ms.bpm.rules.listener.MSRuleStartEventListener" />
+				<activiti:executionListener event="end"
+					class="com.ms.bpm.rules.listener.MSRuleEndEventListener" />
+			</extensionElements>
+		</startEvent>
+
+		<sequenceFlow id="startFlow" name="Begin" sourceRef="start"
+			targetRef="startDecisionNodeFork">
+			<extensionElements>
+				<activiti:executionListener event="take"
+					class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+
+				<activiti:executionListener event="start"
+					class="com.ms.sapphire.inbox.service.impl.MSWFNotifyEventListener" />
+
+			</extensionElements>
+		</sequenceFlow>
+
+		<exclusiveGateway id="startDecisionNodeFork" name="Start Decision Node" />
+		<sequenceFlow id='start_branch1' sourceRef='startDecisionNodeFork'
+			targetRef='initialReview' name="Branch on Condition to Initial">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'initialReview'}
+			</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id='start_branch2' sourceRef='startDecisionNodeFork'
+			targetRef='safetyReview' name="Branch on Condition to Safety">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'safetyReview'}
+			</conditionExpression>
+		</sequenceFlow>
+
+		<userTask id="initialReview" name="Initial Review"
+			activiti:assignee="#{assignee}">
+			<extensionElements>
+				<activiti:executionListener event="start"
+					class="com.ms.bpm.rules.listener.MSRuleStartEventListener" />
+				<activiti:executionListener event="end"
+					class="com.ms.bpm.rules.listener.MSRuleEndEventListener" />
+			</extensionElements>
+		</userTask>
+		<sequenceFlow id="IRflow_to_IRFork" sourceRef="initialReview"
+			targetRef="initialReviewFork">
+			<extensionElements>
+				<activiti:executionListener event="take"
+					class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+			</extensionElements>
+		</sequenceFlow>
+
+		<exclusiveGateway id="initialReviewFork" name="IR Decision Node" />
+		<sequenceFlow id='flow_IReview_To_MedTriage' sourceRef='initialReviewFork'
+			targetRef='medTriage' name="To Medical Triage">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'medTriage'}
+			</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id='flow_IReview_To_safetyReview'
+			sourceRef='initialReviewFork' targetRef='safetyReview' name="To Safety Review">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'safetyReview'}
+			</conditionExpression>
+		</sequenceFlow>
+
+
+		<userTask id="medTriage" name="Medical Triage"
+			activiti:assignee="#{assignee}">
+			<extensionElements>
+				<activiti:executionListener event="start"
+					class="com.ms.bpm.rules.listener.MSRuleStartEventListener" />
+				<activiti:executionListener event="end"
+					class="com.ms.bpm.rules.listener.MSRuleEndEventListener" />
+			</extensionElements>
+		</userTask>
+		<sequenceFlow id="flow_to_End" sourceRef="medTriage"
+			targetRef="end">
+			<extensionElements>
+				<activiti:executionListener event="take"
+					class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+
+				<activiti:executionListener event="start"
+					class="com.ms.sapphire.inbox.service.impl.MSWFNotifyEventListener" />
+
+			</extensionElements>
+		</sequenceFlow>
+
+
+		<userTask id="safetyReview" name="Safety Review"
+			activiti:assignee="#{assignee}">
+			<extensionElements>
+				<activiti:executionListener event="start"
+					class="com.ms.bpm.rules.listener.MSRuleStartEventListener" />
+				<activiti:executionListener event="end"
+					class="com.ms.bpm.rules.listener.MSRuleEndEventListener" />
+			</extensionElements>
+		</userTask>
+		<sequenceFlow id="to_safetyReview_Fork" sourceRef="safetyReview"
+			targetRef="safetyReviewFork">
+			<extensionElements>
+				<activiti:executionListener event="take"
+					class="com.ms.sapphire.wf.service.impl.MSEventListener"></activiti:executionListener>
+
+				<activiti:executionListener event="start"
+					class="com.ms.sapphire.inbox.service.impl.MSWFNotifyEventListener" />
+
+			</extensionElements>
+		</sequenceFlow>
+
+		<exclusiveGateway id="safetyReviewFork"
+			name="Safety ReviewFork Decision Node" />
+		<sequenceFlow id='SRF_To_medTriage' sourceRef='safetyReviewFork'
+			targetRef='medTriage' name="To Medical Triage">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'medTriage'}
+			</conditionExpression>
+		</sequenceFlow>
+
+		<sequenceFlow id='SRF_To_Exit' sourceRef='safetyReviewFork'
+			targetRef='end' name="Exit">
+			<conditionExpression xsi:type="tFormalExpression">${next_activity ==
+				'end'}
+			</conditionExpression>
+		</sequenceFlow>
+
+		<endEvent id="end" name="Complete">
+			<extensionElements>
+				<activiti:executionListener event="start"
+					class="com.ms.bpm.rules.listener.MSRuleStartEventListener" />
+				<activiti:executionListener event="end"
+					class="com.ms.bpm.rules.listener.MSRuleEndEventListener" />
+				<activiti:executionListener event="start"
+					class="com.ms.sapphire.inbox.service.impl.MSWFNotifyEventListener" />
+			</extensionElements>
+		</endEvent>
+
+	</process>
+	<bpmndi:BPMNDiagram id="BPMNDiagram_topicalert">
+		<bpmndi:BPMNPlane bpmnElement="topicalert" id="BPMNPlane_topicalert">
+			<bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+				<omgdc:Bounds height="35" width="35" x="100" y="170"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="initialReview"
+				id="BPMNShape_initialReview">
+				<omgdc:Bounds height="55" width="105" x="180" y="160"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="evaluation" id="BPMNShape_evaluation">
+				<omgdc:Bounds height="55" width="105" x="340" y="160"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="actionplanning"
+				id="BPMNShape_actionplanning">
+				<omgdc:Bounds height="55" width="105" x="500" y="160"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_complete">
+				<omgdc:Bounds height="35" width="35" x="660" y="170"></omgdc:Bounds>
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+				<omgdi:waypoint x="135" y="187"></omgdi:waypoint>
+				<omgdi:waypoint x="180" y="187"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+				<omgdi:waypoint x="285" y="187"></omgdi:waypoint>
+				<omgdi:waypoint x="340" y="187"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3">
+				<omgdi:waypoint x="445" y="187"></omgdi:waypoint>
+				<omgdi:waypoint x="500" y="187"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+				<omgdi:waypoint x="605" y="187"></omgdi:waypoint>
+				<omgdi:waypoint x="660" y="187"></omgdi:waypoint>
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

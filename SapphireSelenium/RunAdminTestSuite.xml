@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="admin-suite">
+  <test verbose="2" name="Admin Test">
+    <classes>
+    <class name="com.sapphire.admin.LoginLogout"/>
+     <class name="com.sapphire.admin.Admin_Create_User"/>
+     <class name="com.sapphire.admin.Admin_Create_User_Groups"/>
+     <class name="com.sapphire.admin.Admin_Create_Role"/>
+     <class name="com.sapphire.admin.Admin_Create_Product"/>
+     <class name="com.sapphire.admin.Admin_Create_ProductGroups"/>
+     <class name="com.sapphire.admin.Admin_Create_EventGroups"/>
+     <class name="com.sapphire.admin.Admin_Create_TemplateGroups"/>
+     <class name="com.sapphire.admin.Admin_Create_Template_Report_Parameters"/>
+     <class name="com.sapphire.admin.Admin_Create_Template"/>
+     <class name="com.sapphire.admin.Admin_Create_Workflow"/>
+     <class name="com.sapphire.admin.Admin_Create_Scheduler"/>
+     <class name="com.sapphire.admin.Admin_Create_ThresholdPlan"/>
+	 <class name="com.sapphire.admin.Admin_WorkflowPrivileges"/>
+	 <class name="com.sapphire.admin.Admin_TestUserPrivileges"/>
+     <class name="com.sapphire.admin.Create_EA_aers"/>
+     <class name="com.sapphire.admin.Delete_EA_aers_Analysis"/>
+    </classes>
+  </test> <!-- Admin test -->
+</suite> <!-- Admin suite -->

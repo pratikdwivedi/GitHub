@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="Product Level" id="10">
+            <text-property name="promptText">Product Level</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">Trade name</property>
+                    <property name="label">Trade name</property>
+                </structure>
+                <structure>
+                    <property name="value">Generic name</property>
+                    <property name="label">Generic name</property>
+                </structure>
+                <structure>
+                    <property name="value">Ingredient</property>
+                    <property name="label">Ingredient</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Drug Name" id="11">
+            <text-property name="promptText">Drug Name</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name=":hidden_userId" id="1134">
+            <text-property name="promptText">:hidden_userId</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">System</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Events" id="1295">
+            <text-property name="promptText">Events</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Event type" id="1300">
+            <text-property name="promptText">Event type</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="AERS" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.5:3306/aers</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/AERSDB</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="hierarchy" id="8">
+            <list-property name="columnHints"/>
+            <list-property name="filter"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">drugname</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">pt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">pt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">hlt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">hlt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">hlgt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">hlgt_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">soc_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">soc_a</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[var drugtype = params["Product Level"];
+if(drugtype == 'Generic name'){
+
+this.queryText = this.queryText.replace("stat_hier_tn","stat_hier_gn");
+} else if (drugtype == 'Ingredient'){
+
+this.queryText = this.queryText.replace("stat_hier_tn","stat_hier_ing");
+}
+
+var eventParam = new String(params["Events"]);
+var eventTypeParam = new String(params["Event type"]);
+eventParam = eventParam.split("'").join("''");
+var eventList = eventParam.split("~");
+var eventParameter = "'"+eventList.join("','")+"'";
+var eventGrpParameter = "'"+eventList.join("','")+"'";
+eventParameter = " AND tn.pt_name in("+eventParameter+")";
+eventGrpParameter = " and tn.pt_name in (select b.name from sapphire.lib_event_groups a, sapphire.lib_event_group_map b where a.record_id = b.fk_group_id and a.name in("+eventGrpParameter+"))";
+if ((eventParam.equals(null) || eventParam.equals('null') || eventParam.equals("null") || eventParam.equals(''))){
+	
+	this.queryText = this.queryText.replace(":events",'');
+}else if (eventTypeParam == 'Group'){
+
+	this.queryText = this.queryText.replace(":events",eventGrpParameter);
+}else if (eventTypeParam == 'Individual'){
+
+	this.queryText = this.queryText.replace(":events",eventParameter);
+}]]></method>
+            <property name="dataSource">AERS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">pt_name</property>
+                    <property name="nativeName">pt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">pt_a</property>
+                    <property name="nativeName">pt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">hlt_name</property>
+                    <property name="nativeName">hlt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">hlt_a</property>
+                    <property name="nativeName">hlt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">hlgt_name</property>
+                    <property name="nativeName">hlgt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">hlgt_a</property>
+                    <property name="nativeName">hlgt_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">soc_name</property>
+                    <property name="nativeName">soc_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">soc_a</property>
+                    <property name="nativeName">soc_a</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT pt_name,pt_a,hlt_name,hlt_a,hlgt_name,hlgt_a,soc_name,soc_a
+FROM stat_hier_tn tn where tn.drug_name=? :events;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">us-letter</property>
+            <property name="orientation">landscape</property>
+            <property name="rightMargin">0.25in</property>
+            <property name="borderBottomColor">#C0C0C0</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftColor">#C0C0C0</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightColor">#C0C0C0</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopColor">#C0C0C0</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="headerHeight">0in</property>
+            <page-footer>
+                <grid id="1137">
+                    <property name="width">100%</property>
+                    <column id="1138">
+                        <property name="width">40%</property>
+                    </column>
+                    <column id="1139">
+                        <property name="width">20%</property>
+                    </column>
+                    <column id="1140">
+                        <property name="width">40%</property>
+                    </column>
+                    <row id="1141">
+                        <cell id="1142">
+                            <text id="1156">
+                                <property name="paddingTop">3pt</property>
+                                <property name="paddingBottom">3pt</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="1143">
+                            <grid id="1145">
+                                <property name="width">100%</property>
+                                <column id="1146">
+                                    <property name="width">40%</property>
+                                </column>
+                                <column id="1147">
+                                    <property name="width">20%</property>
+                                </column>
+                                <column id="1148">
+                                    <property name="width">40%</property>
+                                </column>
+                                <row id="1149">
+                                    <cell id="1150">
+                                        <auto-text id="1151">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">right</property>
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="1152">
+                                        <text id="1153">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">center</property>
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="1154">
+                                        <auto-text id="1155">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">3pt</property>
+                                            <property name="paddingBottom">3pt</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="1144"/>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="119">
+            <property name="backgroundColor">silver</property>
+            <property name="fontSize">18pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Hierarchy report</text-property>
+        </label>
+        <label id="123">
+            <property name="fontWeight">bold</property>
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <text-property name="text">Description:</text-property>
+        </label>
+        <text id="120">
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="paddingTop">5pt</property>
+            <property name="paddingBottom">5pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[This Report provides a tabular presentation of observed values for the drug and all the event levels under MedDRA hierarchy. ]]></text-property>
+        </text>
+        <grid id="1128">
+            <column id="1299">
+                <property name="width">30%</property>
+            </column>
+            <column id="1297">
+                <property name="width">30%</property>
+            </column>
+            <column id="1129">
+                <property name="textAlign">right</property>
+                <property name="width">10%</property>
+            </column>
+            <column id="1130">
+                <property name="width">20%</property>
+            </column>
+            <row id="1131">
+                <cell id="1298">
+                    <text-data id="121">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <expression name="valueExpr">"Product Level : " +params["Product Level"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1296">
+                    <text-data id="122">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <expression name="valueExpr">"Drug Name : "+params["Drug Name"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1132">
+                    <property name="verticalAlign">middle</property>
+                    <label id="1136">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">right</property>
+                        <text-property name="text">USER ID :</text-property>
+                    </label>
+                </cell>
+                <cell id="1133">
+                    <property name="verticalAlign">middle</property>
+                    <data id="1135">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">left</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">USER ID</property>
+                                <expression name="expression" type="javascript">params[":hidden_userId"].value</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">USER ID</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <table id="1157">
+            <property name="marginLeft">2pt</property>
+            <property name="marginRight">2pt</property>
+            <property name="dataSet">hierarchy</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">pt_name</property>
+                    <text-property name="displayName">pt_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">pt_a</property>
+                    <text-property name="displayName">pt_a</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["pt_a"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">hlt_name</property>
+                    <text-property name="displayName">hlt_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hlt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlt_a</property>
+                    <text-property name="displayName">hlt_a</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hlt_a"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">hlgt_name</property>
+                    <text-property name="displayName">hlgt_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hlgt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlgt_a</property>
+                    <text-property name="displayName">hlgt_a</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["hlgt_a"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">soc_name</property>
+                    <text-property name="displayName">soc_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["soc_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">soc_a</property>
+                    <text-property name="displayName">soc_a</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["soc_a"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <column id="1201"/>
+            <header>
+                <row id="1158">
+                    <property name="backgroundColor">black</property>
+                    <property name="color">white</property>
+                    <property name="borderBottomColor">#0000FF</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#0000FF</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#0000FF</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#0000FF</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <cell id="1159">
+                        <grid id="1209">
+                            <property name="width">100%</property>
+                            <column id="1280">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1210">
+                                <property name="width">60%</property>
+                            </column>
+                            <column id="1211">
+                                <property name="width">30%</property>
+                            </column>
+                            <row id="1212">
+                                <cell id="1279">
+                                    <label id="1281">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Level</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1213">
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <label id="1215">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Event</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1214">
+                                    <label id="1216">
+                                        <property name="fontSize">12pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="paddingTop">2pt</property>
+                                        <property name="paddingBottom">2pt</property>
+                                        <text-property name="text">Count</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+            </header>
+            <group id="1217">
+                <property name="groupName">socgrp</property>
+                <expression name="keyExpr" type="javascript">row["soc_name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["soc_name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="1218">
+                        <property name="backgroundColor">green</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="1219">
+                            <grid id="1223">
+                                <column id="1283">
+                                    <property name="width">10%</property>
+                                </column>
+                                <column id="1224">
+                                    <property name="width">60%</property>
+                                </column>
+                                <column id="1225">
+                                    <property name="width">30%</property>
+                                </column>
+                                <row id="1226">
+                                    <property name="backgroundColor">green</property>
+                                    <cell id="1282">
+                                        <label id="1284">
+                                            <property name="fontWeight">bold</property>
+                                            <text-property name="text">SOC</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="1227">
+                                        <data id="1229">
+                                            <property name="textAlign">left</property>
+                                            <property name="resultSetColumn">soc_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="1228">
+                                        <data id="1230">
+                                            <property name="textAlign">center</property>
+                                            <property name="resultSetColumn">soc_a</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="1237">
+                <property name="groupName">NewTableGroup2</property>
+                <expression name="keyExpr" type="javascript">row["hlgt_name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["hlgt_name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="1238">
+                        <property name="backgroundColor">#07B1CF</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="1239">
+                            <grid id="1243">
+                                <column id="1286">
+                                    <property name="width">10%</property>
+                                </column>
+                                <column id="1244">
+                                    <property name="width">60%</property>
+                                </column>
+                                <column id="1245">
+                                    <property name="width">30%</property>
+                                </column>
+                                <row id="1246">
+                                    <cell id="1285">
+                                        <label id="1287">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingLeft">10pt</property>
+                                            <text-property name="text">HLGT</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="1247">
+                                        <data id="1249">
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="resultSetColumn">hlgt_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="1248">
+                                        <data id="1250">
+                                            <property name="textAlign">center</property>
+                                            <property name="resultSetColumn">hlgt_a</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="1251">
+                <property name="groupName">NewTableGroup3</property>
+                <expression name="keyExpr" type="javascript">row["hlt_name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["hlt_name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="1252">
+                        <property name="backgroundColor">#E99AFC</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="1253">
+                            <grid id="1257">
+                                <column id="1289">
+                                    <property name="width">10%</property>
+                                </column>
+                                <column id="1258">
+                                    <property name="width">60%</property>
+                                </column>
+                                <column id="1259">
+                                    <property name="width">30%</property>
+                                </column>
+                                <row id="1260">
+                                    <cell id="1288">
+                                        <label id="1290">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingLeft">20pt</property>
+                                            <text-property name="text">HLT</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="1261">
+                                        <data id="1263">
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="resultSetColumn">hlt_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="1262">
+                                        <data id="1264">
+                                            <property name="textAlign">center</property>
+                                            <property name="resultSetColumn">hlt_a</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="1265">
+                <property name="groupName">NewTableGroup4</property>
+                <expression name="keyExpr" type="javascript">row["pt_name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["pt_name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="1266">
+                        <property name="backgroundColor">#C0C0C0</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <cell id="1267">
+                            <grid id="1271">
+                                <column id="1292">
+                                    <property name="width">10%</property>
+                                </column>
+                                <column id="1272">
+                                    <property name="width">60%</property>
+                                </column>
+                                <column id="1273">
+                                    <property name="width">30%</property>
+                                </column>
+                                <row id="1274">
+                                    <cell id="1291">
+                                        <label id="1293">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingLeft">30pt</property>
+                                            <text-property name="text">PT</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="1275">
+                                        <data id="1277">
+                                            <property name="paddingLeft">1pt</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="resultSetColumn">pt_name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="1276">
+                                        <data id="1278">
+                                            <property name="textAlign">center</property>
+                                            <property name="resultSetColumn">pt_a</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+        </table>
+    </body>
+</report>

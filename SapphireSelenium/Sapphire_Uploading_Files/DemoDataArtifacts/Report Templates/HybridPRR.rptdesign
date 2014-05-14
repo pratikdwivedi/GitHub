@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="Product Level" id="798">
+            <text-property name="promptText">Product Level</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList">
+                <structure>
+                    <property name="value">Trade name</property>
+                    <property name="label">Trade name</property>
+                </structure>
+                <structure>
+                    <property name="value">Generic name</property>
+                    <property name="label">Generic name</property>
+                </structure>
+            </list-property>
+            <property name="paramType">simple</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Drug Name" id="9">
+            <text-property name="promptText">Drug Name</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CS End Date" id="1581">
+            <text-property name="promptText">CS End Date</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">date</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name=":hidden_userId" id="1700">
+            <text-property name="promptText">:hidden_userId</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">System</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name=":hidden_aerssource" id="1705">
+            <text-property name="promptText">:hidden_aerssource</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">aers</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="CS" id="1214">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.5:3306/aegis</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/CSDB</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="CombinedDataSet" id="1529">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">enddate</property>
+                    <property name="paramName">CS End Date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">enddate1</property>
+                    <property name="paramName">CS End Date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">Drug Name</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">csptname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">hlt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">hlgt_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">soc_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">csptcount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">cstotalcount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">aersptname</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">aersptcount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">aerstotalcount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[var drugtype = params["Product Level"];
+if(drugtype == 'Generic name'){
+
+this.queryText = this.queryText.replace("trade_name","generic_name");
+}
+
+var datasource = params[":hidden_aerssource"];
+	       
+this.queryText = this.queryText.replace(":hidden_aerssource",datasource);]]></method>
+            <property name="dataSource">CS</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">csptname</property>
+                    <property name="nativeName">csptname</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">hlt_name</property>
+                    <property name="nativeName">hlt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">hlgt_name</property>
+                    <property name="nativeName">hlgt_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">soc_name</property>
+                    <property name="nativeName">soc_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">csptcount</property>
+                    <property name="nativeName">csptcount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">cstotalcount</property>
+                    <property name="nativeName">cstotalcount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">aersptname</property>
+                    <property name="nativeName">aersptname</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">aersptcount</property>
+                    <property name="nativeName">aersptcount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">aerstotalcount</property>
+                    <property name="nativeName">aerstotalcount</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select l.*, m.* from (
+  select d_pt_name as csptname, hlt_name, hlgt_name,soc_name,count(distinct(safety_rep_id)) 
+  as csptcount, p.cstotalcount
+  from cs_demo_drugs_reacs,
+  (select count(distinct(safety_rep_id)) as cstotalcount from cs_demo_drugs_reacs where trade_name= ? and d_pt_name is not null
+  and valid_to = '9999-12-31 00:00:00' 
+  and lat_rcpt_date < ? ) p
+  where trade_name= ? and d_pt_name is not null
+  and valid_to = '9999-12-31 00:00:00' and lat_rcpt_date < ?
+  group by d_pt_name) l,
+(select upper(pt_name) as aersptname,count(distinct(isr_id)) as aersptcount, p.aerstotalcount 
+  from :hidden_aerssource.fact_demo_drugs_reacs, 
+  (select count(distinct isr_id) as aerstotalcount from :hidden_aerssource.fact_demo_drugs_reacs where trade_name= ?) p
+  where trade_name= ? and pt_name is not null
+  group by pt_name) m
+where l.csptname = m.aersptname;
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>csptname</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>250</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>csptname</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>csptname</design:label>
+            <design:formattingHints>
+              <design:displaySize>250</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>csptcount</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>csptcount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>csptcount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>cstotalcount</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>cstotalcount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>cstotalcount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>aersptname</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>120</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>aersptname</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>aersptname</design:label>
+            <design:formattingHints>
+              <design:displaySize>120</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>aersptcount</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>aersptcount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>aersptcount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>aerstotalcount</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>21</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>aerstotalcount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>aerstotalcount</design:label>
+            <design:formattingHints>
+              <design:displaySize>21</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Data Cube" id="1603">
+            <property name="dimensions">
+                <tabular-dimension name="ptGroup" id="1604">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="1605">
+                            <property name="levels">
+                                <tabular-level name="csptname" id="1606">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">csptname</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="hltGroup" id="1607">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="1608">
+                            <property name="levels">
+                                <tabular-level name="hlt_name" id="1609">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">hlt_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="hlgtGroup" id="1610">
+                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy2" id="1611">
+                            <property name="levels">
+                                <tabular-level name="hlgt_name" id="1612">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">hlgt_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="socGroup" id="1613">
+                    <property name="defaultHierarchy">NewTabularHierarchy3</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy3" id="1614">
+                            <property name="levels">
+                                <tabular-level name="soc_name" id="1615">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">soc_name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="1616">
+                    <property name="measures">
+                        <tabular-measure name="csptcount" id="1617">
+                            <expression name="measureExpression" type="javascript">dataSetRow["csptcount"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field1" id="1618">
+                    <property name="measures">
+                        <tabular-measure name="cstotalcount" id="1619">
+                            <expression name="measureExpression" type="javascript">dataSetRow["cstotalcount"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field2" id="1620">
+                    <property name="measures">
+                        <tabular-measure name="aersptcount" id="1621">
+                            <expression name="measureExpression" type="javascript">dataSetRow["aersptcount"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="Summary Field3" id="1622">
+                    <property name="measures">
+                        <tabular-measure name="aerstotalcount" id="1623">
+                            <expression name="measureExpression" type="javascript">dataSetRow["aerstotalcount"]</expression>
+                            <property name="dataType">decimal</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+                <tabular-measure-group name="hybridprr" id="1626">
+                    <property name="measures">
+                        <tabular-measure name="hybrid" id="1627">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">true</property>
+                            <expression name="measureExpression" type="javascript">BirtMath.round(BirtMath.round((measure["csptcount"]/measure["cstotalcount"]),5)/BirtMath.round((measure["aersptcount"]/measure["aerstotalcount"]),5),2)</expression>
+                            <property name="dataType">float</property>
+                            <property name="isVisible">true</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">CombinedDataSet</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+            <property name="rightMargin">0.25in</property>
+            <property name="borderBottomColor">#C0C0C0</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftColor">#C0C0C0</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightColor">#C0C0C0</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopColor">#C0C0C0</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="headerHeight">0in</property>
+            <page-footer>
+                <grid id="1583">
+                    <property name="width">100%</property>
+                    <column id="1584">
+                        <property name="width">40%</property>
+                    </column>
+                    <column id="1585">
+                        <property name="width">20%</property>
+                    </column>
+                    <column id="1586">
+                        <property name="width">40%</property>
+                    </column>
+                    <row id="1587">
+                        <cell id="1588">
+                            <text id="1602">
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="1589">
+                            <grid id="1591">
+                                <property name="width">100%</property>
+                                <column id="1592">
+                                    <property name="width">40%</property>
+                                </column>
+                                <column id="1593">
+                                    <property name="width">20%</property>
+                                </column>
+                                <column id="1594">
+                                    <property name="width">40%</property>
+                                </column>
+                                <row id="1595">
+                                    <cell id="1596">
+                                        <auto-text id="1597">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">right</property>
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="1598">
+                                        <text id="1599">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">center</property>
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="1600">
+                                        <auto-text id="1601">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="1590"/>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="381">
+            <property name="backgroundColor">silver</property>
+            <property name="fontSize">18pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="paddingBottom">5pt</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Hybrid PRR Report</text-property>
+        </label>
+        <text-data id="383">
+            <property name="paddingTop">5pt</property>
+            <expression name="valueExpr">"This Report shows the proportional reporting ratio for"+"&amp;nbsp;"+params["Drug Name"].value+"&amp;nbsp;"+ "and all events"</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text id="1704">
+            <property name="paddingTop">3pt</property>
+            <property name="paddingBottom">3pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Hybrid PRR is ratio of the events reported for the product in internal data base versus events reported for the product in external (FDA AERS) data base ]]></text-property>
+        </text>
+        <grid id="812">
+            <property name="textAlign">left</property>
+            <property name="width">7.916666666666667in</property>
+            <column id="813">
+                <property name="width">1.1354166666666667in</property>
+            </column>
+            <column id="814">
+                <property name="width">2.3229166666666665in</property>
+            </column>
+            <column id="829">
+                <property name="width">1.6145833333333333in</property>
+            </column>
+            <column id="831">
+                <property name="width">2.84375in</property>
+            </column>
+            <column id="1699">
+                <property name="width">2.84375in</property>
+            </column>
+            <row id="815">
+                <cell id="816">
+                    <label id="818">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <text-property name="text">Product Level :</text-property>
+                    </label>
+                </cell>
+                <cell id="817">
+                    <text-data id="819">
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <expression name="valueExpr">params["Product Level"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="828">
+                    <label id="832">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <property name="textAlign">right</property>
+                        <text-property name="text">Drug Name :</text-property>
+                    </label>
+                </cell>
+                <cell id="830">
+                    <text-data id="833">
+                        <property name="paddingTop">5pt</property>
+                        <property name="paddingBottom">5pt</property>
+                        <property name="textAlign">left</property>
+                        <expression name="valueExpr">params["Drug Name"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1698">
+                    <text-data id="1702">
+                        <property name="fontWeight">bold</property>
+                        <expression name="valueExpr">" USER ID : "+params[":hidden_userId"].value</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+        </grid>
+        <text-data id="1582">
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">left</property>
+            <expression name="valueExpr">" Cut off date "+params["CS End Date"].value</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="1630">
+            <property name="cube">Data Cube</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="1649">
+                    <property name="measure">csptcount</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1650">
+                            <property name="aggregationOnRow">ptGroup/csptname</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1651">
+                                    <property name="fontSize">8pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">csptcount_ptGroup/csptname</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1652">
+                            <property name="content">
+                                <label id="1653">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontSize">7pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingTop">3pt</property>
+                                    <property name="paddingBottom">3pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">PT of interest in INT </text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1654">
+                    <property name="measure">cstotalcount</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1655">
+                            <property name="aggregationOnRow">ptGroup/csptname</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1656">
+                                    <property name="fontSize">8pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">cstotalcount_ptGroup/csptname</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1657">
+                            <property name="content">
+                                <label id="1658">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontSize">7pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingTop">3pt</property>
+                                    <property name="paddingBottom">3pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">All PT in INT </text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1659">
+                    <property name="measure">aersptcount</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1660">
+                            <property name="aggregationOnRow">ptGroup/csptname</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1661">
+                                    <property name="fontSize">8pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">aersptcount_ptGroup/csptname</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1662">
+                            <property name="content">
+                                <label id="1663">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontSize">7pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingTop">3pt</property>
+                                    <property name="paddingBottom">3pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">PT of interest in EXT </text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1664">
+                    <property name="measure">aerstotalcount</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1665">
+                            <property name="aggregationOnRow">ptGroup/csptname</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1666">
+                                    <property name="fontSize">8pt</property>
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">aerstotalcount_ptGroup/csptname</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1667">
+                            <property name="content">
+                                <label id="1668">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontSize">7pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingTop">3pt</property>
+                                    <property name="paddingBottom">3pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">All PT in EXT </text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="1669">
+                    <property name="measure">hybrid</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="1670">
+                            <property name="aggregationOnRow">ptGroup/csptname</property>
+                            <property name="width">10%</property>
+                            <property name="content">
+                                <data id="1671">
+                                    <property name="textAlign">center</property>
+                                    <property name="resultSetColumn">hybrid_ptGroup/csptname</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="1672">
+                            <property name="content">
+                                <label id="1673">
+                                    <property name="backgroundColor">black</property>
+                                    <property name="fontSize">7pt</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">white</property>
+                                    <property name="paddingTop">3pt</property>
+                                    <property name="paddingBottom">3pt</property>
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">Hybrid PRR</text-property>
+                                </label>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="1632">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="1633">
+                            <property name="dimension">socGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="1634">
+                                    <property name="level">socGroup/soc_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1635">
+                                            <property name="content">
+                                                <data name="soc_name" id="1636">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">soc_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">green</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1637">
+                            <property name="dimension">hlgtGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="1638">
+                                    <property name="level">hlgtGroup/hlgt_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1639">
+                                            <property name="content">
+                                                <data name="hlgt_name" id="1640">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">hlgt_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#07B1CF</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1641">
+                            <property name="dimension">hltGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="1642">
+                                    <property name="level">hltGroup/hlt_name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1643">
+                                            <property name="content">
+                                                <data name="hlt_name" id="1644">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">hlt_name</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#E99AFC</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">10%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="1645">
+                            <property name="dimension">ptGroup</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View3" id="1646">
+                                    <property name="level">ptGroup/csptname</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="1647">
+                                            <property name="content">
+                                                <data name="csptname" id="1648">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">csptname</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">silver</property>
+                                            <property name="textAlign">left</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <property name="width">20%</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="1631">
+                    <property name="content">
+                        <grid id="1674">
+                            <property name="width">100%</property>
+                            <column id="1675">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1676">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1677">
+                                <property name="width">10%</property>
+                            </column>
+                            <column id="1678">
+                                <property name="width">20%</property>
+                            </column>
+                            <row id="1679">
+                                <cell id="1680">
+                                    <property name="width">20%</property>
+                                    <label id="1694">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="backgroundPositionX">20%</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">SOC</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1681">
+                                    <property name="width">20%</property>
+                                    <label id="1695">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="backgroundPositionX">20%</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">HLGT</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1682">
+                                    <property name="width">20%</property>
+                                    <label id="1696">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="backgroundPositionX">20%</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">HLT</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1683">
+                                    <property name="width">40%</property>
+                                    <label id="1697">
+                                        <property name="backgroundColor">black</property>
+                                        <property name="backgroundPositionX">40%</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="color">white</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">PT</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </grid>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">soc_name</property>
+                    <expression name="expression">dimension["socGroup"]["soc_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlgt_name</property>
+                    <expression name="expression">dimension["hlgtGroup"]["hlgt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">hlt_name</property>
+                    <expression name="expression">dimension["hltGroup"]["hlt_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">csptname</property>
+                    <expression name="expression">dimension["ptGroup"]["csptname"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">csptcount_ptGroup/csptname</property>
+                    <expression name="expression">measure["csptcount"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGroup/csptname</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">cstotalcount_ptGroup/csptname</property>
+                    <expression name="expression">measure["cstotalcount"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGroup/csptname</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">aersptcount_ptGroup/csptname</property>
+                    <expression name="expression">measure["aersptcount"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGroup/csptname</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">aerstotalcount_ptGroup/csptname</property>
+                    <expression name="expression">measure["aerstotalcount"]</expression>
+                    <property name="dataType">decimal</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGroup/csptname</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">hybrid_ptGroup/csptname</property>
+                    <expression name="expression">measure["hybrid"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>ptGroup/csptname</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+    </body>
+</report>

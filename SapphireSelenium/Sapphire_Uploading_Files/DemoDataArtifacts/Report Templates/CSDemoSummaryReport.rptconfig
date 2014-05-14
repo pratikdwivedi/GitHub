@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__Product Level_1031_0</property>
+            <property name="value">Trade name</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__Drug Name_1032_1</property>
+            <property name="value">raptiva</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__userId_1051_2</property>
+            <property name="value">raptiva</property>
+        </structure>
+        <structure>
+            <property name="name">userId_1051_3</property>
+            <property name="value">raptiva</property>
+        </structure>
+        <structure>
+            <property name="name">userId_1051_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">Product Level_1031_4</property>
+            <property name="value">Trade name</property>
+        </structure>
+        <structure>
+            <property name="name">Product Level_1031_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">Drug Name_1032_5</property>
+            <property name="value">raptiva</property>
+        </structure>
+        <structure>
+            <property name="name">Drug Name_1032_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+</report>
