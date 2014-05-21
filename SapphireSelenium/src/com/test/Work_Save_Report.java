@@ -65,7 +65,7 @@ public class Work_Save_Report extends Config{
 			driver.findElement(By.id("rep_userLookupForm:selectUser")).click();
 			Thread.sleep(2000);
 			}
-			if(reportShareUserGroup!=null)
+			/*if(reportShareUserGroup!=null)
 			{
 				driver.findElement(By.id("saveReportForm:userGroupGrid:createNew")).click();
 				Thread.sleep(2000);
@@ -76,7 +76,7 @@ public class Work_Save_Report extends Config{
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//tr[td[2][div[contains(text(),'safety user')]]]//td[1]//div[2]")).click();
 				driver.findElement(By.id("rep_userLookupForm:selectUser")).click();
-			}
+			}*/
 		}
 			driver.findElement(By.id("saveReportForm:saveReport")).click();//save
 		driver.findElement(By.id("saveReportForm:close")).click();

@@ -89,8 +89,10 @@ public class Work_Create_CaseSeries extends Config{
 			}
 			catch (Exception e) 
 			{
-				Assert.fail("Error in case series creation..");
+				takeScreenShot(e, "Work_Create_CaseSeries");
 				e.printStackTrace();
+				Assert.fail("Error in case series creation..");
+				
 			}
 		}
 }

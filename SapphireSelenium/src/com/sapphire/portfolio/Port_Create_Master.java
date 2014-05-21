@@ -204,7 +204,7 @@ public class Port_Create_Master extends Config{
 				
 			}
 			Thread.sleep(3000);
-			String memberGroup=lib1.getExcelData("master", i, 9,filePath);
+	/*		String memberGroup=lib1.getExcelData("master", i, 9,filePath);
 			if(memberGroup!=null)
 			{
 				driver.findElement(By.id("tabView:masterDetailForm:userGroupGrid:createNew")).click();
@@ -218,7 +218,7 @@ public class Port_Create_Master extends Config{
 				driver.findElement(By.id("tabView:userLookupForm:selectUser")).click();
 				
 			
-			}
+			}*/
 		
 			Thread.sleep(5000);
 			driver.findElement(By.id("tabView:masterDetailForm:saveMaster")).click();

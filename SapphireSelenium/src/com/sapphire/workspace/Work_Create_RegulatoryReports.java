@@ -1,6 +1,8 @@
 package com.sapphire.workspace;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import com.test.Assertions;
@@ -29,7 +31,8 @@ public class Work_Create_RegulatoryReports extends Config{
 		driver.findElement(By.xpath("//span[span[3][table[tbody[tr[td[text()='"+dataType+"']]]]]]//span[1]")).click();
 		Thread.sleep(2000);
 		String templateType=lib1.getExcelData("RegulatoryReport", i, 1, filePath);
-		driver.findElement(By.xpath("//span[span[3][table[tbody[tr[td[text()='"+templateType+"']]]]]]//span[1]")).click();
+		WebElement ws=driver.findElement(By.xpath("//span[span[table[tbody[tr[td[contains(text(),'Signal score reports')]]]]]]//span[1]"));
+		ws.click();
 		Thread.sleep(2000);
 		String templateName=lib1.getExcelData("RegulatoryReport", i, 2, filePath);
 		driver.findElement(By.xpath("//div[contains(@id,'workspaceReportForm:leftRepTabView:repprtTemplateTree')]//td[contains(text(),'"+templateName+"')]")).click();	
@@ -44,6 +47,11 @@ public class Work_Create_RegulatoryReports extends Config{
 		{
 		driver.findElement(By.xpath("//td[label[contains(text(),'PT')]]//div/input")).sendKeys(PTName);
 		}
+		String indication=lib1.getExcelData("RegulatoryReport", i, 8, filePath);
+		if(indication!=null)
+		{
+		driver.findElement(By.xpath("//td[label[contains(text(),'Indication List')]]//div/input")).sendKeys(indication);
+		}
 		String eventType=lib1.getExcelData("RegulatoryReport", i, 7, filePath);
 		if(eventType!=null)
 		{
@@ -51,6 +59,7 @@ public class Work_Create_RegulatoryReports extends Config{
 		driver.findElement(By.xpath("//div/ul/li[contains(text(),'"+eventType+"')]")).click();
 		Thread.sleep(2000);
 		}
+		
 		String eventsName=lib1.getExcelData("RegulatoryReport", i, 11, filePath);
 		if(eventsName!=null)
 		{
@@ -58,7 +67,7 @@ public class Work_Create_RegulatoryReports extends Config{
 		driver.findElement(By.xpath("//div[contains(@id,'reportfieldsform:fieldsList_content')]//button[1]/span[contains(text(),'Add')]")).click();
 		}
 		driver.findElement(By.id("reportfieldsform:generateRep_id")).click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		wsr.scheduleCheck=lib1.getExcelData("RegulatoryReport", i, 12, filePath);
 		wsr.reportGroup=lib1.getExcelData("RegulatoryReport", i, 13, filePath);
 		wsr.reportScheduler=lib1.getExcelData("RegulatoryReport", i, 14, filePath);
@@ -75,8 +84,10 @@ public class Work_Create_RegulatoryReports extends Config{
 		}//try
 		catch (Exception e) 
 		{
+			takeScreenShot(e, "Regulatory_Report_Generation");
 		//	Assert.fail("Error in Report group creation..");
 			e.printStackTrace();
+			
 		}
 	}//method
 		
