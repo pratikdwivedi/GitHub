@@ -1,6 +1,7 @@
 package com.sapphire.admin;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.test.Assertions;
 import com.test.Config;
@@ -57,8 +58,9 @@ public class Admin_Create_ColorCoding extends Config{
 			catch(Throwable e)
 			{
 				takeScreenShot(e, "Admin_Create_ColorCoding");
-			//	Assert.fail("Error in creating user ");
 				e.printStackTrace();
+				Assert.fail("Error in creating color coding ");
+				
 			}
 		}
 }

@@ -1,0 +1,31 @@
+<h2>Reporter output</h2><table><tr><td>SELECT coun(*) FROM aers_demo where case_id is null</td></tr>
+<tr><td>Expected : null</td></tr>
+<tr><td>Actual : null</td></tr>
+<tr><td>SELECT distinct age_code FROM aers_demo</td></tr>
+<tr><td>Expected : [YR, MON, WK, DY, HR, DEC, MIN, SEC, '']</td></tr>
+<tr><td>Actual : [YR,  , MON, WK, DY, HR, DEC, M, F, 64, SEC, MIN, 85]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where std_age_group = 'Not Available' AND age != '' AND age_code != '' AND age not like ('%-%') AND age not like ('%.%') AND age != 0 AND age != 00</td></tr>
+<tr><td>Expected : []</td></tr>
+<tr><td>Actual : []</td></tr>
+<tr><td>SELECT distinct gender_code FROM aers_demo</td></tr>
+<tr><td>Expected : [F, M, UNK, NS, U, '']</td></tr>
+<tr><td>Actual : [F,  , M, UNK, NS, null, YR, N, Y, U]</td></tr>
+<tr><td>SELECT distinct gender_dec FROM aers_demo</td></tr>
+<tr><td>Expected : null</td></tr>
+<tr><td>Actual : []</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where seriousness = 1 and ( outc_death= 0 and  outc_life_threat =0 and outc_hosp =0 and outc_disability=0 and outc_cong_anomaly=0  and outc_reqd_interv=0 and outc_other=0 and outc_none=0 and outc_rec=0 and outc_rx=0)</td></tr>
+<tr><td>Expected : null</td></tr>
+<tr><td>Actual : []</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where valid_from is null</td></tr>
+<tr><td>Expected : []</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where valid_to is null</td></tr>
+<tr><td>Expected : []</td></tr>
+<tr><td>Actual : [13]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where fda_date is null</td></tr>
+<tr><td>Expected : []</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where isr_id is null</td></tr>
+<tr><td>Expected : []</td></tr>
+<tr><td>Actual : [0]</td></tr>
+</table>

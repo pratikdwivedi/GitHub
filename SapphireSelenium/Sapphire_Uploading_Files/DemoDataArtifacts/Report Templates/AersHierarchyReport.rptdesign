@@ -60,10 +60,9 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="Events" id="1295">
-            <text-property name="promptText">Events</text-property>
+        <scalar-parameter name="Event type" id="1300">
+            <text-property name="promptText">Event type</text-property>
             <property name="valueType">static</property>
-            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -73,11 +72,15 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="Event type" id="1300">
-            <text-property name="promptText">Event type</text-property>
+        <scalar-parameter name="Events" id="1301">
+            <text-property name="promptText">Events</text-property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Myocardial infarction</value>
+            </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>

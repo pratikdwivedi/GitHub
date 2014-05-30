@@ -118,7 +118,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://192.168.1.5:3306/aers</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.12:3306/aers</property>
             <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/AERSDB</property>
@@ -191,8 +191,7 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT fddr.gender_dec, count(distinct fddr.isr_id) cnt 
-FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id 
-and fddr.trade_name="" group by fddr.gender_dec order by cnt desc;]]></xml-property>
+FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" group by fddr.gender_dec order by cnt desc;]]></xml-property>
             <property name="rowFetchSize">10</property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="product" id="366">
@@ -261,8 +260,7 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select distinct(fddr.trade_name) as drugName,count(distinct fddr.isr_id)  totalCaseCount
-from fact_demo_drugs_reacs fddr,aers_drug_ings adi
-where fddr.trade_name="" and fddr.isr_id = adi.isr_id group by fddr.trade_name order by totalCaseCount desc;]]></xml-property>
+from fact_demo_drugs_reacs fddr where fddr.trade_name="" group by fddr.trade_name order by totalCaseCount desc;]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="grpAgeGr" id="499">
             <list-property name="columnHints">
@@ -327,8 +325,7 @@ this.queryText = this.queryText.replace("fddr.trade_name=\"\"",exp);
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT fddr.std_age_group, count(distinct fddr.isr_id) cnt FROM  
-fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id
-and fddr.trade_name="" group by fddr.std_age_group order by cnt desc; 
+fact_demo_drugs_reacs fddr where fddr.trade_name="" group by fddr.std_age_group order by cnt desc; 
 ]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="grpCountry" id="524">
@@ -397,8 +394,7 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT fddr.country, count(distinct fddr.isr_id) cnt 
-FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi 
-where fddr.isr_id = adi.isr_id and fddr.trade_name="" group by fddr.country order by cnt desc; ]]></xml-property>
+FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" group by fddr.country order by cnt desc; ]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="grpSource" id="584">
             <list-property name="columnHints">
@@ -464,25 +460,25 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                     <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select * from (select 'Foreign' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_foreign = 1 group by fddr.src_foreign
+            <xml-property name="queryText"><![CDATA[select * from (select 'Foreign' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_foreign = 1 group by fddr.src_foreign
 union all
-select 'Study' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_study = 1 group by fddr.src_study
+select 'Study' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_study = 1 group by fddr.src_study
 union all
-select 'Literature' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_literature = 1 group by fddr.src_literature
+select 'Literature' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_literature = 1 group by fddr.src_literature
 union all
-select 'Consumer' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_consumer = 1 group by fddr.src_consumer
+select 'Consumer' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_consumer = 1 group by fddr.src_consumer
 union all
-select 'Health Professional' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers.aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_hp = 1 group by fddr.src_hp
+select 'Health Professional' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_hp = 1 group by fddr.src_hp
 union all
-select 'User Facility' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_user_facility = 1 group by fddr.src_user_facility
+select 'User Facility' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_user_facility = 1 group by fddr.src_user_facility
 union all
-select 'Company Representative' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_comp_rep = 1 group by fddr.src_comp_rep
+select 'Company Representative' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_comp_rep = 1 group by fddr.src_comp_rep
 union all
-select 'Distributor' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_dist = 1 group by fddr.src_dist
+select 'Distributor' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_dist = 1 group by fddr.src_dist
 union all
-select 'Other' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_other = 1 group by fddr.src_other
+select 'Other' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_other = 1 group by fddr.src_other
 union all
-select 'Not available' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.src_foreign = '0' and fddr.src_study = '0' and fddr.src_consumer = '0' and fddr.src_literature = '0' and fddr.src_hp = '0' and fddr.src_user_facility = '0' and fddr.src_comp_rep = '0' and fddr.src_dist = '0' and fddr.src_other = '0' group by fddr.src_other) as result order by cnt desc;]]></xml-property>
+select 'Not available' src, count(distinct fddr.isr_id) cnt from fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.src_foreign = '0' and fddr.src_study = '0' and fddr.src_consumer = '0' and fddr.src_literature = '0' and fddr.src_hp = '0' and fddr.src_user_facility = '0' and fddr.src_comp_rep = '0' and fddr.src_dist = '0' and fddr.src_other = '0' group by fddr.src_other) as result order by cnt desc;]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="grpOutcome" id="609">
             <list-property name="columnHints">
@@ -548,27 +544,27 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                     <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select * from (select 'Death' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_death = 1 group by fddr.outc_death
+            <xml-property name="queryText"><![CDATA[select * from (select 'Death' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_death = 1 group by fddr.outc_death
 union all
-select 'Life Threatening' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_life_threat = 1 group by fddr.outc_life_threat
+select 'Life Threatening' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_life_threat = 1 group by fddr.outc_life_threat
 union all
-select 'Hospitalization' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_hosp = 1 group by fddr.outc_hosp
+select 'Hospitalization' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_hosp = 1 group by fddr.outc_hosp
 union all
-select 'Disability' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_disability = 1 group by fddr.outc_disability
+select 'Disability' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_disability = 1 group by fddr.outc_disability
 union all
-select 'Congenital Anomaly' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_cong_anomaly = 1 group by fddr.outc_cong_anomaly
+select 'Congenital Anomaly' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_cong_anomaly = 1 group by fddr.outc_cong_anomaly
 union all
-select 'Required Intervention' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_reqd_interv = 1 group by fddr.outc_reqd_interv
+select 'Required Intervention' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_reqd_interv = 1 group by fddr.outc_reqd_interv
 union all
-select 'Other' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_other = 1 group by fddr.outc_other
+select 'Other' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_other = 1 group by fddr.outc_other
 union all
-select 'None' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_none = 1 group by fddr.outc_none
+select 'None' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_none = 1 group by fddr.outc_none
 union all
-select 'Recovered' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_rec = 1 group by fddr.outc_rec
+select 'Recovered' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_rec = 1 group by fddr.outc_rec
 union all
-select 'Treated with drug' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_rx = 1 group by fddr.outc_rec
+select 'Treated with drug' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_rx = 1 group by fddr.outc_rec
 union all
-select 'Not available' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr,aers.aers_drug_ings adi where fddr.isr_id = adi.isr_id and fddr.trade_name="" and fddr.outc_death = '0' and fddr.outc_life_threat = '0' and fddr.outc_hosp = '0' 
+select 'Not available' outcome, count(distinct fddr.isr_id) cnt FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" and fddr.outc_death = '0' and fddr.outc_life_threat = '0' and fddr.outc_hosp = '0' 
 and fddr.outc_disability = '0' and fddr.outc_cong_anomaly = '0' and fddr.outc_reqd_interv = '0' and fddr.outc_other = '0' and fddr.outc_none = '0' 
 and fddr.outc_rec = '0' and fddr.outc_rx = '0' group by fddr.outc_rec) as result order by cnt desc;]]></xml-property>
         </oda-data-set>
@@ -637,8 +633,7 @@ this.queryText = this.queryText.replace("fddr.trade_name",selectExp);]]></method
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT fddr.seriousness, count(DISTINCT(fddr.isr_id)) cnt 
-FROM fact_demo_drugs_reacs fddr,aers_drug_ings adi where fddr.isr_id = adi.isr_id 
-and fddr.trade_name="" 
+FROM fact_demo_drugs_reacs fddr where fddr.trade_name="" 
 group by fddr.seriousness order by cnt desc; ]]></xml-property>
         </oda-data-set>
     </data-sets>

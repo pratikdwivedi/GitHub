@@ -24,123 +24,121 @@ import org.apache.poi.ss.usermodel.Row;
 
 public class Excelreadwrite {
 
+	public static void main(String[] args) throws Exception {
+		String[][] data;
+		data = excelRead();
 
-public static void main(  String[] args ) throws Exception{
-String[][] data ;
-data = excelRead();
+		String expectedtitle;
+		for (int i = 1; i < data.length; i++) {
+			int LastRow = i;
+			expectedtitle = login(data[i][0], data[i][1]);
+			System.out.println("page title after login is" + expectedtitle);
+			if (expectedtitle.equalsIgnoreCase(":: IRCTC :: - Plan My Travel")) {
+				System.out.println("PASS");
+				String status = "PASS";
+				excelwrite(status, LastRow);
+			} else {
+				System.out.println("FAIL");
+				String status = "FAIL";
+				excelwrite(status, LastRow);
+			}
+		}
 
-String expectedtitle;
-for (int i = 1; i < data.length; i++ ) {
-int LastRow = i;
-expectedtitle = login(data[i][0],data[i][1]); 
-System.out.println("page title after login is" + expectedtitle );
-if(expectedtitle.equalsIgnoreCase(":: IRCTC :: - Plan My Travel")){
-    System.out.println("PASS");
-    String status="PASS";
-    excelwrite(status,LastRow);
-    }
-else{
-    System.out.println("FAIL");
-    String status = "FAIL";
-    excelwrite(status,LastRow);
-    }
-} 
+	}
 
-} 
+	public static String login(String username, String password)
+			throws InterruptedException {
 
-public static String login(String username,String password) throws InterruptedException{
+		// Step 1 Open Firefox
+		WebDriver driver = new FirefoxDriver();
 
-//Step 1 Open Firefox
-WebDriver driver = new FirefoxDriver();
+		// Step 2 Go to url
+		driver.get("https://www.irctc.co.in/");
+		String actualtitle = driver.getTitle();
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By
+				.name("userName")));
+		Thread.sleep(3000);
 
-//Step 2 Go to url
-driver.get("https://www.irctc.co.in/");
-String actualtitle= driver.getTitle(); 
-WebDriverWait wait = new WebDriverWait(driver,60);
-wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("userName")));
-Thread.sleep(3000);
+		driver.findElement(By.name("userName")).sendKeys(username);
+		driver.findElement(By.name("password")).sendKeys(password);
+		driver.findElement(By.id("button")).click();
+		Thread.sleep(3000);
 
-driver.findElement(By.name("userName")).sendKeys(username);
-driver.findElement(By.name("password")).sendKeys(password);
-driver.findElement(By.id("button")).click();
-Thread.sleep(3000);   
+		String expectedtitle = driver.getTitle();
 
-String expectedtitle= driver.getTitle();
+		driver.close();
+		return expectedtitle;
 
-   driver.close();
-   return expectedtitle;
+	}
 
+	public static String[][] excelRead() throws Exception {
+		File excel = new File("D:\\Work\\test2.xls");
+		FileInputStream fis = new FileInputStream(excel);
+		HSSFWorkbook wb = new HSSFWorkbook(fis);
+		HSSFSheet ws = wb.getSheet("Sheet1");
+		int rowNum = ws.getLastRowNum() + 1;
+		int colNum = ws.getRow(0).getLastCellNum();
+		String[][] data = new String[rowNum][colNum];
+		for (int i = 0; i < rowNum; i++) {
+			HSSFRow row = ws.getRow(i);
+			for (int j = 0; j < colNum; j++) {
+				HSSFCell cell = row.getCell(j);
+				String value = cellToString(cell);
+				data[i][j] = value;
+				// System.out.println("The value is" + value);
 
-}
+			}
+		}
+		return data;
 
-public static String[][] excelRead() throws Exception {
-File excel = new File("D:\\Work\\test2.xls");
-FileInputStream fis = new FileInputStream(excel);
-HSSFWorkbook wb = new HSSFWorkbook(fis);
-HSSFSheet ws = wb.getSheet("Sheet1");
-int rowNum = ws.getLastRowNum() + 1;
-int colNum = ws.getRow(0).getLastCellNum();
-String[][] data = new String[rowNum][colNum];
-for (int i = 0 ; i < rowNum ; i++) {
-HSSFRow row = ws.getRow(i);
-for (int j=0  ; j < colNum ; j++){
-HSSFCell cell = row.getCell(j);
-String value = cellToString(cell);
-data[i][j] = value;
-// System.out.println("The value is" + value);
+	}
 
+	public static void excelwrite(String status, int LastRow) throws Exception {
+		try {
+			FileInputStream file = new FileInputStream(new File(
+					"D:\\Work\\test2.xls"));
 
-}
-}
-return data;
+			HSSFWorkbook workbook = new HSSFWorkbook(file);
+			HSSFSheet sheet = workbook.getSheetAt(0);
 
-}
-public static void  excelwrite(String status, int LastRow) throws Exception {
-try{
-    FileInputStream file = new FileInputStream(new File("D:\\Work\\test2.xls"));
+			Row row = sheet.getRow(LastRow);
 
-    HSSFWorkbook workbook = new HSSFWorkbook(file);
-    HSSFSheet sheet = workbook.getSheetAt(0);
+			Cell cell2 = row.createCell(2);
+			cell2.setCellValue(status);
+			System.out.println(status);
 
-    Row row = sheet.getRow(LastRow);
+			file.close();
+			FileOutputStream outFile = new FileOutputStream(new File(
+					"D:\\Work\\test2.xls"));
+			workbook.write(outFile);
 
-    Cell cell2 = row.createCell(2);
-    cell2.setCellValue(status);
-    System.out.println(status);
+		}
 
-    file.close();
-    FileOutputStream outFile =new FileOutputStream(new File("D:\\Work\\test2.xls"));
-    workbook.write(outFile);
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (HeadlessException e) {
+			e.printStackTrace();
+		}
+	}
 
-  }
-
-   catch (FileNotFoundException e) {
-    e.printStackTrace();
- } 
-   catch (IOException e) {
-    e.printStackTrace();
-}
-   catch (HeadlessException e) 
-{
-    e.printStackTrace();
-}
-}
-
-
-public static String cellToString(HSSFCell cell) {
-int type;
-Object result ;
-type = cell.getCellType();
-switch (type) {
-case 0 :
-result = cell.getNumericCellValue();
-break;
-case 1 :
-result = cell.getStringCellValue();
-break;
-default :
-throw new RuntimeException("There are no support for this type of cell");
-}
-return result.toString();
-}
+	public static String cellToString(HSSFCell cell) {
+		int type;
+		Object result;
+		type = cell.getCellType();
+		switch (type) {
+		case 0:
+			result = cell.getNumericCellValue();
+			break;
+		case 1:
+			result = cell.getStringCellValue();
+			break;
+		default:
+			throw new RuntimeException(
+					"There are no support for this type of cell");
+		}
+		return result.toString();
+	}
 }

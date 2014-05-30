@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [ETL suite]">
+  <test name="ETL Test(failed)">
+    <classes>
+      <class name="com.sapphire.etl.AERSDemoVerify">
+        <methods>
+          <include name="demoCaseValidFrom"/>
+          <include name="demoCaseSeriousness"/>
+          <include name="demoCaseValidTo"/>
+          <include name="demoCASE_ID"/>
+          <include name="demoFDA_date"/>
+          <include name="demoCaseGenderDEC"/>
+          <include name="demoCaseAgeCode"/>
+          <include name="demoCaseGenderCode"/>
+          <include name="demoISR_ID"/>
+          <include name="demoCaseAgeGroup"/>
+        </methods>
+      </class> <!-- com.sapphire.etl.AERSDemoVerify -->
+    </classes>
+  </test> <!-- ETL Test(failed) -->
+</suite> <!-- Failed suite [ETL suite] -->
