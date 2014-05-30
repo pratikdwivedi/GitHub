@@ -66,8 +66,9 @@ public void TestMethodCreateEventgroup() throws Exception{
 	catch(Exception e)
 	{
 		takeScreenShot(e, "Admin_Create_EventGroups");
+		e.printStackTrace();
 		Assert.fail("Error in creating event groups");
-		e.printStackTrace();}	
+		}	
 	}
 public static void setClipboardData(String string) {
 	   StringSelection stringSelection = new StringSelection(string);

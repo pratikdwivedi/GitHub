@@ -1019,21 +1019,6 @@ group.getFooter( ).add( groupFooter );
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="PT" id="1839">
-            <text-property name="promptText">PT</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">Myocardial infarction</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="AERS" id="207">
@@ -1125,15 +1110,13 @@ group.getFooter( ).add( groupFooter );
             <method name="beforeOpen"><![CDATA[	var productLevel =  params["Product Level"].value;
 	var prodList = params["Drug Name"].split("~");
 	var product = "'"+prodList[0]+"'";
-	var ptList = params["PT"].split("~");
-	var pt = "'"+ptList[0]+"'";
 	var indList = params["Indication List"].split("~");
 	var indName = "'"+indList.join("','")+"'";
 	var q="";
 	var selectParams ="";
 	var filter =" r where ";
 	for(i=0; i < indList.length;i++){
-		q=" left join (select a.:drug_level , a.pt_name,a.std_age_group , count(distinct (a.isr_id)) as 'IND"+i+"' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.std_age_group) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".std_age_group)";
+		q=" left join (select a.:drug_level , a.std_age_group , count(distinct (a.isr_id)) as 'IND"+i+"' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.std_age_group) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".std_age_group)";
 		this.queryText = this.queryText+q;
 		selectParams +=",IND"+i;
 		if(i != 0){
@@ -1141,14 +1124,13 @@ group.getFooter( ).add( groupFooter );
 		}
 		filter += " r.IND"+i+" is not null"+" or OTHERS is not null";
 	}
-	var otherQuery = " left join (select a.:drug_level , a.pt_name,a.std_age_group , count(distinct (a.isr_id)) as 'OTHERS' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.std_age_group) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".std_age_group)";
+	var otherQuery = " left join (select a.:drug_level , a.std_age_group , count(distinct (a.isr_id)) as 'OTHERS' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id  and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level ,  a.std_age_group) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".std_age_group)";
 	selectParams += ",OTHERS";
 	this.queryText = this.queryText+otherQuery;
 	this.queryText = this.queryText+")";
 	this.queryText = this.queryText+filter;
 	this.queryText = this.queryText.replace(":ind_params",selectParams);
 	this.queryText = this.queryText.replace(":drugs",product);
-	this.queryText = this.queryText.replace(":pt_name",pt);
 	if(productLevel == 'Generic name'){
    		productLevel = "generic_name" ;
    	} else if(productLevel == 'Trade name'){
@@ -1325,15 +1307,13 @@ ON C1.fk_code_list_id=171) D1
             <method name="beforeOpen"><![CDATA[	var productLevel =  params["Product Level"].value;
 	var prodList = params["Drug Name"].split("~");
 	var product = "'"+prodList[0]+"'";
-	var ptList = params["PT"].split("~");
-	var pt = "'"+ptList[0]+"'";
 	var indList = params["Indication List"].split("~");
 	var indName = "'"+indList.join("','")+"'";
 	var q="";
 	var selectParams ="";
 	var filter =" r where ";
 	for(i=0; i < indList.length;i++){
-		q=" left join (select a.:drug_level , a.pt_name,a.gender_dec , count(distinct (a.isr_id)) as 'IND"+i+"' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.gender_dec) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".gender_dec)";
+		q=" left join (select a.:drug_level , a.gender_dec , count(distinct (a.isr_id)) as 'IND"+i+"' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.gender_dec) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".gender_dec)";
 		this.queryText = this.queryText+q;
 		selectParams +=",IND"+i;
 		if(i != 0){
@@ -1341,14 +1321,13 @@ ON C1.fk_code_list_id=171) D1
 		}
 		filter += " r.IND"+i+" is not null"+" or OTHERS is not null";
 	}
-	var otherQuery = " left join (select a.:drug_level , a.pt_name,a.gender_dec , count(distinct (a.isr_id)) as 'OTHERS' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.gender_dec) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".gender_dec)";
+	var otherQuery = " left join (select a.:drug_level , a.gender_dec , count(distinct (a.isr_id)) as 'OTHERS' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.gender_dec) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".gender_dec)";
 	selectParams += ",OTHERS";
 	this.queryText = this.queryText+otherQuery;
 	this.queryText = this.queryText+")";
 	this.queryText = this.queryText+filter;
 	this.queryText = this.queryText.replace(":ind_params",selectParams);
 	this.queryText = this.queryText.replace(":drugs",product);
-	this.queryText = this.queryText.replace(":pt_name",pt);
 	if(productLevel == 'Generic name'){
    		productLevel = "generic_name" ;
    	} else if(productLevel == 'Trade name'){
@@ -1450,15 +1429,13 @@ ON C1.fk_code_list_id=100) D1]]></xml-property>
             <method name="beforeOpen"><![CDATA[	var productLevel =  params["Product Level"].value;
 	var prodList = params["Drug Name"].split("~");
 	var product = "'"+prodList[0]+"'";
-	var ptList = params["PT"].split("~");
-	var pt = "'"+ptList[0]+"'";
 	var indList = params["Indication List"].split("~");
 	var indName = "'"+indList.join("','")+"'";
 	var q="";
 	var selectParams ="";
 	var filter =" r where ";
 	for(i=0; i < indList.length;i++){
-		q=" left join (select a.:drug_level , a.pt_name,a.seriousness , count(distinct (a.isr_id)) as 'IND"+i+"' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.seriousness) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".seriousness)";
+		q=" left join (select a.:drug_level , a.seriousness , count(distinct (a.isr_id)) as 'IND"+i+"' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.seriousness) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.decode = UPPER(T"+i+".seriousness)";
 		this.queryText = this.queryText+q;
 		selectParams +=",IND"+i;
 		if(i != 0){
@@ -1466,14 +1443,13 @@ ON C1.fk_code_list_id=100) D1]]></xml-property>
 		}
 		filter += " r.IND"+i+" is not null"+" or OTHERS is not null";
 	}
-	var otherQuery = " left join (select a.:drug_level , a.pt_name,a.seriousness , count(distinct (a.isr_id)) as 'OTHERS' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b where a.isr_id = b.isr_id and a.pt_name = :pt_name and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , a.seriousness) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".seriousness)";
+	var otherQuery = " left join (select a.:drug_level , a.seriousness , count(distinct (a.isr_id)) as 'OTHERS' from fact_demo_drugs_reacs a, aers_drug_indication b where a.isr_id = b.isr_id and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.seriousness) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.decode = UPPER(T"+indList.length+".seriousness)";
 	selectParams += ",OTHERS";
 	this.queryText = this.queryText+otherQuery;
 	this.queryText = this.queryText+")";
 	this.queryText = this.queryText+filter;
 	this.queryText = this.queryText.replace(":ind_params",selectParams);
 	this.queryText = this.queryText.replace(":drugs",product);
-	this.queryText = this.queryText.replace(":pt_name",pt);
 	if(productLevel == 'Generic name'){
    		productLevel = "generic_name" ;
    	} else if(productLevel == 'Trade name'){
@@ -1575,15 +1551,13 @@ ON C1.fk_code_list_id=172) D1]]></xml-property>
             <method name="beforeOpen"><![CDATA[	var productLevel =  params["Product Level"].value;
 	var prodList = params["Drug Name"].split("~");
 	var product = "'"+prodList[0]+"'";
-	var ptList = params["PT"].split("~");
-	var pt = "'"+ptList[0]+"'";
 	var indList = params["Indication List"].split("~");
 	var indName = "'"+indList.join("','")+"'";
 	var q="";
 	var selectParams ="";
 	var filter =" r where ";
 	for(i=0; i < indList.length;i++){
-		q=" left join (select a.:drug_level , a.pt_name,c.outcome_code , count(distinct (a.isr_id)) as 'IND"+i+"' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b,aers.aers_outcome c where a.isr_id = b.isr_id and a.isr_id = c.isr_id and a.pt_name = :pt_name and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , c.outcome_code) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.code = UPPER(T"+i+".outcome_code)";
+		q=" left join (select a.:drug_level , c.outcome_code , count(distinct (a.isr_id)) as 'IND"+i+"' from fact_demo_drugs_reacs a, aers_drug_indication b,aers_outcome c where a.isr_id = b.isr_id and a.isr_id = c.isr_id and b.indication_vbm = '"+indList[i]+"' and a.:drug_level = :drugs group by a.:drug_level , c.outcome_code) T"+i+" ON D1.drug_name = T"+i+".:drug_level and D1.code = UPPER(T"+i+".outcome_code)";
 		this.queryText = this.queryText+q;
 		selectParams +=",IND"+i;
 		if(i != 0){
@@ -1591,14 +1565,13 @@ ON C1.fk_code_list_id=172) D1]]></xml-property>
 		}
 		filter += " r.IND"+i+" is not null"+" or OTHERS is not null";
 	}
-	var otherQuery = " left join (select a.:drug_level , a.pt_name,c.outcome_code , count(distinct (a.isr_id)) as 'OTHERS' from aers.fact_demo_drugs_reacs a, aers.aers_drug_indication b,aers.aers_outcome c where a.isr_id = b.isr_id and a.isr_id = c.isr_id and a.pt_name = :pt_name and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , a.pt_name , c.outcome_code) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.code = UPPER(T"+indList.length+".outcome_code)";
+	var otherQuery = " left join (select a.:drug_level , c.outcome_code , count(distinct (a.isr_id)) as 'OTHERS' from fact_demo_drugs_reacs a, aers_drug_indication b,aers_outcome c where a.isr_id = b.isr_id and a.isr_id = c.isr_id and b.indication_vbm not in ("+indName+") and a.:drug_level = :drugs group by a.:drug_level , c.outcome_code) T"+indList.length+" ON D1.drug_name = T"+indList.length+".:drug_level and D1.code = UPPER(T"+indList.length+".outcome_code)";
 	selectParams += ",OTHERS";
 	this.queryText = this.queryText+otherQuery;
 	this.queryText = this.queryText+")";
 	this.queryText = this.queryText+filter;
 	this.queryText = this.queryText.replace(":ind_params",selectParams);
 	this.queryText = this.queryText.replace(":drugs",product);
-	this.queryText = this.queryText.replace(":pt_name",pt);
 	if(productLevel == 'Generic name'){
    		productLevel = "generic_name" ;
    	} else if(productLevel == 'Trade name'){
@@ -1822,17 +1795,7 @@ ON C1.fk_code_list_id=175) D1]]></xml-property>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
-                <cell id="1745">
-                    <text-data id="1750">
-                        <property name="fontWeight">bold</property>
-                        <property name="paddingTop">5pt</property>
-                        <property name="paddingBottom">5pt</property>
-                        <property name="paddingRight">5pt</property>
-                        <property name="textAlign">right</property>
-                        <expression name="valueExpr">'Product level : '+params["Product Level"].value</expression>
-                        <property name="contentType">html</property>
-                    </text-data>
-                </cell>
+                <cell id="1745"/>
             </row>
             <row id="2203">
                 <property name="borderBottomColor">#808080</property>
@@ -1842,12 +1805,13 @@ ON C1.fk_code_list_id=175) D1]]></xml-property>
                     <property name="borderBottomColor">#808080</property>
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">thin</property>
-                    <text-data id="2206">
+                    <text-data id="1750">
                         <property name="fontWeight">bold</property>
                         <property name="paddingTop">5pt</property>
-                        <property name="paddingLeft">5pt</property>
                         <property name="paddingBottom">5pt</property>
-                        <expression name="valueExpr">'Drug name : '+params["Drug Name"].value</expression>
+                        <property name="paddingRight">5pt</property>
+                        <property name="textAlign">left</property>
+                        <expression name="valueExpr">'Product level : '+params["Product Level"].value</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
@@ -1855,13 +1819,13 @@ ON C1.fk_code_list_id=175) D1]]></xml-property>
                     <property name="borderBottomColor">#808080</property>
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">thin</property>
-                    <text-data id="2207">
+                    <text-data id="2206">
                         <property name="fontWeight">bold</property>
                         <property name="paddingTop">5pt</property>
+                        <property name="paddingLeft">5pt</property>
                         <property name="paddingBottom">5pt</property>
-                        <property name="paddingRight">5pt</property>
                         <property name="textAlign">right</property>
-                        <expression name="valueExpr">'Event name : '+params["PT"].value</expression>
+                        <expression name="valueExpr">'Drug name : '+params["Drug Name"].value</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
