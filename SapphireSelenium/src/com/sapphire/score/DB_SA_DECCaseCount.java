@@ -7,7 +7,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

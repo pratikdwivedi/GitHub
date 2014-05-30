@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import com.test.Config;
 import com.test.ExcelLibrary;
 
-public class SapphireTestDataWrite extends Config{
+public class TestDataWrite extends Config{
 	String writeFilePath="D:\\Work\\TestWrite.xls";
 	
 
@@ -18,7 +18,7 @@ public class SapphireTestDataWrite extends Config{
 			for(int i=1;i<=lib1.rowCount;i++)
 			{
 			String	expectedtitle=driver.getTitle();
-		driver.findElement(By.xpath("//div[contains(@id,'headerMenu')]//ul/li/a/span[contains(text(),'ADMIN')]")).click();
+		driver.findElement(By.xpath("//div[contains(@id,'headerMenu')]//ul/li/a/span[contains(text(),'admin')]")).click();
 		if(expectedtitle.equalsIgnoreCase("SapPhiRe")){
 
 		    System.out.println("PASS");

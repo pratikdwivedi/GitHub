@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.sapphire.etl.AERSDemoVerify">
+      <class name="com.sapphire.portfolio.Port_Create_SA_aers">
         <methods>
-          <include name="demoCaseValidTo"/>
-          <include name="demoCaseGenderDEC"/>
-          <include name="demoCaseAgeCode"/>
-          <include name="demoCaseGenderCode"/>
-          <include name="demoCaseAgeGroup"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+          <include name="TestMethodPortCreateSAaers"/>
         </methods>
-      </class> <!-- com.sapphire.etl.AERSDemoVerify -->
+      </class> <!-- com.sapphire.portfolio.Port_Create_SA_aers -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -266,6 +266,18 @@ if (params["Event group"].value !=null){
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="Event type" id="1827">
+            <text-property name="promptText">Event type</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
         <scalar-parameter name="Event group" id="1828">
             <text-property name="promptText">Event group</text-property>
             <property name="valueType">static</property>
@@ -278,24 +290,9 @@ if (params["Event group"].value !=null){
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name=":hidden_aerssource" id="1829">
-            <text-property name="promptText">:hidden_aerssource</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">aers</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="sapphire" id="207">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="AERS" id="207">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -313,10 +310,10 @@ if (params["Event group"].value !=null){
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://192.168.1.5:3306/sapphire</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.5:3306/aers</property>
             <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
-            <property name="odaJndiName">java:comp/env/jdbc/MSDB</property>
+            <property name="odaJndiName">java:comp/env/jdbc/AERSDB</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -343,25 +340,10 @@ if (params["Event group"].value !=null){
                     </structure>
                 </list-property>
             </structure>
-            <method name="beforeOpen"><![CDATA[	var datasource = params[":hidden_aerssource"];
-	this.queryText = this.queryText.replace(":hidden_aerssource",datasource);
-	
-	var drugtype = params["Product Level"];
-	var prodList = params["Drug Name"].split("~");
+            <method name="beforeOpen"><![CDATA[	var prodList = params["Drug Name"].split("~");
 	var parameter = "'"+prodList.join("','")+"'";
+	var gnexp = "generic_name IN ("+parameter+") ";
 	var dnexp = "drug_name IN ("+parameter+") ";
-	var exp = "generic_name IN ("+parameter+") ";
-	var drugexp = "a.generic_name";
-	
-	if(params["Product Level"].value == 'Trade name'){
-	       	exp = " trade_name IN ("+parameter+") " ;
-	       	drugexp = "a.trade_name"
-	       }else if(params["Product Level"].value == 'Generic name'){
-	       	exp = "generic_name IN ("+parameter+") ";
-	       	drugexp = "a.generic_name";
-	       }
-	this.queryText = this.queryText.replace(":generic_name=\"\"",exp);
-	this.queryText = this.queryText.replace("a.generic_name=\"\"",drugexp);
 	
 	var groupList = params["Event group"].split("~");
 	var idx="";
@@ -369,7 +351,7 @@ if (params["Event group"].value !=null){
 	var subQuerytext=null;
 	var isNotFirst = false;
 	for(i=0; i < groupList.length;i++){
-		subQuerytext = "left join (select a.generic_name, count(distinct(a.isr_id)) as ':calias' from :hidden_aerssource.fact_demo_drugs_reacs a,lib_event_group_map b,lib_event_groups c where a.pt_name=b.name and c.name=':cname' and c.record_id = b.fk_group_id and a.:generic_name group by a.generic_name) T:index on D1.drug_name=T:index.generic_name ";
+		subQuerytext = "left join (select generic_name, count(distinct(a.isr_id)) as ':calias' from aers.fact_demo_drugs_reacs a,sapphire.lib_event_group_map b,sapphire.lib_event_groups c where a.pt_name=b.name and c.name=':cname' and c.record_id = b.fk_group_id and a.:generic_name group by a.generic_name) T:index on D1.drug_name=T:index.generic_name ";
 		idx = i+"";
 		if(isNotFirst){
 			output +=", ";
@@ -377,16 +359,10 @@ if (params["Event group"].value !=null){
 		isNotFirst = true;
 		output += "T"+idx+".P"+idx+" as '"+groupList[idx]+"'";
 		subQuerytext = subQuerytext.replace(":index",idx);
-		if(params["Product Level"].value == 'Generic name'){
-	       	subQuerytext = subQuerytext.replace("T:index.generic_name","T"+idx+".generic_name");
-	       }else if(params["Product Level"].value == 'Trade name'){
-	       	subQuerytext = subQuerytext.replace("T:index.generic_name","T"+idx+".trade_name");
-	       }
+		subQuerytext = subQuerytext.replace("T:index.generic_name","T"+idx+".generic_name");
 		subQuerytext = subQuerytext.replace(":calias","P"+idx);
 		subQuerytext = subQuerytext.replace(":cname",groupList[idx]);
-		subQuerytext = subQuerytext.replace(":generic_name",exp);
-		subQuerytext = subQuerytext.replace("a.generic_name",drugexp);
-		subQuerytext = subQuerytext.replace(":hidden_aerssource",datasource);
+		subQuerytext = subQuerytext.replace(":generic_name",gnexp);
 		this.queryText +=" ";
 		this.queryText +=subQuerytext;
 	}	
@@ -394,7 +370,7 @@ if (params["Event group"].value !=null){
 	this.queryText = this.queryText.replace(":drug_name",dnexp);
 	Packages.java.lang.System.out.println (this.queryText );
 	]]></method>
-            <property name="dataSource">sapphire</property>
+            <property name="dataSource">AERS</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -694,8 +670,8 @@ from (select distinct drug_name from dict.who_dc_med_product where :drug_name) D
                         <property name="fontWeight">bold</property>
                         <property name="paddingTop">5pt</property>
                         <property name="paddingBottom">5pt</property>
-                        <expression name="valueExpr">'Concepts  / Events : '+params["Event group"].split("~") + '&lt;br/>'+'&lt;br/>'+&#13;
-'Drugs : '+params["Drug Name"].split("~")</expression>
+                        <expression name="valueExpr">'Concepts  / Events : '+params["Event group"].value + '&lt;br/>'+'&lt;br/>'+&#13;
+'Drugs : '+params["Drug Name"].value</expression>
                         <property name="contentType">html</property>
                     </text-data>
                 </cell>
@@ -746,7 +722,7 @@ from (select distinct drug_name from dict.who_dc_med_product where :drug_name) D
                         <property name="borderTopWidth">thin</property>
                         <label id="1815">
                             <property name="fontWeight">bold</property>
-                            <text-property name="text">Drug name</text-property>
+                            <text-property name="text">Drug Name</text-property>
                         </label>
                     </cell>
                 </row>

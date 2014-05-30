@@ -102,7 +102,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://192.168.1.12:3306/aers</property>
+            <property name="odaURL">jdbc:mysql://192.168.1.14:3306/aers</property>
             <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">bWFuYWdlcjEyMw==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/AERSDB</property>

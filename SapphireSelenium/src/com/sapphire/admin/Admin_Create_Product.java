@@ -212,9 +212,8 @@ public void TestMethodCreateProduct() throws Exception{
 	catch(Exception e)
 	{
 		takeScreenShot(e, "Admin_Create_Product");
-		e.printStackTrace();
 		Assert.fail("Error in creating product");
-		}
+		e.printStackTrace();}
 	}
 public static void setClipboardData(String string) {
 	   StringSelection stringSelection = new StringSelection(string);
