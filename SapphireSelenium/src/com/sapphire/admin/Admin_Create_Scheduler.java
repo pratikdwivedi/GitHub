@@ -135,7 +135,7 @@ public class Admin_Create_Scheduler extends Config {
 				Reporter.log("Scheduler creation complete... " + schedulerName);
 				Thread.sleep(5000);
 			}// for close
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			takeScreenShot(e, "Admin_Create_Scheduler");
 			e.printStackTrace();
 			Assert.fail("Error in creating scheduler..");

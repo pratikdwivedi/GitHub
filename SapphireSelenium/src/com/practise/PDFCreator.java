@@ -1,7 +1,5 @@
 package com.practise;
 
-import java.util.List;
-
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
@@ -11,12 +9,12 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 
 public class PDFCreator {
-	public static void doPDFCreate(String fileName, Object document) {
+	public  void doPDFCreate(String fileName, Object document) {
 		Document pdf = new Document();
 		if (!pdf.isOpen()) {
 			pdf.open();
 		}
-
+		
 		pdf.setPageSize(PageSize.A4.rotate());
 		HeaderFooter footer = new HeaderFooter(new Phrase("Page "), true);
 		footer.setAlignment(Element.ALIGN_CENTER);
@@ -32,14 +30,13 @@ public class PDFCreator {
 			paragraph.add(titlePhrase);
 			// paragraph.add(document);
 			font = new Font(Font.TIMES_ROMAN, 14, Font.NORMAL);
-
+			
 			pdf.close();
 
 		} catch (Throwable e) {
 
 			e.printStackTrace();
 		}
-
 	}
 
 	private static void addPDFTitle(Document pdf, Font font,

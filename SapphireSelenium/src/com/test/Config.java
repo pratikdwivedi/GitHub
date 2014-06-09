@@ -17,7 +17,7 @@ import org.testng.annotations.BeforeClass;
 
 
 public class Config extends ExcelLibrary{
-	public static WebDriver driver;
+	public static WebDriver driver;	
 	public Actions act;
 	protected int rowCount=1;
 	int i;

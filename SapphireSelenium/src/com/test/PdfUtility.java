@@ -8,6 +8,15 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 public class PdfUtility {
+	// Hold the report font size. 
+	private final static float fontSize = 10f; 
+	PDFont font = PDType1Font.TIMES_BOLD;
+	// Hold the initial x position. 
+	private final static float X0 = 5f; 
+
+	// Hold the padding bottom of the document. 
+	private final static float PADDING_BOTTOM_OF_DOCUMENT = 30f;
+	
 	// define a Pdf Document variable named doc
 	private PDDocument doc;
 	// function to write test results to pdf file with file name and list of
@@ -19,8 +28,6 @@ public class PdfUtility {
 			doc = new PDDocument();
 			// create a new pdf page
 			PDPage page = new PDPage(PDPage.PAGE_SIZE_LETTER);
-			PDFont font = PDType1Font.TIMES_BOLD;
-			int fontSize = 10;
 			doc.addPage(page);
 			// create a new content stream that will be written to the pdf file
 			PDPageContentStream contentStream = new PDPageContentStream(doc,

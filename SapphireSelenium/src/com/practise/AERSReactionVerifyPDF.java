@@ -12,8 +12,9 @@ import com.test.ExcelLibrary;
 import com.test.PdfUtility;
 
 public class AERSReactionVerifyPDF {
-	String writeFilePath="TestOutputFiles\\Testoutput.xls";
-ExcelLibrary exl=new ExcelLibrary();
+	String writeFilePath = "TestOutputFiles\\Testoutput.xls";
+	ExcelLibrary exl = new ExcelLibrary();
+
 	@Test(enabled = true)
 	public void reactionCaseValidFrom() throws Exception {
 		String query = null;
@@ -51,13 +52,12 @@ ExcelLibrary exl=new ExcelLibrary();
 		} finally {
 			// write the test result pdf file with file name TestResult
 			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
-		//	PDFCreator.doPDFCreate("TestResult.pdf", resultList);
-		//	exl.writeTestOutputExcelData("reactionCaseValidFrom","Fail",writeFilePath);
+			// PDFCreator.doPDFCreate("TestResult.pdf", resultList);
+			// exl.writeTestOutputExcelData("reactionCaseValidFrom","Fail",writeFilePath);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
 		}
 		resultList.clear();
 	}
-
 }

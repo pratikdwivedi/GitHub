@@ -13,7 +13,7 @@ public class ListTest {
 	public static void main(String arg[]) throws SQLException,
 			ClassNotFoundException {
 		ListTest lt = new ListTest();
-		lt.method1();
+		lt.method2();
 	}
 	public void method1() {
 		ArrayList a = new ArrayList();
@@ -36,10 +36,9 @@ public class ListTest {
 	}
 
 	public void method2() throws SQLException, ClassNotFoundException {
-		ArrayList dbListvalue = null;
+		ArrayList<String> dbListvalue = null;
 		int columnsNumber;
 		ResultSetMetaData rsmd;
-		String dbvalue;
 		ResultSet rst;
 		Connection con;
 		String dbUrl = "jdbc:mysql://localhost:3306/test";
@@ -49,7 +48,7 @@ public class ListTest {
 		Class.forName(dbClass);
 		con = DriverManager.getConnection(dbUrl, username, password);
 		Statement stmt = con.createStatement();
-		String query = "SELECT * from db1";
+		String query = "SELECT * from employees";
 		System.out.println(query);
 		rst = stmt.executeQuery(query);
 		rsmd = rst.getMetaData();
