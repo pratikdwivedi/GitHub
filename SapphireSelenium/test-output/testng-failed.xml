@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.sapphire.admin.Admin_Create_EventGroups">
+      <class name="com.sapphire.admin.Admin_Create_Product">
         <methods>
+          <include name="TestMethodCreateProduct"/>
           <include name="doLogIn"/>
           <include name="doLogOut"/>
-          <include name="TestMethodCreateEventgroup"/>
         </methods>
-      </class> <!-- com.sapphire.admin.Admin_Create_EventGroups -->
+      </class> <!-- com.sapphire.admin.Admin_Create_Product -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

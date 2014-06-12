@@ -43,17 +43,21 @@ public void TestMethodCreateProduct() throws Exception{
 		String organizationType =lib1.getExcelData("product",i,3,filePath);
 		driver.findElement(By.id("productDetailForm:prdTabView:organizationTypeId_label")).click();//Organization Type clicked
 		driver.findElement(By.xpath("//div[contains(@id,'productDetailForm:prdTabView:organizationTypeId_panel')]/div[1]/ul[1]/li[contains(text(),'"+organizationType+"')]")).click();
+		String whoProductCode=lib1.getExcelData("product", i, 4,filePath);
+		if(whoProductCode!=null)
+		{
 		driver.findElement(By.id("productDetailForm:prdTabView:lookupWhoDCProd")).click();
 		driver.switchTo().activeElement();
 		driver.findElement(By.xpath("//div[contains(@id,'whoDcMedProductLookupForm:ProdLookupGrid')]//table/thead/tr/th/div/div/span/input")).sendKeys(productName);
 		driver.findElement(By.xpath("//div[contains(@id,'whoDcMedProductLookupForm:ProdLookupGrid')]//table/thead/tr/th/div/div/span/button[1]/span")).click();
 		Thread.sleep(5000);
 		String whoPName=productName.toUpperCase();
+	
 		driver.findElement(By.xpath("//tr[td[2][div[contains(text(),'"+whoPName+"')]]]//td[1]/div/div/div[2]")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.id("whoDcMedProductLookupForm:selectWhoDcMedProductGen")).click();
-	//	String whocode=lib1.getExcelData("product", i, 4,filePath);
-	//	driver.findElement(By.id("productDetailForm:prdTabView:whoDrlCodeid")).sendKeys(whocode);
+		}
+
 		Thread.sleep(6000);
 		String birthDate=lib1.getExcelData("product", i, 5,filePath);
 		driver.findElement(By.id("productDetailForm:prdTabView:ibdid_input")).sendKeys(birthDate);
@@ -62,7 +66,10 @@ public void TestMethodCreateProduct() throws Exception{
 	//	double formStrengthInt=new Double(formStrength).doubleValue();
 		driver.findElement(By.id("productDetailForm:prdTabView:formStrengthid")).sendKeys(formStrength);
 		String formStrengthUnit=lib1.getExcelData("product", i, 7,filePath);
+		if(formStrengthUnit!=null)
+		{
 		driver.findElement(By.id("productDetailForm:prdTabView:formStrengthunitid")).sendKeys(formStrengthUnit);
+		}
 		String phamaceuticalForm =lib1.getExcelData("product", i, 8,filePath);
 		driver.findElement(By.id("productDetailForm:prdTabView:pharmFormId_label")).click();//phamaceuticalForm clicked
 		driver.findElement(By.xpath("//div[contains(@id,'productDetailForm:prdTabView:pharmFormId_panel')]/div[1]/ul[1]/li[text()='"+phamaceuticalForm+"']")).click();
@@ -132,47 +139,7 @@ public void TestMethodCreateProduct() throws Exception{
 		}
 		Thread.sleep(10000);
 		  System.out.println("/////////////////////////////////////");
-       /*WebElement elementDes=driver.findElement(By.id("productDetailForm:prdTabView:whoDrlCodeid"));
-		elementDes.sendKeys(whoDrlCode);
-		System.out.println(whoDrlCode);
-		Thread.sleep(10000);
-		
-	Select selectTherapeuticArea=new Select(driver.findElement(By.id("productDetailForm:prdTabView:therapeuticArea_input")));
-
-	selectTherapeuticArea.selectByIndex(5);
-	WebElement optionTherapeuticArea = selectTherapeuticArea.getFirstSelectedOption();
-	System.out.println(optionTherapeuticArea.getText());
-	Select selectType=new Select(driver.findElement(By.id("productDetailForm:prdTabView:productTypeId_input")));
-	selectType.selectByIndex(5);
-	WebElement optionType = selectType.getFirstSelectedOption();
-	System.out.println(optionType.getText());
-	driver.findElement(By.id("productDetailForm:prdTabView:lookupWhoDCProd")).click();
-	Thread.sleep(3000);
-	driver.switchTo().activeElement();
-	Select selectGridValue=new Select(driver.findElement(By.xpath("//th[contains(@id,'whoDcMedProductLookupForm:ProdLookupGrid_paginator_top')]/select[1]")));
-	selectGridValue.selectByIndex(2);
-	WebElement gridValue=selectGridValue.getFirstSelectedOption();
-	System.out.println("Index per page is : "+gridValue.getText());
-	//driver.findElement(By.xpath(".//*[@id='whoDcMedProductLookupForm:ProdLookupGrid_paginator_top']/span[4]/span")).click();//pagination 
-	Thread.sleep(3000);
-	driver.findElement(By.xpath(".//*[@id='whoDcMedProductLookupForm:ProdLookupGrid_data']/tr[8]/td[1]/div/div/div[2]")).click();//drug select
-	driver.findElement(By.id("whoDcMedProductLookupForm:selectWhoDcMedProductGen")).click();//click on select
-	Select selectSource=new Select(driver.findElement(By.id("productDetailForm:prdTabView:sourceId_input")));//select source)
-	selectSource.selectByIndex(2);
-	WebElement sourceValue=selectSource.getFirstSelectedOption();
-	System.out.println("Source value : "+sourceValue.getText());
-	Select selectStatus=new Select(driver.findElement(By.id("productDetailForm:prdTabView:productStatusId_input")));//select status)
-	selectStatus.selectByIndex(2);
-	WebElement statusValue=selectStatus.getFirstSelectedOption();
-	System.out.println("Source value : "+statusValue.getText());
-	Select selectRoute=new Select(driver.findElement(By.id("productDetailForm:prdTabView:routeId_input")));//select route)
-	selectRoute.selectByIndex(2);
-	WebElement routeValue=selectRoute.getFirstSelectedOption();
-	System.out.println("Source value : "+routeValue.getText());
-	driver.findElement(By.id("productDetailForm:prdTabView:prd_desc_id")).sendKeys("Testing product by automation");
-	
-	
-	
+       /*
 	
 	//Authorization
 	driver.findElement(By.linkText("Authorization")).click();
