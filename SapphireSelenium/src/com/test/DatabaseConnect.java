@@ -15,7 +15,7 @@ public class DatabaseConnect {
 	String databaseURl;
 
 	public void dbConnect() {
-		try {
+		try {			
 			Properties prop = new Properties();
 			prop.load(new FileInputStream("src/com/test/sapphire_en.properties"));
 			userNameP = prop.getProperty("dbuser");
