@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -85,7 +86,7 @@ public class SA_aers_DrugEvent_Hierarchy extends Config{
 					}
 				String filter=lib1.getExcelData("SAHierarchy", i, 5, filePath);
 				driver.findElement(By.xpath("//tr[td[2][label[contains(text(),'"+filter+"')]]]//td[1]/div/div[2]")).click();	
-				driver.findElement(By.xpath("//tr[td[2][label[text()='Yes']]]//td[1]/div/div[2]")).click();
+				driver.findElement(By.xpath("//div[contains(@id,'analysisCriteriaForm:saCriteriaTab:hierarchy')]//div[2]")).click();
 				Thread.sleep(3000);
 				driver.findElement(By.id("analysisCriteriaForm:expbut")).click();
 				System.out.println("Execute pressed");
@@ -100,6 +101,7 @@ public class SA_aers_DrugEvent_Hierarchy extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SA_aers_DrugEvent_Hierarchy");
-			 }
+			  Assert.fail("Error in DEC hierarchy scores ");	
+		}
 		}
 }

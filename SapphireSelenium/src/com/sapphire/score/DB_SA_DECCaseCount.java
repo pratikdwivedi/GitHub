@@ -27,10 +27,10 @@ public class DB_SA_DECCaseCount {
 			Class.forName(dbc.dbClass);
 			con = DriverManager.getConnection (dbc.dbUrl,dbc.username,dbc.password);
 			Statement stmt = con.createStatement();
-			String queryExpected = "SELECT (A) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=20124;"
-					+"SELECT (B) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=20124;"
-					+"SELECT (C) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=20124;"
-			//		+"SELECT (D) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=20124;"
+			String queryExpected = "SELECT (A) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=(SELECT * FROM aers.stat_latest_quarter);"
+					+"SELECT (B) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=(SELECT * FROM aers.stat_latest_quarter);"
+					+"SELECT (C) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=(SELECT * FROM aers.stat_latest_quarter);"
+			//		+"SELECT (D) FROM aers.stat_de_tn_pt where drug_name='Raptiva' and event_name='Pyrexia' and fda_period=(SELECT * FROM aers.stat_latest_quarter);"
 					;
 			List expResult=new ArrayList(); 
 			String[] resultsExpected=queryExpected.split(";");   
@@ -72,6 +72,7 @@ public class DB_SA_DECCaseCount {
 		catch(Throwable e)
 		{
 			e.printStackTrace();
+			Assert.fail("Error in SA DEC Case Count  ");
 		}
 	}
 }

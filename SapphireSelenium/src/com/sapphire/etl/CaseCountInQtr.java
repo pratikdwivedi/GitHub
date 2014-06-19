@@ -22,7 +22,7 @@ public class CaseCountInQtr {
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
-			query = "SELECT fda_rel_qtr,count FROM aers.aers_stats group by fda_rel_qtr";
+			query = "SELECT fda_rel_qtr,count FROM aers_stats group by fda_rel_qtr";
 			ResultSet rst = dbc.stmt.executeQuery(query);
 			expectedList = new ArrayList<Integer>();
 			while (rst.next()) {
@@ -55,7 +55,7 @@ public class CaseCountInQtr {
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
-			query = "SELECT fda_rel_qtr,count(*) FROM aers.aers_demo group by fda_rel_qtr";
+			query = "SELECT fda_rel_qtr,count(*) FROM aers_demo group by fda_rel_qtr";
 			ResultSet rst = dbc.stmt.executeQuery(query);
 			actualList = new ArrayList<Integer>();
 			while (rst.next()) {

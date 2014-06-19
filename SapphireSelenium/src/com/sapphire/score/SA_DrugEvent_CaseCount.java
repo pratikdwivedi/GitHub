@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.test.Assertions;
@@ -99,6 +100,7 @@ public class SA_DrugEvent_CaseCount extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SADrugEvent_CaseCount");
+			  Assert.fail("Error in DEC case count ");
 			 }
 		}
 }

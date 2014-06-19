@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.test.Assertions;
@@ -95,6 +96,7 @@ public class SA_aers_DrugEvent_Static extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SA_aers_DrugEvent_Static");
-			 }
+			  Assert.fail("Error in DEC scores ");	 
+		}
 		}
 }

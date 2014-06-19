@@ -1,6 +1,7 @@
 package com.sapphire.score;
 import java.sql.*;
 import org.openqa.selenium.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.test.Assertions;
 import com.test.Config;
@@ -81,6 +82,7 @@ public class SA_Total_CaseCount extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SA_Total_CaseCount");
+			  Assert.fail("Error in total case count");
 			 }
 	}		
 }

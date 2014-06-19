@@ -158,6 +158,7 @@ public class SA_aers_Algo extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SA_aers_Algo");
+			  Assert.fail("Error in SA score ");
 			 }
 		}
 	

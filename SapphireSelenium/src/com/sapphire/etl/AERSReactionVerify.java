@@ -9,10 +9,16 @@ import org.testng.annotations.Test;
 
 import com.test.DatabaseConnect;
 
+/**
+ * Record count (distinct reaction_vbm) where pt_name is null 
+ * (For now it cannot the count cannot exceed three digits. 
+ * Ideally pt_name should be not null for which reaction manual cleaning has to be done)
+ *
+ */
 public class AERSReactionVerify {
 
 	@Test(enabled = true)
-	public void reactionCaseValidFrom() throws Exception {
+	public void reactionVBM() throws Exception {
 		String query = null;
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
@@ -21,10 +27,11 @@ public class AERSReactionVerify {
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
-			query = "SELECT count(*) FROM aers.aers_reactions where isr_id is null or isr_id = ''";
+			query = "select count(distinct reaction_vbm) from aers.aers_reactions where pt_name is null";
 			ResultSet rst = dbc.stmt.executeQuery(query);
 			actualList = new ArrayList<Integer>();
 			expectedList = new ArrayList<Integer>();
+			expectedList.add(0);
 			while (rst.next()) {
 				dbvalue = rst.getString(1);
 				dbvalueInt = Integer.parseInt(dbvalue);

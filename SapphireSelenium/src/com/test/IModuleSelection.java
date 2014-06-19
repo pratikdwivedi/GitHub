@@ -10,4 +10,5 @@ public interface IModuleSelection {
 	int ADMIN_DELETE=7;
 	int PORT_DELETE=8;
 	int WORKSPACE_DELETE=9;
+	int BOX_VALUES=10;
 }

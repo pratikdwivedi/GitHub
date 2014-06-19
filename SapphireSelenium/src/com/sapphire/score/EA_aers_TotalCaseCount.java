@@ -102,6 +102,7 @@ public class EA_aers_TotalCaseCount extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "EA_aers_TotalCaseCount");
+			  Assert.fail("Error in EA total case count");
 			 }
 		}
 	

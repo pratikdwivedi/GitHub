@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.test.Config;
@@ -38,15 +39,16 @@ public class EA_Aggragates_FieldsScore extends Config{
 				 rst = stmt.executeQuery(query); 
 				 rsmd = rst.getMetaData();
 				 columnsNumber =rsmd.getColumnCount();
+				 dbListvalue=new ArrayList();
 				 while (rst.next()) {
-					 dbListvalue=new ArrayList();
+					 
 					 for(int j = 1 ; j <= columnsNumber; j++){
 						 dbListvalue.add(rst.getString(j));
 					    //   System.out.println("Database :"+rst.getString(j)); 
 					}
-						// dbvalue =rst.getString(1);
-					 System.out.println("Database : "+dbListvalue); 
+						// dbvalue =rst.getString(1);	
 				  }
+				 System.out.println("Database : "+dbListvalue); 
 				 con.close();
 				driver.findElement(By.linkText("WORKSPACE")).click();
 				driver.findElement(By.linkText("ANALYSIS")).click();
@@ -114,13 +116,14 @@ public class EA_Aggragates_FieldsScore extends Config{
 			          }
 					System.out.println("Application : "+GroupList);
 					System.out.println(dbListvalue.equals(GroupList));
-					
+					Assert.assertEquals(GroupList,dbListvalue);
 					Thread.sleep(2000);
 			}
 		}
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "EA_Aggreagtes_FieldsScore");
+			  Assert.fail("Error in EA fields score ");
 			 }
 	}//method
 }

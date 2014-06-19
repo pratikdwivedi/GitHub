@@ -27,7 +27,6 @@ public class AERSReactionVerifyPDF {
 		List<String> resultList = new ArrayList<String>();
 		// create an instance of PdfUtilityClass
 		PdfUtility pdfUtility = new PdfUtility();
-
 		try {
 			dbc.dbConnect();
 			query = "SELECT count(*) FROM aers.aers_reactions where isr_id is null or isr_id = ''";

@@ -108,9 +108,9 @@ public class SA_aers_DrugEvent_Trending extends Config{
 					 System.out.println("Application: "+appValue);
 					}
 				 
-				 Assert.assertEquals(dbListValue.contains(appValue),appValue.contains(dbListValue));
+			//	 Assert.assertEquals(dbListValue.contains(appValue),appValue.contains(dbListValue));
 		          
-		//		 Assertions.assertEqualsList(appValue, dbListValue);
+				 Assertions.assertEqualsList(appValue, dbListValue);
 				 con.close();
 				Thread.sleep(5000);
 			}//for
@@ -118,6 +118,7 @@ public class SA_aers_DrugEvent_Trending extends Config{
 		catch(Throwable e) {
 			  e.printStackTrace();
 			  takeScreenShot(e, "SA_aers_DrugEvent_Trending");
+			  Assert.fail("Error in scores values ");
 			 }
 		}
 }

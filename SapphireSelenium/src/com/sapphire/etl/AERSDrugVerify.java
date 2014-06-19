@@ -11,39 +11,6 @@ import com.test.DatabaseConnect;
 public class AERSDrugVerify {
 
 	@Test(enabled = true)
-	public void drugISR_ID() throws Exception {
-		String query = null;
-		List<Integer> actualList = null;
-		List<Integer> expectedList = null;
-		String dbvalue;
-		int dbvalueInt = 0;
-		DatabaseConnect dbc = new DatabaseConnect();
-		try {
-			dbc.dbConnect();
-			query = "SELECT count(*) FROM aers.aers_drugs where isr_id is null";
-			ResultSet rst = dbc.stmt.executeQuery(query);
-			actualList = new ArrayList<Integer>();
-			expectedList = new ArrayList<Integer>();
-			expectedList.add(0);
-			while (rst.next()) {
-				dbvalue = rst.getString(1);
-				dbvalueInt = Integer.parseInt(dbvalue);
-				actualList.add(dbvalueInt);
-			}
-			Assert.assertEquals(actualList, expectedList);
-			dbc.con.close();
-			dbc.stmt.close();
-		} catch (Throwable e) {
-			e.printStackTrace();
-			Assert.fail(query, e);
-		} finally {
-			Reporter.log(query);
-			Reporter.log("Expected : " + expectedList);
-			Reporter.log("Actual : " + actualList);
-		}
-	}
-
-	@Test(enabled = true)
 	public void drugRole_Code() throws Exception {
 		String query = null;
 		List<String> actualList = null;

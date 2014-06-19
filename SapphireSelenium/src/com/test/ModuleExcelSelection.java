@@ -29,6 +29,8 @@ public class ModuleExcelSelection {
 			filePath="SapphireFiles\\DeleteItemFiles\\PortfolioDeleteData.xls";
 		case 9:
 			filePath="SapphireFiles\\DeleteItemFiles\\WorkspaceDeleteData.xls";
+		case 10:
+			filePath="SapphireFiles\\Signal_Score_Algorithms_v1.0-Internal.xlsx";
 		default:
 			break;
 		}
