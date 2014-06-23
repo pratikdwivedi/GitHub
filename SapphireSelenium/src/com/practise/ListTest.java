@@ -15,6 +15,7 @@ public class ListTest {
 		ListTest lt = new ListTest();
 		lt.method2();
 	}
+
 	public void method1() {
 		ArrayList a = new ArrayList();
 		for (int i = 1; i <= 4; i++) {

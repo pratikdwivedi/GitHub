@@ -10,10 +10,11 @@ import com.test.DatabaseConnect;
 import com.test.PdfUtility;
 
 public class AERSDemoVerify {
-	//create a resultList that will contain number of test cases
-	  List<String> resultList=new ArrayList<String>();
-	  //create an instance of PdfUtilityClass
-	  PdfUtility pdfUtility=new PdfUtility();
+	// create a resultList that will contain number of test cases
+	List<String> resultList = new ArrayList<String>();
+	// create an instance of PdfUtilityClass
+	PdfUtility pdfUtility = new PdfUtility();
+
 	@Test(enabled = true)
 	public void demoCaseValidFrom() throws Exception {
 		String query = null;
@@ -22,7 +23,7 @@ public class AERSDemoVerify {
 		int dbvalueInt = 0;
 		String dbvalue = null;
 		DatabaseConnect dbc = new DatabaseConnect();
-				try {
+		try {
 			dbc.dbConnect();
 			query = "SELECT count(*) FROM aers_demo where valid_from is null ";
 			ResultSet rst = dbc.stmt.executeQuery(query);
@@ -37,14 +38,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.stmt.close();
 			dbc.con.close();
-			 resultList.add("reactionCaseValidFrom,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("reactionCaseValidFrom,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
-			 resultList.add("reactionCaseValidFrom,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("reactionCaseValidFrom,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -59,7 +62,7 @@ public class AERSDemoVerify {
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
 		DatabaseConnect dbc = new DatabaseConnect();
-		
+
 		try {
 			dbc.dbConnect();
 			query = "SELECT count(*) FROM aers_demo where valid_to is null";
@@ -75,22 +78,22 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseValidTo,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseValidTo,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseValidTo,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseValidTo,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
-			
+
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
 		}
 	}
-
-	
 
 	@Test(enabled = true)
 	public void demoCASE_ID() throws Exception {
@@ -115,14 +118,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCASE_ID,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCASE_ID,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCASE_ID,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCASE_ID,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -150,14 +155,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoFDA_date,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoFDA_date,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoFDA_date,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoFDA_date,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -190,14 +197,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseGenderCode,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseGenderCode,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseGenderCode,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseGenderCode,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -229,14 +238,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseGenderDEC,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseGenderDEC,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseGenderDEC,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseGenderDEC,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -249,7 +260,7 @@ public class AERSDemoVerify {
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
 		String dbvalue = null;
-		
+
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
@@ -261,18 +272,20 @@ public class AERSDemoVerify {
 			while (rst.next()) {
 				dbvalue = rst.getString(1);
 				actualList.add(Integer.parseInt(dbvalue));
-			}	
+			}
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseSeriousness,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseSeriousness,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseSeriousness,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseSeriousness,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -308,14 +321,16 @@ public class AERSDemoVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseAgeCode,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseAgeCode,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseAgeCode,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseAgeCode,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -339,20 +354,22 @@ public class AERSDemoVerify {
 			// In a loop
 			while (rst.next()) {
 				dbvalue = rst.getString(1);
-				
+
 				actualList.add(Integer.parseInt(dbvalue));
 			}
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
-			resultList.add("demoCaseAgeGroup,Pass"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseAgeGroup,Pass" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 		} catch (Throwable e) {
-			resultList.add("demoCaseAgeGroup,Fail"+"Actual :"+actualList+"Expected :"+expectedList);
+			resultList.add("demoCaseAgeGroup,Fail" + "Actual :" + actualList
+					+ "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
-			//write the test result pdf file with file name TestResult
-			   pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);

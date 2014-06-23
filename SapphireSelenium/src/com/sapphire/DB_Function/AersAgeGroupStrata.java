@@ -4,8 +4,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.Types;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import com.test.DatabaseConnect;
 
 public class AersAgeGroupStrata {

@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.test.DatabaseConnect;
 
 public class AERS_ISRID_NotNull {
-	
+
 	@Test(enabled = true)
 	public void AERSReactionISRIDTest() throws Exception {
 		String query = null;
@@ -44,6 +44,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSDrugISRIDTest() throws Exception {
 		String query = null;
@@ -76,6 +77,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSDemoISRIDTest() throws Exception {
 		String query = null;
@@ -108,6 +110,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSTherapyISRIDTest() throws Exception {
 		String query = null;
@@ -140,6 +143,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSSourceISRIDTest() throws Exception {
 		String query = null;
@@ -172,6 +176,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSIndicationISRIDTest() throws Exception {
 		String query = null;
@@ -204,6 +209,7 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
+
 	@Test(enabled = true)
 	public void AERSOutcomeISRIDTest() throws Exception {
 		String query = null;
@@ -236,6 +242,5 @@ public class AERS_ISRID_NotNull {
 			Reporter.log("Actual : " + actualList);
 		}
 	}
-	
-	
+
 }

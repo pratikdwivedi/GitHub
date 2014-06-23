@@ -3,6 +3,7 @@ package com.test;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
@@ -15,7 +16,7 @@ public class DatabaseConnect {
 	String databaseURl;
 
 	public void dbConnect() {
-		try {			
+		try {
 			Properties prop = new Properties();
 			prop.load(new FileInputStream("src/com/test/sapphire_en.properties"));
 			userNameP = prop.getProperty("dbuser");
@@ -29,5 +30,6 @@ public class DatabaseConnect {
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+
 	}
 }

@@ -13,6 +13,7 @@ import com.test.DatabaseConnect;
 public class CaseCountInQtr {
 	List actualList;
 	List expectedList;
+
 	@Test(priority = 1)
 	public void AERSCaseCounts() throws Exception {
 		String query = null;
@@ -30,20 +31,19 @@ public class CaseCountInQtr {
 				expectedList.add(dbvalue2);
 				dbvalue = rst.getString(2);
 				dbvalueInt = Integer.parseInt(dbvalue);
-				expectedList.add(dbvalueInt);				
+				expectedList.add(dbvalueInt);
 			}
 			dbc.stmt.close();
 			dbc.con.close();
 			rst.close();
-	//		Assert.assertEquals(actualList, expectedList);
+			// Assert.assertEquals(actualList, expectedList);
 		} catch (Throwable e) {
 			e.printStackTrace();
-		//	Assert.fail(query, e);
-		} /*finally {
-			Reporter.log(query);
-			Reporter.log("Expected : " + expectedList);
-			Reporter.log("Actual : " + actualList);
-		}*/
+			// Assert.fail(query, e);
+		} /*
+		 * finally { Reporter.log(query); Reporter.log("Expected : " +
+		 * expectedList); Reporter.log("Actual : " + actualList); }
+		 */
 	}
 
 	@Test(dependsOnMethods = "AERSCaseCounts")
@@ -68,7 +68,7 @@ public class CaseCountInQtr {
 			dbc.stmt.close();
 			dbc.con.close();
 			rst.close();
-			Assert.assertEquals(actualList, expectedList);			
+			Assert.assertEquals(actualList, expectedList);
 		} catch (Throwable e) {
 			e.printStackTrace();
 			Assert.fail(query, e);
