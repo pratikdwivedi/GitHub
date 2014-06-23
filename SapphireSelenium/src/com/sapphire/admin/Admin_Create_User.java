@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -16,12 +18,14 @@ public class Admin_Create_User extends Config {
 	public void TestMethodCreateUser() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
 				driver.findElement(
-						By.xpath("//div[contains(@id,'headerMenu')]//ul/li/a/span[contains(text(),'ADMIN')]"))
+						By.xpath("//div[contains(@id,'headerMenu')]//ul/li/a/span[contains(text(),'"+fetchProp.admin+"')]"))
 						.click();
 				System.out.println("Admin clicked ");
 				String userID = lib1.getExcelData("users", i, 0, filePath);

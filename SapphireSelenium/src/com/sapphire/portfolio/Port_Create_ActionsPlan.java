@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.test.Assertions;
+import com.common.FetchProperties;
 import com.test.Config;
 import com.test.ExcelLibrary;
 import com.test.IModuleSelection;
@@ -19,12 +19,14 @@ public class Port_Create_ActionsPlan extends Config {
 	public void TestMethodPortCreateActionPlan() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.PORTFOLIO);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Thread.sleep(10000);
 
-				driver.findElement(By.linkText("MASTERS")).click();
+				driver.findElement(By.linkText(fetchProp.portfolio)).click();
 				Thread.sleep(3000);
 				List<WebElement> listMaster = driver
 						.findElements(By

@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.*;
 
+import com.common.FetchProperties;
 import com.test.*;
 
 public class Admin_Create_Workflow extends Config {
@@ -15,11 +16,13 @@ public class Admin_Create_Workflow extends Config {
 	public void TestMethodCreateWorkflow() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
-				driver.findElement(By.linkText("ADMIN")).click();
+				driver.findElement(By.linkText(fetchProp.admin)).click();
 				driver.findElement(By.linkText("Workflows")).click();
 				driver.findElement(
 						By.id("workflowform:workflowGrid:createWorkflow"))

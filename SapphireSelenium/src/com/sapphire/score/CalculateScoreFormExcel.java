@@ -9,6 +9,7 @@ import java.util.Calendar;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.DatabaseConnect;
 import com.test.ExcelLibrary;
 import com.test.IModuleSelection;
@@ -20,7 +21,7 @@ public class CalculateScoreFormExcel {
 	DatabaseConnect dbc = new DatabaseConnect();
 	String filePath = ModuleExcelSelection
 			.getExcelFilePath(IModuleSelection.BOX_VALUES);
-
+	
 	@Test
 	public void scoreTestExcel() {
 		int dbvalueA = 0;

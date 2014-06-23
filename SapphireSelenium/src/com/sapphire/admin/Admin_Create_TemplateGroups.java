@@ -2,11 +2,13 @@ package com.sapphire.admin;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
+
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -18,13 +20,15 @@ public class Admin_Create_TemplateGroups extends Config {
 	public void TestMethodCreateTemplateGroup() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
 
 				// create Template Group
-				driver.findElement(By.linkText("ADMIN")).click();
+				driver.findElement(By.linkText(fetchProp.admin)).click();
 				driver.findElement(By.linkText("Templates")).click();
 				driver.findElement(By.linkText("Template group")).click();
 				String groupName = lib1.getExcelData("templategroup", i, 0,

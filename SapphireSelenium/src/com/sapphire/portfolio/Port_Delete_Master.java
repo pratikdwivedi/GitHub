@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -15,12 +16,14 @@ public class Port_Delete_Master extends Config{
 	@Test
 	public void TestMethodPortDeleteMaster() throws Exception{
 		String filePath = ModuleExcelSelection.getExcelFilePath(IModuleSelection.PORT_DELETE);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1=new ExcelLibrary();
 			for(int i=1;i<=lib1.rowCount;i++)
 			{
 			Assertions.assertText(driver.getTitle(), "Sapphire");
-			driver.findElement(By.linkText("PORTFOLIO")).click();
+			driver.findElement(By.linkText(fetchProp.portfolio)).click();
 			Thread.sleep(5000);
 			String deleteMasterName=lib1.getExcelData("deleteMaster", i, 0, filePath);
 			driver.findElement(By.xpath("//div[contains(@class,'ui-toolbar-group-left mergeInHeader')]//span[2]/input")).sendKeys(deleteMasterName);

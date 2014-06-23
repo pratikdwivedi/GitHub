@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -19,12 +20,14 @@ public class Port_Topics_View extends Config {
 	@Test
 	public void TestMethodPortTopics() throws Exception{
 		String filePath = ModuleExcelSelection.getExcelFilePath(IModuleSelection.PORTFOLIO);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1=new ExcelLibrary();
 			for(int i=1;i<=lib1.rowCount;i++)
 			{
 				Assertions.assertText(driver.getTitle(), "Sapphire");
-				driver.findElement(By.linkText("PORTFOLIO")).click();
+				driver.findElement(By.linkText(fetchProp.portfolio)).click();
 				Thread.sleep(3000);
 				List<WebElement> listMaster=driver.findElements(By.xpath("//tbody[contains(@id,'masterform:masterGrid_data')]//tr/td[2]/div/div/a"));
 				String masterName=lib1.getExcelData("viewtopics", i, 0, filePath);

@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -16,11 +17,13 @@ public class Admin_Create_Role extends Config {
 	public void TestMethodCreateRole() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
-				driver.findElement(By.linkText("ADMIN")).click();
+				driver.findElement(By.linkText(fetchProp.admin)).click();
 				System.out.println("Admin clicked ");
 				driver.findElement(By.linkText("Roles")).click();
 				Thread.sleep(2000);

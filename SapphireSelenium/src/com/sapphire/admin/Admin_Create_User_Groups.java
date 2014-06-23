@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -18,12 +19,14 @@ public class Admin_Create_User_Groups extends Config {
 	public void TestMethodCreateUserGroup() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
 				act = new Actions(driver);
-				driver.findElement(By.linkText("ADMIN")).click();
+				driver.findElement(By.linkText(fetchProp.admin)).click();
 				System.out.println("Admin clicked ");
 				driver.findElement(By.linkText("User groups")).click();
 				String groupName = lib1.getExcelData("usergroups", i, 0,

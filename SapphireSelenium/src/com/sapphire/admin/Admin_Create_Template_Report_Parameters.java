@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.common.FetchProperties;
 import com.test.Assertions;
 import com.test.Config;
 import com.test.ExcelLibrary;
@@ -19,12 +20,14 @@ public class Admin_Create_Template_Report_Parameters extends Config {
 	public void TestMethodCreateTemplateReportParameters() throws Exception {
 		String filePath = ModuleExcelSelection
 				.getExcelFilePath(IModuleSelection.ADMIN);
+		FetchProperties fetchProp = new FetchProperties();
 		try {
+			fetchProp.fetchProp();
 			ExcelLibrary lib1 = new ExcelLibrary();
 			for (int i = 1; i <= lib1.rowCount; i++) {
 				Assertions.assertText(driver.getTitle(), "Sapphire");
 				// Create Report Parameter
-				driver.findElement(By.linkText("ADMIN")).click();
+				driver.findElement(By.linkText(fetchProp.admin)).click();
 				driver.findElement(By.linkText("Templates")).click();
 				driver.findElement(By.linkText("Report parameters")).click();
 				String parameterName = lib1.getExcelData("reportparameters", i,
