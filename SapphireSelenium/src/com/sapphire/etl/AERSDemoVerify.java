@@ -6,6 +6,8 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import com.practise.TestPDFUsingItext;
 import com.test.DatabaseConnect;
 import com.test.PdfUtility;
 
@@ -15,6 +17,7 @@ public class AERSDemoVerify {
 	// create an instance of PdfUtilityClass
 	PdfUtility pdfUtility = new PdfUtility();
 
+	// TestPDFUsingItext pdfUtility=new TestPDFUsingItext();
 	@Test(enabled = true)
 	public void demoCaseValidFrom() throws Exception {
 		String query = null;
@@ -51,6 +54,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -92,6 +97,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -131,6 +138,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -168,6 +177,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -210,11 +221,13 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
 	@Test(enabled = true)
-	public void demoCaseGenderDEC() throws Exception {
+	public void demoCaseGender() throws Exception {
 		String query = null;
 		List<String> expectedList = null;
 		List<String> actualList = null;
@@ -226,7 +239,7 @@ public class AERSDemoVerify {
 			ResultSet rst = dbc.stmt.executeQuery(query);
 			actualList = new ArrayList<String>();
 			while (rst.next()) {
-				dbvalue = rst.getString(2);
+				dbvalue = rst.getString(1);
 				actualList.add(dbvalue);
 			}
 			expectedList = new ArrayList<String>();
@@ -251,6 +264,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -289,6 +304,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -334,6 +351,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 
@@ -373,6 +392,8 @@ public class AERSDemoVerify {
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
+			expectedList.clear();
+			actualList.clear();
 		}
 	}
 }

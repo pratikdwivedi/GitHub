@@ -7,7 +7,11 @@ import com.lowagie.text.HeaderFooter;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
-
+/*
+ * 
+ * Using lowagie 
+ * 
+ */
 public class PDFCreator {
 	public  void doPDFCreate(String fileName, Object document) {
 		Document pdf = new Document();
@@ -30,7 +34,7 @@ public class PDFCreator {
 			paragraph.add(titlePhrase);
 			// paragraph.add(document);
 			font = new Font(Font.TIMES_ROMAN, 14, Font.NORMAL);
-			
+		
 			pdf.close();
 
 		} catch (Throwable e) {

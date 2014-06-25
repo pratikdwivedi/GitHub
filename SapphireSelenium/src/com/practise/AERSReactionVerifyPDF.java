@@ -16,7 +16,8 @@ public class AERSReactionVerifyPDF {
 	ExcelLibrary exl = new ExcelLibrary();
 
 	@Test(enabled = true)
-	public void reactionCaseValidFrom() throws Exception {
+	public void reactionCaseValidFrom()
+			throws Exception {
 		String query = null;
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
@@ -27,6 +28,7 @@ public class AERSReactionVerifyPDF {
 		List<String> resultList = new ArrayList<String>();
 		// create an instance of PdfUtilityClass
 		PdfUtility pdfUtility = new PdfUtility();
+		// PDFCreator pc=new PDFCreator();
 		try {
 			dbc.dbConnect();
 			query = "SELECT count(*) FROM aers.aers_reactions where isr_id is null or isr_id = ''";
@@ -51,8 +53,10 @@ public class AERSReactionVerifyPDF {
 		} finally {
 			// write the test result pdf file with file name TestResult
 			pdfUtility.WriteTestResultToPdfFile("TestResult.pdf", resultList);
-			// PDFCreator.doPDFCreate("TestResult.pdf", resultList);
+			// pc.doPDFCreate("TestResult.pdf", resultList);
 			// exl.writeTestOutputExcelData("reactionCaseValidFrom","Fail",writeFilePath);
+			TestPDFUsingItext it=new TestPDFUsingItext();
+			it.WriteTestResultToPdfFile("ItextTestResult.pdf", resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
