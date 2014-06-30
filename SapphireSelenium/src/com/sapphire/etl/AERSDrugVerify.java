@@ -3,13 +3,19 @@ package com.sapphire.etl;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import com.practise.TestPDFUsingItext;
 import com.test.DatabaseConnect;
+import com.test.PdfUtility;
 
 public class AERSDrugVerify {
 
+//		PdfUtility pdfUtility = new PdfUtility();
+		 TestPDFUsingItext pdfUtility=new TestPDFUsingItext();
 	@Test(enabled = true)
 	public void drugRole_Code() throws Exception {
 		String query = null;
@@ -36,10 +42,18 @@ public class AERSDrugVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
+			pdfUtility.resultList.add("drugRole_Code,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("drugRole_Code,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSDrugVerify.pdf",
+					pdfUtility.resultList);
+
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -71,10 +85,17 @@ public class AERSDrugVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
+			pdfUtility.resultList.add("drugRole_Dec,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("drugRole_Dec,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
+			// write the test result pdf file with file name TestResult
+						pdfUtility.WriteTestResultToPdfFile("AERSDrugVerify.pdf",
+								pdfUtility.resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -87,7 +108,7 @@ public class AERSDrugVerify {
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
 		String dbvalue;
-
+		String exception="If drug is cleaned ,generic name should not be null";
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
@@ -103,11 +124,19 @@ public class AERSDrugVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
+			pdfUtility.resultList.add("drugCleaned_GenericName,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("drugCleaned_GenericName,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
-			Assert.fail(query, e);
+			Reporter.log(exception);
+			Assert.fail(query);
 		} finally {
-			Reporter.log(query);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSDrugVerify.pdf",
+					pdfUtility.resultList);
+	//		Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
 		}
@@ -119,7 +148,7 @@ public class AERSDrugVerify {
 		List<Integer> actualList = null;
 		List<Integer> expectedList = null;
 		String dbvalue;
-
+		String exception="Drug cleaned value is null";
 		DatabaseConnect dbc = new DatabaseConnect();
 		try {
 			dbc.dbConnect();
@@ -135,11 +164,19 @@ public class AERSDrugVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.con.close();
 			dbc.stmt.close();
+			pdfUtility.resultList.add("drugCleaned_Null,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("drugCleaned_Null,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
+			Reporter.log(exception);
 			Assert.fail(query, e);
 		} finally {
-			Reporter.log(query);
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSDrugVerify.pdf",
+					pdfUtility.resultList);
+	//		Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
 		}

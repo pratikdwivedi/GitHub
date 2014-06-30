@@ -3,11 +3,14 @@ package com.sapphire.etl;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.practise.TestPDFUsingItext;
 import com.test.DatabaseConnect;
+import com.test.PdfUtility;
 
 /**
  * Record count (distinct reaction_vbm) where pt_name is null (For now it cannot
@@ -16,7 +19,9 @@ import com.test.DatabaseConnect;
  * 
  */
 public class AERSReactionVerify {
+//	PdfUtility pdfUtility = new PdfUtility();
 
+	 TestPDFUsingItext pdfUtility=new TestPDFUsingItext();
 	@Test(enabled = true)
 	public void reactionVBM() throws Exception {
 		String query = null;
@@ -40,10 +45,17 @@ public class AERSReactionVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.stmt.close();
 			dbc.con.close();
+			pdfUtility.resultList.add("reactionVBM,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("reactionVBM,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSReactionVerify.pdf",
+					pdfUtility.resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -78,10 +90,17 @@ public class AERSReactionVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.stmt.close();
 			dbc.con.close();
+			pdfUtility.resultList.add("reactionPtCodeNotNull,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("reactionPtCodeNotNull,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSReactionVerify.pdf",
+					pdfUtility.resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -111,10 +130,17 @@ public class AERSReactionVerify {
 			Assert.assertEquals(actualList, expectedList);
 			dbc.stmt.close();
 			dbc.con.close();
+			pdfUtility.resultList.add("reactionPtNameNotNull,Pass" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 		} catch (Throwable e) {
+			pdfUtility.resultList.add("reactionPtNameNotNull,Fail" + "Actual :"
+					+ actualList + "Expected :" + expectedList);
 			e.printStackTrace();
 			Assert.fail(query, e);
 		} finally {
+			// write the test result pdf file with file name TestResult
+			pdfUtility.WriteTestResultToPdfFile("AERSReactionVerify.pdf",
+					pdfUtility.resultList);
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);

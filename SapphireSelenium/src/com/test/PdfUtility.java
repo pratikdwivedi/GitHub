@@ -1,6 +1,8 @@
 package com.test;
 
 import java.io.IOException;
+
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -9,6 +11,8 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 public class PdfUtility {
+
+	public static	List<String> resultList = new ArrayList<String>();
 	// Hold the report font size. 
 	private final static float fontSize = 10f; 
 	PDFont font = PDType1Font.TIMES_BOLD;
@@ -20,7 +24,6 @@ public class PdfUtility {
 	private PDDocument doc;
 	// function to write test results to pdf file with file name and list of
 	// test cases
-	PdfUtility p=new PdfUtility();
 	public void WriteTestResultToPdfFile(String fileName, List<String> testCase) {
 
 		try {
