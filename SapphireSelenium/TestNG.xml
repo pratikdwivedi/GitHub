@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Database Test" parallel="tests" junit="false">
+<listeners>
+	<listener class-name="com.practise.EmailableReporter"/>
+</listeners>
+	<test verbose="0" name="Database Test on Win7">
+		<parameters>
+			<parameter name="platform" value="windows7"/>
+			<parameter name="browser" value="FF" />
+			<parameter name="browser_version" value="9.0"/>
+		</parameters>	
+		<classes>
+			<class name="com.sapphire.etl.AERSDrugVerify" />
+			<!-- <methods>
+				<include name="test_mail573"/>
+			</methods> -->
+		</classes>
+	</test>
+</suite>

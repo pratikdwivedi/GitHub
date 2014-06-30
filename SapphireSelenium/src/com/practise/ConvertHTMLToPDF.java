@@ -1,8 +1,12 @@
 package com.practise;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.List;
 
-import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.commons.io.IOUtils;
 import org.jsoup.Jsoup;
 
 import com.itextpdf.text.Document;
@@ -14,24 +18,31 @@ public class ConvertHTMLToPDF
 {
     public static void main( String[] args )
     {
+    	List<String> lines = null ;
     	try{
-      // step 1
+  
     	Document document = new Document(PageSize.A4_LANDSCAPE);
-    	/*FileInputStream htmlString=new FileInputStream("test-output/index.html");
-    	org.jsoup.nodes.Document doc = Jsoup.parse(htmlString.toString());
-       */ // step 2
+    	FileInputStream htmlString=new FileInputStream("test-output/emailable-report.html");
+    	lines = IOUtils.readLines(htmlString);
+    	String st=lines.toString().replace(",","");
+    	org.jsoup.nodes.Document doc = Jsoup.parse(st);
+    	PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("test-output/emailable-report.html")));
+        out.println(doc);
+        out.close();
     	PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("G:/PDFs/TestResult.pdf"));
-        // step 3
+
         document.open();
-        // step 4
+   
         XMLWorkerHelper.getInstance().parseXHtml(writer, document,new FileInputStream("test-output/emailable-report.html"));	
         
-        //step 5
          document.close();
 
         System.out.println( "PDF Created!" );
     }
     	catch(Throwable e)
     	{e.printStackTrace();}
+    	finally{
+    		lines.clear();
+    	}
     }
 }

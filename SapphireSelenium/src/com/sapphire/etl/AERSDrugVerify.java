@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.Assert;
+import org.testng.ISuite;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import com.practise.EmailableReporter;
 import com.practise.TestPDFUsingItext;
 import com.test.DatabaseConnect;
 import com.test.PdfUtility;
@@ -53,7 +55,10 @@ public class AERSDrugVerify {
 			// write the test result pdf file with file name TestResult
 			pdfUtility.WriteTestResultToPdfFile("AERSDrugVerify.pdf",
 					pdfUtility.resultList);
-
+			/*List<ISuite> lis=new List<ISuite>;
+			lis.add();
+			EmailableReporter	gReport=new EmailableReporter();
+			gReport.generateSuiteSummaryReport(ETLSuite.xml);*/
 			Reporter.log(query);
 			Reporter.log("Expected : " + expectedList);
 			Reporter.log("Actual : " + actualList);
@@ -61,7 +66,7 @@ public class AERSDrugVerify {
 	}
 
 	@Test(enabled = true)
-	public void drugRole_Dec() throws Exception {
+	public void drugRole_Decode() throws Exception {
 		String query = null;
 		List<String> actualList = null;
 		List<String> expectedList = null;
