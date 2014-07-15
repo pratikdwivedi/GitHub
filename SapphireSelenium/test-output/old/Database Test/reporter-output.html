@@ -1,0 +1,55 @@
+<h2>Reporter output</h2><table><tr><td>If drug is cleaned ,generic name should not be null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [17288]</td></tr>
+<tr><td>Drug cleaned value is null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [1960]</td></tr>
+<tr><td>SELECT distinct role_code FROM aers.aers_drugs</td></tr>
+<tr><td>Expected : [C, I, O, PS, S, SS]</td></tr>
+<tr><td>Actual : [C, I, O, PS, S, SS]</td></tr>
+<tr><td>SELECT distinct role_dec FROM aers.aers_drugs</td></tr>
+<tr><td>Expected : [CONCOMITANT, SECONDARY SUSPECT, PRIMARY SUSPECT, INTERACTING]</td></tr>
+<tr><td>Actual : [CONCOMITANT, SECONDARY SUSPECT, PRIMARY SUSPECT, INTERACTING]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where case_id is null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT distinct age_code FROM aers_demo</td></tr>
+<tr><td>Expected : [YR, MON, WK, DY, HR, DEC, MIN, SEC, '']</td></tr>
+<tr><td>Actual : [YR,  , MON, WK, DY, HR, DEC, M, F, 64, SEC, MIN, 85]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where std_age_group = 'Not Available' AND age != '' AND age_code != '' AND age not like ('%-%') AND age not like ('%.%') AND age != 0 AND age != 00</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [631]</td></tr>
+<tr><td>SELECT distinct gender_dec FROM aers_demo</td></tr>
+<tr><td>Expected : [FEMALE, MALE, Not Provided, NOT SPECIFIED, UNKNOWN]</td></tr>
+<tr><td>Actual : [FEMALE, MALE, Not Provided, NOT SPECIFIED, UNKNOWN]</td></tr>
+<tr><td>SELECT distinct gender_code FROM aers_demo</td></tr>
+<tr><td>Expected : [F, M, UNK, NS, U, '']</td></tr>
+<tr><td>Actual : [F,  , M, UNK, NS, null, YR, N, Y, U]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where seriousness = 1 and ( outc_death= 0 and  outc_life_threat =0 and outc_hosp =0 and outc_disability=0 and outc_cong_anomaly=0  and outc_reqd_interv=0 and outc_other=0 and outc_none=0 and outc_rec=0 and outc_rx=0)</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where valid_from is null </td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where valid_to is null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [13]</td></tr>
+<tr><td>SELECT count(*) FROM aers_demo where fda_date is null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(distinct isr_id) FROM aers.aers_reactions where pt_name is null and pt_code is not null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>SELECT count(distinct isr_id) FROM aers.aers_reactions where pt_code is null and pt_name is not null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [0]</td></tr>
+<tr><td>select count(distinct reaction_vbm) from aers.aers_reactions where pt_name is null</td></tr>
+<tr><td>Expected : [0]</td></tr>
+<tr><td>Actual : [41]</td></tr>
+<tr><td>SELECT fda_rel_qtr,count(*) FROM aers_demo group by fda_rel_qtr</td></tr>
+<tr><td>Expected : null</td></tr>
+<tr><td>Actual : [00Q1, 41758, 00Q2, 38529, 00Q3, 48361, 00Q4, 49215, 01Q1, 50517, 01Q2, 43476, 01Q3, 43771, 01Q4, 47308, 02Q1, 35742, 02Q2, 54494, 02Q3, 46808, 02Q4, 46984, 03Q1, 44546, 03Q2, 57414, 03Q3, 64027, 03Q4, 60280, 04Q1, 65968, 04Q2, 60198, 04Q3, 75418, 04Q4, 70704, 05Q1, 75315, 05Q2, 79976, 05Q3, 81045, 05Q4, 88472, 06Q1, 89476, 06Q2, 79467, 06Q3, 71675, 06Q4, 83122, 07Q1, 88691, 07Q2, 83769, 07Q3, 95826, 07Q4, 109749, 08Q1, 104286, 08Q2, 107346, 08Q3, 108392, 08Q4, 120859, 09Q1, 111408, 09Q2, 112423, 09Q3, 129991, 09Q4, 137453, 10Q1, 136128, 10Q2, 144239, 10Q3, 209242, 10Q4, 183498, 11Q1, 181025, 11Q2, 194277, 11Q3, 198723, 11Q4, 208655, 12Q1, 231908, 12Q2, 225258, 12Q3, 136332, 12Q4, 238616, 85, 274423, 92, 478655, 95, 393421, 97Q4, 29292, 98, 340428, 98Q1, 43607, 98Q2, 34535, 98Q3, 38609, 98Q4, 40436, 99Q1, 77096, 99Q2, 46548, 99Q3, 54421, 99Q4, 44992]</td></tr>
+<tr><td>SELECT fda_rel_qtr,count FROM aers_stats group by fda_rel_qtr</td></tr>
+<tr><td>Expected : [00Q1, 42517, 00Q2, 39115, 00Q3, 48874, 00Q4, 49779, 01Q1, 51012, 01Q2, 43734, 01Q3, 44103, 01Q4, 47587, 02Q1, 36023, 02Q2, 54665, 02Q3, 46854, 02Q4, 47013, 03Q1, 44548, 03Q2, 57423, 03Q3, 64246, 03Q4, 60352, 04Q1, 65975, 04Q2, 60222, 04Q3, 75451, 04Q4, 70752, 05Q1, 76180, 05Q2, 80614, 05Q3, 81314, 05Q4, 88518, 06Q1, 89527, 06Q2, 79597, 06Q3, 71724, 06Q4, 83229, 07Q1, 88832, 07Q2, 83977, 07Q3, 96035, 07Q4, 109892, 08Q1, 104412, 08Q2, 107503, 08Q3, 108453, 08Q4, 121024, 09Q1, 111439, 09Q2, 112481, 09Q3, 130072, 09Q4, 137708, 10Q1, 136191, 10Q2, 144452, 10Q3, 209307, 10Q4, 183567, 11Q1, 181140, 11Q2, 194310, 11Q3, 198777, 11Q4, 208742, 12Q1, 231945, 12Q2, 225402, 12Q3, 136332, 12Q4, 238616, 13Q1, 223178, 85, 274450, 92, 478664, 95, 393428, 97Q4, 29929, 98, 340434, 98Q1, 44501, 98Q2, 35514, 98Q3, 39351, 98Q4, 41220, 99Q1, 77828, 99Q2, 47066, 99Q3, 54844, 99Q4, 45441]</td></tr>
+<tr><td>Actual : [00Q1, 41758, 00Q2, 38529, 00Q3, 48361, 00Q4, 49215, 01Q1, 50517, 01Q2, 43476, 01Q3, 43771, 01Q4, 47308, 02Q1, 35742, 02Q2, 54494, 02Q3, 46808, 02Q4, 46984, 03Q1, 44546, 03Q2, 57414, 03Q3, 64027, 03Q4, 60280, 04Q1, 65968, 04Q2, 60198, 04Q3, 75418, 04Q4, 70704, 05Q1, 75315, 05Q2, 79976, 05Q3, 81045, 05Q4, 88472, 06Q1, 89476, 06Q2, 79467, 06Q3, 71675, 06Q4, 83122, 07Q1, 88691, 07Q2, 83769, 07Q3, 95826, 07Q4, 109749, 08Q1, 104286, 08Q2, 107346, 08Q3, 108392, 08Q4, 120859, 09Q1, 111408, 09Q2, 112423, 09Q3, 129991, 09Q4, 137453, 10Q1, 136128, 10Q2, 144239, 10Q3, 209242, 10Q4, 183498, 11Q1, 181025, 11Q2, 194277, 11Q3, 198723, 11Q4, 208655, 12Q1, 231908, 12Q2, 225258, 12Q3, 136332, 12Q4, 238616, 85, 274423, 92, 478655, 95, 393421, 97Q4, 29292, 98, 340428, 98Q1, 43607, 98Q2, 34535, 98Q3, 38609, 98Q4, 40436, 99Q1, 77096, 99Q2, 46548, 99Q3, 54421, 99Q4, 44992]</td></tr>
+</table>

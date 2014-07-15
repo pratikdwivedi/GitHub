@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [10JUN_test_Suite]">
+  <test name="Admin and Portfolio Test(failed)">
+    <classes>
+      <class name="com.sapphire.admin.Admin_Create_ProductGroups">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_ProductGroups -->
+      <class name="com.sapphire.portfolio.Port_Create_Topic">
+        <methods>
+          <include name="TestMethodPortCreateTopic"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Topic -->
+      <class name="com.sapphire.admin.Admin_Create_Scheduler">
+        <methods>
+          <include name="TestMethodCreateScheduler"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_Scheduler -->
+      <class name="com.sapphire.portfolio.Port_Create_Docket">
+        <methods>
+          <include name="TestMethodPortCreateDocket"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Docket -->
+      <class name="com.sapphire.admin.Admin_Create_User_Groups">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_User_Groups -->
+      <class name="com.sapphire.admin.Admin_WorkflowPrivileges">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_WorkflowPrivileges -->
+      <class name="com.sapphire.admin.Admin_Create_Workflow">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_Workflow -->
+      <class name="com.sapphire.admin.Admin_Create_Role">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_Role -->
+      <class name="com.sapphire.portfolio.Port_Create_ActionsPlan">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+          <include name="TestMethodPortCreateActionPlan"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_ActionsPlan -->
+      <class name="com.sapphire.admin.Admin_Create_ThresholdPlan">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_ThresholdPlan -->
+      <class name="com.sapphire.portfolio.Port_Create_Master">
+        <methods>
+          <include name="TestMethodPortCreateMaster"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.portfolio.Port_Create_Master -->
+      <class name="com.sapphire.admin.Admin_Create_EventGroups">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+          <include name="TestMethodCreateEventgroup"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_EventGroups -->
+      <class name="com.sapphire.admin.Admin_Create_Product">
+        <methods>
+          <include name="TestMethodCreateProduct"/>
+          <include name="doLogIn"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_Product -->
+      <class name="com.sapphire.admin.Admin_Create_User">
+        <methods>
+          <include name="doLogIn"/>
+          <include name="TestMethodCreateUser"/>
+          <include name="doLogOut"/>
+        </methods>
+      </class> <!-- com.sapphire.admin.Admin_Create_User -->
+    </classes>
+  </test> <!-- Admin and Portfolio Test(failed) -->
+</suite> <!-- Failed suite [10JUN_test_Suite] -->

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Database Test]" parallel="tests">
+  <parameter name="browser_version" value="9.0"/>
+  <parameter name="platform" value="windows7"/>
+  <parameter name="browser" value="FF"/>
+  <listeners>
+    <listener class-name="com.practise.EmailableReporter"/>
+  </listeners>
+  <test name="Database Test on Win7(failed)" parallel="tests">
+    <parameter name="browser_version" value="9.0"/>
+    <parameter name="platform" value="windows7"/>
+    <parameter name="browser" value="FF"/>
+    <classes>
+      <class name="com.sapphire.etl.AERS_DRUGS">
+        <methods>
+          <include name="drugCleaned_GenericName"/>
+          <include name="drugCleaned_Null"/>
+        </methods>
+      </class> <!-- com.sapphire.etl.AERS_DRUGS -->
+      <class name="com.sapphire.etl.AERS_DEMO">
+        <methods>
+          <include name="demoCaseValidTo"/>
+          <include name="demoCaseAgeCode"/>
+          <include name="demoCaseGenderCode"/>
+          <include name="demoCaseAgeGroup"/>
+        </methods>
+      </class> <!-- com.sapphire.etl.AERS_DEMO -->
+      <class name="com.sapphire.etl.AERS_REACTIONS">
+        <methods>
+          <include name="reactionVBM"/>
+        </methods>
+      </class> <!-- com.sapphire.etl.AERS_REACTIONS -->
+      <class name="com.sapphire.etl.AERS_RECORD_COUNTS">
+        <methods>
+          <include name="AERSCaseCounts"/>
+          <include name="AERSCaseCountDemo"/>
+        </methods>
+      </class> <!-- com.sapphire.etl.AERS_RECORD_COUNTS -->
+    </classes>
+  </test> <!-- Database Test on Win7(failed) -->
+</suite> <!-- Failed suite [Database Test] -->
