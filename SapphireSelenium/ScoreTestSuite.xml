@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Score-suite">
-  <test verbose="2" name="Score Test">
-    <classes>
-   <class name="com.sapphire.score.CalculateScoreFormExcel"/>
-       </classes>
-  </test> <!-- Score test -->
-</suite> <!-- Score suite -->
