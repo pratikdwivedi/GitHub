@@ -12,7 +12,6 @@ echo "Welcome to the Medsight Solutions Sapphire Schema Creation Program"
 echo "Copyright (c) 2012 Medsight solutions inc."
 echo "Curent time: $(date)" 
 echo "####################################################################"
-
 # Key in Property File
 dbUser="dbUser"
 dbPassword="dbPassword"
