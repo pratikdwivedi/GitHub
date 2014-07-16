@@ -73,7 +73,7 @@ testconnection=$(mysql -u${username} -p${password} -s -N <<QUERY_INPUT
     SELECT 1 FROM dual;
 QUERY_INPUT
 )
-if [ $testconnection = 1 ]; then
+if [ $testconnection =$1 ]; then
 	echo "Connection to database succeeded."
 else
 	echo "Connection to database failed. Check the user's credentials.."
