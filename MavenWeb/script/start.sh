@@ -6,12 +6,31 @@
 # date updated	: 23-Aug-2012
 # Description	: This script creates the MS and Sapphire Schema
 #####################################################################
-. /script/project.properties
+FILE_NAME=/script/project.properties
 echo "####################################################################"
 echo "Welcome to the Medsight Solutions Sapphire Schema Creation Program"
 echo "Copyright (c) 2012 Medsight solutions inc."
 echo "Curent time: $(date)" 
 echo "####################################################################"
+
+# Key in Property File
+dbUser="dbUser"
+dbPassword="dbPassword"
+dbHost="dbHost"
+dbMS="dbMS"
+dbSapphire="dbSapphire"
+dbUdr="dbUdr"
+dbCsetllogs="dbCsetllogs"
+# Variable to hold the Property Value
+prop_value=""
+getProperty()
+{
+        prop_key=$1
+        prop_value=`cat ${FILE_NAME} | grep ${prop_key} | cut -d'=' -f2`
+}
+getProperty ${dbUser}
+echo "Key = ${dbUser} ; Value = " ${prop_value}
+getProperty ${dbPassword}
 echo "Enter database user id: "
 echo $dbUser
 echo "Enter database user's password: "
@@ -29,7 +48,7 @@ echo $dbCsetllogs
 # Define variables
 hashsep="#################################################################"
 linesep="-----------------------------------------------------------------"
-mysqlcmde="mysql -u$dbUser -p$dbPassword -h$dbHost -e "
+mysqlcmde="mysql -u$dbUser -p$dbPassword -h$dbHost "
 # Test connection to the database
 echo $linesep
 echo "$(date): Testing connection to the database.."
@@ -42,3 +61,4 @@ if [ $testconnection = 1 ]; then
 else
 	echo "Connection to database failed. Check the user's credentials.."
 	exit 1
+fi
