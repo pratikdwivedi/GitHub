@@ -6,7 +6,7 @@
 # date updated	: 23-Aug-2012
 # Description	: This script creates the MS and Sapphire Schema
 #####################################################################
-FILE_NAME=script/project.properties
+FILE_NAME=/script/project.properties
 echo "####################################################################"
 echo "Welcome to the Medsight Solutions Sapphire Schema Creation Program"
 echo "Copyright (c) 2012 Medsight solutions inc."
