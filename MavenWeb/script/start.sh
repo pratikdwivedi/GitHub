@@ -28,25 +28,25 @@ getProperty()
         prop_value=`cat ${FILE_NAME} | grep ${prop_key} | cut -d'=' -f2`
 }
 getProperty ${dbUser}
-echo "Key = ${dbUser} ; Value = " ${prop_value}
+#echo "Key = ${dbUser} ; Value = " ${prop_value}
 username=${prop_value}
 getProperty ${dbPassword}
-echo "Key = ${dbPassword} ; Value = " ${prop_value}
+#echo "Key = ${dbPassword} ; Value = " ${prop_value}
 password=${prop_value}
 getProperty ${dbHost}
-echo "Key = ${dbHost} ; Value = " ${prop_value}
+#echo "Key = ${dbHost} ; Value = " ${prop_value}
 host=${prop_value}
 getProperty ${dbMS}
-echo "Key = ${dbMS} ; Value = " ${prop_value}
+#echo "Key = ${dbMS} ; Value = " ${prop_value}
 ms=${prop_value}
 getProperty ${dbSapphire}
-echo "Key = ${dbSapphire} ; Value = " ${prop_value}
+#echo "Key = ${dbSapphire} ; Value = " ${prop_value}
 sapphire=${prop_value}
 getProperty ${dbUdr}
-echo "Key = ${dbUdr} ; Value = " ${prop_value}
+#echo "Key = ${dbUdr} ; Value = " ${prop_value}
 udr=${prop_value}
 getProperty ${dbCsetllogs}
-echo "Key = ${dbCsetllogs} ; Value = " ${prop_value}
+#echo "Key = ${dbCsetllogs} ; Value = " ${prop_value}
 csetllogs=${prop_value}
 echo "Enter database user id: "
 echo ${username}
