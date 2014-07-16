@@ -26,13 +26,10 @@ echo "Enter database schema name for UDR (ex. udr): "
 echo $dbUdr
 echo "Enter database schema name for CS etl log (ex. ms_etl_logs): "
 echo $dbCsetllogs
-
-
 # Define variables
 hashsep="#################################################################"
 linesep="-----------------------------------------------------------------"
 mysqlcmde="mysql -u$dbUser -p$dbPassword -h$dbHost -e "
-
 # Test connection to the database
 echo $linesep
 echo "$(date): Testing connection to the database.."
@@ -45,4 +42,3 @@ if [ $testconnection = 1 ]; then
 else
 	echo "Connection to database failed. Check the user's credentials.."
 	exit 1
-fi
