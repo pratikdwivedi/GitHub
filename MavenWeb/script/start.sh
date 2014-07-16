@@ -6,8 +6,7 @@
 # date updated	: 23-Aug-2012
 # Description	: This script creates the MS and Sapphire Schema
 #####################################################################
-. /project.properties
-
+. /script/project.properties
 echo "####################################################################"
 echo "Welcome to the Medsight Solutions Sapphire Schema Creation Program"
 echo "Copyright (c) 2012 Medsight solutions inc."
@@ -16,9 +15,7 @@ echo "####################################################################"
 echo "Enter database user id: "
 echo $dbUser
 echo "Enter database user's password: "
-stty -echo
 echo $dbPassword
-stty echo
 echo "Enter database host name or IP address: "
 echo $dbHost
 echo "Enter database schema name for MS CORE (ex. ms): "
