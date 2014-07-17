@@ -65,15 +65,15 @@ echo ${csetllogs}
 # Define variables
 hashsep="#################################################################"
 linesep="-----------------------------------------------------------------"
-mysqlcmde="mysql -u$username -p$password -h$host"
+mysqlcmde="mysql -u${username} -p${password} -h${host}"
 # Test connection to the database
 echo $linesep
 echo "$(date): Testing connection to the database.."
-testconnection=$(mysql -u$username -p$password -s -N <<QUERY_INPUT
+testconnection=$(mysql -u${username} -p${password} -h${host} -s -N <<QUERY_INPUT
     SELECT 1 FROM dual;
 QUERY_INPUT
 )
-if [ $testconnection=1]; then
+if [ "$testconnection" = 1 ]; then
 	echo "Connection to database succeeded."
 else
 	echo "Connection to database failed. Check the user's credentials.."
