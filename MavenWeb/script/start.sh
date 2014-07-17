@@ -69,7 +69,7 @@ linesep="-----------------------------------------------------------------"
 # Test connection to the database
 echo $linesep
 echo "$(date): Testing connection to the database.."
-testconnection=$(mysql -u$username -p$password -h$host -N << QUERY_INPUT
+testconnection=$(mysql -u$username -p$password -h$host -N <<QUERY_INPUT
     SELECT 1 FROM dual;
 QUERY_INPUT
 )
@@ -79,3 +79,4 @@ else
 	echo "Connection to database failed. Check the user's credentials.."
 	exit 1
 fi
+
