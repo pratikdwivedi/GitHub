@@ -20,7 +20,7 @@ public class SignUp {
 			
 				System.setProperty("webdriver.chrome.driver","JarFiles/chromedriver.exe");
 				driver=new ChromeDriver();
-				driver.get("http://192.168.1.59:9090/MavenWeb/SignUp.jsp");
+				driver.get("http://192.168.1.59:8686/MavenWeb/SignUp.jsp");
 				WebDriverWait wait = new WebDriverWait(driver,60);
 				Thread.sleep(5000);
 				driver.manage().window().maximize();
