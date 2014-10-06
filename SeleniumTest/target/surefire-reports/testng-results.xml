@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="SeleniumSignUp-suite1" duration-ms="12700" started-at="2014-04-22T12:01:52Z" finished-at="2014-04-22T12:02:05Z">
+    <groups>
+    </groups>
+    <test name="SeleniumSignUp-suite2" duration-ms="12700" started-at="2014-04-22T12:01:52Z" finished-at="2014-04-22T12:02:05Z">
+      <class name="com.seleniumScripts.SignUp">
+        <test-method status="PASS" signature="LoginLogoutMethod()[pri:0, instance:com.seleniumScripts.SignUp@1feca64]" name="LoginLogoutMethod" duration-ms="12691" started-at="2014-04-22T17:31:52Z" description="Login Logout Decription" finished-at="2014-04-22T17:32:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginLogoutMethod -->
+      </class> <!-- com.seleniumScripts.SignUp -->
+    </test> <!-- SeleniumSignUp-suite2 -->
+  </suite> <!-- SeleniumSignUp-suite1 -->
+</testng-results>
