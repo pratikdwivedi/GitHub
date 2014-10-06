@@ -95,13 +95,14 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
+				<path>/${project.build.finalName}</path>
 					<url>http://192.168.1.59:8686/manager/text</url>
 					 <server>TomcatServer</server>
 					<path>/MavenWeb</path>
 					<username>tomcat</username>
 					<password>tomcat</password>
 				</configuration>
-			</plugin>
+			</plugin> 
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId> 
 				<configuration> <suiteXmlFiles> <suiteXmlFile>Suite.xml</suiteXmlFile> </suiteXmlFiles> 
 				</configuration> <executions> <execution> <phase>integration-test</phase> 
@@ -131,7 +132,7 @@
 		<repository>
 			<id>ms</id>
 			<name>Medsight artifacts</name>
-			<url>http://192.168.1.15:8080/nexus/content/repositories/ms</url>
+			<url>http://192.168.1.14:9090/nexus/content/repositories/ms</url>
 		</repository>
 	</distributionManagement>
 </project>

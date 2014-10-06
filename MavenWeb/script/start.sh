@@ -65,7 +65,7 @@ echo ${csetllogs}
 # Define variables
 hashsep="#################################################################"
 linesep="-----------------------------------------------------------------"
-#mysqlcmde="mysql -u$username -p$password -h$host"
+mysqlcmde="mysql -u$username -p$password -h$host"
 # Test connection to the database
 echo $linesep
 echo "$(date): Testing connection to the database.."
