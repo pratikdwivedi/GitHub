@@ -88,7 +88,7 @@
 <repository>
 <id>ms</id>
 <name>Medsight artifacts</name>
-<url>http://192.168.1.15:8080/nexus/content/repositories/ms</url>
+<url>http://192.168.1.14:9090/nexus/content/repositories/ms</url>
 </repository>
 </distributionManagement>
 </project>
