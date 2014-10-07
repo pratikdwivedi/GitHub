@@ -24,7 +24,7 @@ public class SignUp {
 				WebDriverWait wait = new WebDriverWait(driver,60);
 				Thread.sleep(5000);
 				driver.manage().window().maximize();
-				driver.findElement(By.id("username")).sendKeys("Pratik");
+				driver.findElement(By.id("ussername")).sendKeys("Pratik");
 				driver.findElement(By.id("mobno")).sendKeys("1234567890");
 				driver.findElement(By.id("email")).sendKeys("Pratik@medsight.com");
 				driver.findElement(By.id("submit")).click();
