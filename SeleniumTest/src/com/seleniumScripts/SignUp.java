@@ -34,9 +34,12 @@ public class SignUp {
 				driver.close();
 				driver.quit();
 			
-		} catch (Throwable e) {
+		} 
+		catch (Throwable e) {
 			e.printStackTrace();
-throw new RuntimeException(e.getMessage(),e);
+		}
+		finally{
+			throw new RuntimeException("BUILD FAILED");
 		}
 	}
 	
